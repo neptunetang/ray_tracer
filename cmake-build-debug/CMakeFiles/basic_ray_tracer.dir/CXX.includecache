@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/neptune/Documents/cg/basic_ray_tracer/main.cpp
+ray.h
+/home/neptune/Documents/cg/basic_ray_tracer/ray.h
+iostream
+-
+fstream
+-
+
+/home/neptune/Documents/cg/basic_ray_tracer/ray.h
+vec3.h
+/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+vec3.cpp
+/home/neptune/Documents/cg/basic_ray_tracer/vec3.cpp
+
+/home/neptune/Documents/cg/basic_ray_tracer/vec3.cpp
+vec3.h
+/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+
+/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+math.h
+-
+stdlib.h
+-
+iostream
+-
+
