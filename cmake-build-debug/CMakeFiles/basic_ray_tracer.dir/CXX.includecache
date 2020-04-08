@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/neptune/Documents/cg/ray_tracer/camera.h
+ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
@@ -21,6 +25,8 @@ hitable_list.h
 /home/neptune/Documents/cg/ray_tracer/hitable_list.h
 sphere.h
 /home/neptune/Documents/cg/ray_tracer/sphere.h
+camera.h
+/home/neptune/Documents/cg/ray_tracer/camera.h
 iostream
 -
 fstream

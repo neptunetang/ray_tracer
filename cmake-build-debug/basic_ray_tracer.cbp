@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>

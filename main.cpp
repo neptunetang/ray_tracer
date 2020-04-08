@@ -1,6 +1,7 @@
 #include "ray.h"
 #include "hitable_list.h"
 #include "sphere.h"
+#include "camera.h"
 #include <iostream>
 #include<fstream>
 
@@ -16,27 +17,31 @@ vec3 color(const ray& r, const hitable* world) {
 
 int main() {
     int width=400, height=200;
-    ofstream img ("5.ppm");
+    int sample_per_pixel = 100;
+    ofstream img ("6.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
-
-    vec3 lower_left_corner(-2.0, -1.0, -1.0);
-    vec3 horizontal(4.0, 0.0, 0.0);
-    vec3 vertical(0.0, 2.0, 0.0);
-    vec3 origin(0.0, 0.0, 0.0);
 
     hitable *list[2];
     list[0] = new sphere(vec3(0,0,-1), 0.5);
     list[1] = new sphere(vec3(0,-100.5,-1), 100);
     hitable* world = new hitable_list(list, 2);
 
+    camera cam;
+
     for (int j = height - 1; j >= 0; j--) {
         for (int i = 0; i < width; i++) {
-            auto u = double(i) / width;
-            auto v = double(j) / height;
-            ray r(origin, lower_left_corner + u*horizontal + v*vertical);
-            vec3 col = color(r, world);
+            vec3 col(0,0,0);
+            for(int s = 0; s < sample_per_pixel; s++){
+                auto u = double(i+drand48()) / width;
+                auto v = double(j+drand48()) / height;
+                ray r = cam.get_ray(u,v);
+                col += color(r, world);
+            }
+
+            col /= float(sample_per_pixel);
+
             int ir = static_cast<int>(255.999 * col[0]);
             int ig = static_cast<int>(255.999 * col[1]);
             int ib = static_cast<int>(255.999 * col[2]);
