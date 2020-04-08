@@ -6,25 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/neptune/Documents/cg/basic_ray_tracer/main.cpp
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 ray.h
-/home/neptune/Documents/cg/basic_ray_tracer/ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+
+/home/neptune/Documents/cg/ray_tracer/hitable_list.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
+
+/home/neptune/Documents/cg/ray_tracer/main.cpp
+ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+hitable_list.h
+/home/neptune/Documents/cg/ray_tracer/hitable_list.h
+sphere.h
+/home/neptune/Documents/cg/ray_tracer/sphere.h
 iostream
 -
 fstream
 -
 
-/home/neptune/Documents/cg/basic_ray_tracer/ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
 vec3.h
-/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+/home/neptune/Documents/cg/ray_tracer/vec3.h
 vec3.cpp
-/home/neptune/Documents/cg/basic_ray_tracer/vec3.cpp
+/home/neptune/Documents/cg/ray_tracer/vec3.cpp
 
-/home/neptune/Documents/cg/basic_ray_tracer/vec3.cpp
+/home/neptune/Documents/cg/ray_tracer/sphere.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 vec3.h
-/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+/home/neptune/Documents/cg/ray_tracer/vec3.h
 
-/home/neptune/Documents/cg/basic_ray_tracer/vec3.h
+/home/neptune/Documents/cg/ray_tracer/vec3.cpp
+vec3.h
+/home/neptune/Documents/cg/ray_tracer/vec3.h
+
+/home/neptune/Documents/cg/ray_tracer/vec3.h
 math.h
 -
 stdlib.h

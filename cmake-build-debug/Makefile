@@ -48,10 +48,10 @@ RM = /home/neptune/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/193.6494.38/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/neptune/Documents/cg/basic_ray_tracer
+CMAKE_SOURCE_DIR = /home/neptune/Documents/cg/ray_tracer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/neptune/Documents/cg/ray_tracer/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,33 @@ hitable.s: hitable.cpp.s
 hitable.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable.cpp.s
 .PHONY : hitable.cpp.s
+
+hitable_list.o: hitable_list.cpp.o
+
+.PHONY : hitable_list.o
+
+# target to build an object file
+hitable_list.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o
+.PHONY : hitable_list.cpp.o
+
+hitable_list.i: hitable_list.cpp.i
+
+.PHONY : hitable_list.i
+
+# target to preprocess a source file
+hitable_list.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.i
+.PHONY : hitable_list.cpp.i
+
+hitable_list.s: hitable_list.cpp.s
+
+.PHONY : hitable_list.s
+
+# target to generate assembly for a file
+hitable_list.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.s
+.PHONY : hitable_list.cpp.s
 
 main.o: main.cpp.o
 
@@ -270,6 +297,9 @@ help:
 	@echo "... hitable.o"
 	@echo "... hitable.i"
 	@echo "... hitable.s"
+	@echo "... hitable_list.o"
+	@echo "... hitable_list.i"
+	@echo "... hitable_list.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

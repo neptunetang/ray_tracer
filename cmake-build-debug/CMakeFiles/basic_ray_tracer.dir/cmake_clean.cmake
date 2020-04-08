@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o"
+  "CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/main.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/ray.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"

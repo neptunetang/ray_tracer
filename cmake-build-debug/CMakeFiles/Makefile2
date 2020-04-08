@@ -44,10 +44,10 @@ RM = /home/neptune/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/193.6494.38/bi
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/neptune/Documents/cg/basic_ray_tracer
+CMAKE_SOURCE_DIR = /home/neptune/Documents/cg/ray_tracer
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug
+CMAKE_BINARY_DIR = /home/neptune/Documents/cg/ray_tracer/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -74,14 +74,14 @@ preinstall:
 CMakeFiles/basic_ray_tracer.dir/all:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/depend
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target basic_ray_tracer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target basic_ray_tracer"
 .PHONY : CMakeFiles/basic_ray_tracer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/basic_ray_tracer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/basic_ray_tracer.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/basic_ray_tracer/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/basic_ray_tracer.dir/rule
 
 # Convenience name for target.
