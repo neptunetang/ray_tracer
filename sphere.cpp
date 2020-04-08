@@ -4,6 +4,8 @@
 
 #include "sphere.h"
 
+
+
 bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
     vec3 origin_to_center = r.origin_point() - center;
     auto a = r.direction().squared_lenght();
