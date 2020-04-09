@@ -4,8 +4,6 @@
 
 #include "sphere.h"
 
-
-
 bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
     vec3 origin_to_center = r.origin_point() - center;
     auto a = r.direction().squared_lenght();
@@ -20,6 +18,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.t = temp;
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
+            rec.mat = mat;
             return true;
         }
         temp = (-half_b + root) / a; //larger root
@@ -27,6 +26,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.t = temp;
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
+            rec.mat = mat;
             return true;
         }
     }

@@ -148,6 +148,45 @@ CMakeFiles/basic_ray_tracer.dir/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/camera.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/camera.cpp -o CMakeFiles/basic_ray_tracer.dir/camera.cpp.s
 
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/basic_ray_tracer.dir/material.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/material.cpp.o -c /home/neptune/Documents/cg/ray_tracer/material.cpp
+
+CMakeFiles/basic_ray_tracer.dir/material.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/material.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/material.cpp > CMakeFiles/basic_ray_tracer.dir/material.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/material.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/material.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/material.cpp -o CMakeFiles/basic_ray_tracer.dir/material.cpp.s
+
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../diffuse.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o -c /home/neptune/Documents/cg/ray_tracer/diffuse.cpp
+
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/diffuse.cpp > CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/diffuse.cpp -o CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s
+
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../metal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/basic_ray_tracer.dir/metal.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/metal.cpp.o -c /home/neptune/Documents/cg/ray_tracer/metal.cpp
+
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/metal.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/metal.cpp > CMakeFiles/basic_ray_tracer.dir/metal.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/metal.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/metal.cpp -o CMakeFiles/basic_ray_tracer.dir/metal.cpp.s
+
 # Object files for target basic_ray_tracer
 basic_ray_tracer_OBJECTS = \
 "CMakeFiles/basic_ray_tracer.dir/main.cpp.o" \
@@ -156,7 +195,10 @@ basic_ray_tracer_OBJECTS = \
 "CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o" \
 "CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o" \
 "CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/camera.cpp.o"
+"CMakeFiles/basic_ray_tracer.dir/camera.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/material.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/metal.cpp.o"
 
 # External object files for target basic_ray_tracer
 basic_ray_tracer_EXTERNAL_OBJECTS =
@@ -168,9 +210,12 @@ basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/camera.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/build.make
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable basic_ray_tracer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable basic_ray_tracer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/basic_ray_tracer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

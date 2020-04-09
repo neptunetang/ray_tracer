@@ -150,6 +150,33 @@ camera.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
+diffuse.o: diffuse.cpp.o
+
+.PHONY : diffuse.o
+
+# target to build an object file
+diffuse.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o
+.PHONY : diffuse.cpp.o
+
+diffuse.i: diffuse.cpp.i
+
+.PHONY : diffuse.i
+
+# target to preprocess a source file
+diffuse.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.i
+.PHONY : diffuse.cpp.i
+
+diffuse.s: diffuse.cpp.s
+
+.PHONY : diffuse.s
+
+# target to generate assembly for a file
+diffuse.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s
+.PHONY : diffuse.cpp.s
+
 hitable.o: hitable.cpp.o
 
 .PHONY : hitable.o
@@ -230,6 +257,60 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+material.o: material.cpp.o
+
+.PHONY : material.o
+
+# target to build an object file
+material.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+.PHONY : material.cpp.o
+
+material.i: material.cpp.i
+
+.PHONY : material.i
+
+# target to preprocess a source file
+material.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.i
+.PHONY : material.cpp.i
+
+material.s: material.cpp.s
+
+.PHONY : material.s
+
+# target to generate assembly for a file
+material.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.s
+.PHONY : material.cpp.s
+
+metal.o: metal.cpp.o
+
+.PHONY : metal.o
+
+# target to build an object file
+metal.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
+.PHONY : metal.cpp.o
+
+metal.i: metal.cpp.i
+
+.PHONY : metal.i
+
+# target to preprocess a source file
+metal.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.i
+.PHONY : metal.cpp.i
+
+metal.s: metal.cpp.s
+
+.PHONY : metal.s
+
+# target to generate assembly for a file
+metal.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.s
+.PHONY : metal.cpp.s
 
 ray.o: ray.cpp.o
 
@@ -324,6 +405,9 @@ help:
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
+	@echo "... diffuse.o"
+	@echo "... diffuse.i"
+	@echo "... diffuse.s"
 	@echo "... hitable.o"
 	@echo "... hitable.i"
 	@echo "... hitable.s"
@@ -333,6 +417,12 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... material.o"
+	@echo "... material.i"
+	@echo "... material.s"
+	@echo "... metal.o"
+	@echo "... metal.i"
+	@echo "... metal.s"
 	@echo "... ray.o"
 	@echo "... ray.i"
 	@echo "... ray.s"

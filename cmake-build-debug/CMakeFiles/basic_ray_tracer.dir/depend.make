@@ -7,6 +7,14 @@ CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../vec3.h
 
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../diffuse.cpp
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../diffuse.h
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../material.h
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../vec3.h
+
 CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../hitable.cpp
 CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../ray.h
@@ -21,13 +29,31 @@ CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../camera.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../diffuse.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable_list.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../main.cpp
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../material.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../sphere.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../vec3.h
+
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.cpp
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.h
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../vec3.h
+
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../material.h
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../metal.cpp
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../metal.h
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.cpp
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.h

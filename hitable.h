@@ -6,10 +6,13 @@
 #define BASIC_RAY_TRACER_HITABLE_H
 #include "ray.h"
 
+class material;
+
 struct hit_record{
     float t;
     vec3 intersection;
     vec3 normal;
+    material *mat;
 };
 
 class hitable {

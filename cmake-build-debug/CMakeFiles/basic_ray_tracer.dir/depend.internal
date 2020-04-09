@@ -7,6 +7,14 @@ CMakeFiles/basic_ray_tracer.dir/camera.cpp.o
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/diffuse.cpp
+ /home/neptune/Documents/cg/ray_tracer/diffuse.h
+ /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o
  /home/neptune/Documents/cg/ray_tracer/hitable.cpp
  /home/neptune/Documents/cg/ray_tracer/hitable.h
@@ -22,11 +30,29 @@ CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/camera.h
+ /home/neptune/Documents/cg/ray_tracer/diffuse.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/hitable_list.h
  /home/neptune/Documents/cg/ray_tracer/main.cpp
+ /home/neptune/Documents/cg/ray_tracer/material.h
+ /home/neptune/Documents/cg/ray_tracer/metal.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/sphere.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.cpp
+ /home/neptune/Documents/cg/ray_tracer/material.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.h
+ /home/neptune/Documents/cg/ray_tracer/metal.cpp
+ /home/neptune/Documents/cg/ray_tracer/metal.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o

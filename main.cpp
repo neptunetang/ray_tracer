@@ -2,24 +2,23 @@
 #include "hitable_list.h"
 #include "sphere.h"
 #include "camera.h"
+#include "diffuse.h"
+#include "metal.h"
 #include <iostream>
 #include<fstream>
-
-vec3 random_in_unit_sphere(){
-    vec3 p;
-    do{
-        p = 2.0*vec3(drand48(), drand48(), drand48()) - vec3(1,1,1);
-    }while (p.squared_lenght() >= 1.0);
-    return p;
-}
 
 vec3 color(const ray& r, const hitable* world, int depth) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
     if(world->is_hit(r,0.001, MAXFLOAT, rec)){
-        vec3 target = rec.intersection + rec.normal + random_in_unit_sphere();
-        return 0.5*color(ray(rec.intersection, target-rec.intersection), world, depth-1);
+        ray scattered;
+        vec3 attenuation;
+        if(rec.mat->scatter(r, rec, attenuation, scattered)){
+            return attenuation*color(scattered, world, depth-1);
+        } else {
+            return vec3(0,0,0);
+        }
     }
     vec3 unit_direction = unit_vec(r.direction());
     auto t = 0.5*(unit_direction.y() + 1.0);
@@ -30,15 +29,17 @@ int main() {
     int width=400, height=200;
     int sample_per_pixel = 100;
     int max_depth = 50;
-    ofstream img ("8.ppm");
+    ofstream img ("10.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
 
-    hitable *list[2];
-    list[0] = new sphere(vec3(0,0,-1), 0.5);
-    list[1] = new sphere(vec3(0,-100.5,-1), 100);
-    hitable* world = new hitable_list(list, 2);
+    hitable *list[4];
+    list[0] = new sphere(vec3(0,0,-1), 0.5, new diffuse(vec3(0.5,0.5,0.5)));
+    list[1] = new sphere(vec3(0,-100.5,-1), 100, new diffuse(vec3(0.5,0.5,0.5)));
+    list[2] = new sphere(vec3(1,0,-1), 0.5, new metal(vec3(0.5,0.5,0.5), 0.0));
+    list[3] = new sphere(vec3(-1,0,-1), 0.5, new metal(vec3(0.5,0.5,0.5), 0.5));
+    hitable* world = new hitable_list(list, 4);
 
     camera cam;
 

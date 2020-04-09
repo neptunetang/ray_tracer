@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/basic_ray_tracer.dir/all:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/depend
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target basic_ray_tracer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target basic_ray_tracer"
 .PHONY : CMakeFiles/basic_ray_tracer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/basic_ray_tracer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/basic_ray_tracer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/basic_ray_tracer.dir/rule
