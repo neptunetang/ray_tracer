@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neptune/Documents/cg/ray_tracer/camera.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/camera.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/dielectric.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/diffuse.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/hitable.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/hitable_list.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o"

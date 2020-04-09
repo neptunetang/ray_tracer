@@ -7,6 +7,14 @@ CMakeFiles/basic_ray_tracer.dir/camera.cpp.o
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/dielectric.cpp
+ /home/neptune/Documents/cg/ray_tracer/dielectric.h
+ /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o
  /home/neptune/Documents/cg/ray_tracer/diffuse.cpp
  /home/neptune/Documents/cg/ray_tracer/diffuse.h
@@ -30,6 +38,7 @@ CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/camera.h
+ /home/neptune/Documents/cg/ray_tracer/dielectric.h
  /home/neptune/Documents/cg/ray_tracer/diffuse.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/hitable_list.h

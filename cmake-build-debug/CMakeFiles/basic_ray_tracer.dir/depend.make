@@ -7,6 +7,14 @@ CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/camera.cpp.o: ../vec3.h
 
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../dielectric.cpp
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../dielectric.h
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../material.h
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../vec3.h
+
 CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../diffuse.cpp
 CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../diffuse.h
 CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o: ../hitable.h
@@ -29,6 +37,7 @@ CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../camera.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../dielectric.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../diffuse.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable_list.h

@@ -90,6 +90,12 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/dielectric.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/dielectric.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>

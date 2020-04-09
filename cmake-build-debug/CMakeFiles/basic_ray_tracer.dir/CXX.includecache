@@ -10,6 +10,10 @@
 ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
 
+/home/neptune/Documents/cg/ray_tracer/dielectric.h
+material.h
+/home/neptune/Documents/cg/ray_tracer/material.h
+
 /home/neptune/Documents/cg/ray_tracer/diffuse.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
@@ -35,6 +39,8 @@ diffuse.h
 /home/neptune/Documents/cg/ray_tracer/diffuse.h
 metal.h
 /home/neptune/Documents/cg/ray_tracer/metal.h
+dielectric.h
+/home/neptune/Documents/cg/ray_tracer/dielectric.h
 iostream
 -
 fstream

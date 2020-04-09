@@ -4,6 +4,7 @@
 #include "camera.h"
 #include "diffuse.h"
 #include "metal.h"
+#include "dielectric.h"
 #include <iostream>
 #include<fstream>
 
@@ -29,17 +30,19 @@ int main() {
     int width=400, height=200;
     int sample_per_pixel = 100;
     int max_depth = 50;
-    ofstream img ("10.ppm");
+    ofstream img ("12.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
 
-    hitable *list[4];
+    hitable *list[5];
     list[0] = new sphere(vec3(0,0,-1), 0.5, new diffuse(vec3(0.5,0.5,0.5)));
     list[1] = new sphere(vec3(0,-100.5,-1), 100, new diffuse(vec3(0.5,0.5,0.5)));
     list[2] = new sphere(vec3(1,0,-1), 0.5, new metal(vec3(0.5,0.5,0.5), 0.0));
-    list[3] = new sphere(vec3(-1,0,-1), 0.5, new metal(vec3(0.5,0.5,0.5), 0.5));
-    hitable* world = new hitable_list(list, 4);
+    list[3] = new sphere(vec3(-1,0,-1), 0.5, new dielectric(1.5));
+    list[4] = new sphere(vec3(-1,0,-1), -0.45, new dielectric(1.5));
+
+    hitable* world = new hitable_list(list, 5);
 
     camera cam;
 

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/basic_ray_tracer.dir/camera.cpp.o"
+  "CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o"

@@ -150,6 +150,33 @@ camera.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
+dielectric.o: dielectric.cpp.o
+
+.PHONY : dielectric.o
+
+# target to build an object file
+dielectric.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o
+.PHONY : dielectric.cpp.o
+
+dielectric.i: dielectric.cpp.i
+
+.PHONY : dielectric.i
+
+# target to preprocess a source file
+dielectric.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.i
+.PHONY : dielectric.cpp.i
+
+dielectric.s: dielectric.cpp.s
+
+.PHONY : dielectric.s
+
+# target to generate assembly for a file
+dielectric.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
+.PHONY : dielectric.cpp.s
+
 diffuse.o: diffuse.cpp.o
 
 .PHONY : diffuse.o
@@ -405,6 +432,9 @@ help:
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
+	@echo "... dielectric.o"
+	@echo "... dielectric.i"
+	@echo "... dielectric.s"
 	@echo "... diffuse.o"
 	@echo "... diffuse.i"
 	@echo "... diffuse.s"
