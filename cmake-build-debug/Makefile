@@ -339,6 +339,33 @@ metal.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.s
 .PHONY : metal.cpp.s
 
+moving_sphere.o: moving_sphere.cpp.o
+
+.PHONY : moving_sphere.o
+
+# target to build an object file
+moving_sphere.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o
+.PHONY : moving_sphere.cpp.o
+
+moving_sphere.i: moving_sphere.cpp.i
+
+.PHONY : moving_sphere.i
+
+# target to preprocess a source file
+moving_sphere.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.i
+.PHONY : moving_sphere.cpp.i
+
+moving_sphere.s: moving_sphere.cpp.s
+
+.PHONY : moving_sphere.s
+
+# target to generate assembly for a file
+moving_sphere.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s
+.PHONY : moving_sphere.cpp.s
+
 ray.o: ray.cpp.o
 
 .PHONY : ray.o
@@ -453,6 +480,9 @@ help:
 	@echo "... metal.o"
 	@echo "... metal.i"
 	@echo "... metal.s"
+	@echo "... moving_sphere.o"
+	@echo "... moving_sphere.i"
+	@echo "... moving_sphere.s"
 	@echo "... ray.o"
 	@echo "... ray.i"
 	@echo "... ray.s"

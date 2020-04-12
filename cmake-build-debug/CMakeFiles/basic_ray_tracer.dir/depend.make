@@ -44,6 +44,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable_list.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../main.cpp
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../moving_sphere.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../sphere.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../vec3.cpp
@@ -63,6 +64,13 @@ CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../metal.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../vec3.h
+
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../moving_sphere.cpp
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../moving_sphere.h
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.cpp
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.h

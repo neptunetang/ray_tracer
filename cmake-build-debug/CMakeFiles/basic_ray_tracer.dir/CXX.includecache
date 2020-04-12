@@ -41,6 +41,8 @@ metal.h
 /home/neptune/Documents/cg/ray_tracer/metal.h
 dielectric.h
 /home/neptune/Documents/cg/ray_tracer/dielectric.h
+moving_sphere.h
+/home/neptune/Documents/cg/ray_tracer/moving_sphere.h
 iostream
 -
 fstream
@@ -53,6 +55,10 @@ hitable.h
 /home/neptune/Documents/cg/ray_tracer/metal.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
+
+/home/neptune/Documents/cg/ray_tracer/moving_sphere.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 
 /home/neptune/Documents/cg/ray_tracer/ray.h
 vec3.h

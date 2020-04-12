@@ -45,6 +45,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/main.cpp
  /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/metal.h
+ /home/neptune/Documents/cg/ray_tracer/moving_sphere.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/sphere.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
@@ -61,6 +62,13 @@ CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
  /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/metal.cpp
  /home/neptune/Documents/cg/ray_tracer/metal.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp
+ /home/neptune/Documents/cg/ray_tracer/moving_sphere.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h

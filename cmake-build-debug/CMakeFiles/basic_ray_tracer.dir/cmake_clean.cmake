@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/basic_ray_tracer.dir/main.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/material.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/metal.cpp.o"
+  "CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/ray.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"
   "CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o"
