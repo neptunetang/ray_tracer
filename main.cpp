@@ -62,11 +62,11 @@ int main() {
 
 
     int pic_x, pic_y, pic_n;
-    unsigned char* texture_data = stbi_load("../e.jpg", &pic_x, &pic_y, &pic_n, 0);
+    unsigned char* texture_data = stbi_load("e.jpg", &pic_x, &pic_y, &pic_n, 0);
     texture* earth_surface = new image_texture(texture_data, pic_x, pic_y);
 
     int m_x, m_y, m_n;
-    unsigned char* m_data = stbi_load("../m.jpg", &m_x, &m_y, &m_n, 0);
+    unsigned char* m_data = stbi_load("m.jpg", &m_x, &m_y, &m_n, 0);
     texture* moon_surface = new image_texture(m_data, m_x, m_y);
 
     list[0] = new sphere(vec3(0,-1000,0), 1000, new diffuse(perlintex));
