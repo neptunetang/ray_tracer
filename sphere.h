@@ -6,6 +6,7 @@
 #define BASIC_RAY_TRACER_SPHERE_H
 
 #include "hitable.h"
+#include <cmath>
 
 class sphere :public hitable{
 public:
@@ -18,5 +19,6 @@ public:
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const;
 };
 
+void get_sphere_uv(const vec3 intersection, float& u, float& v);
 
 #endif //BASIC_RAY_TRACER_SPHERE_H

@@ -7,10 +7,12 @@
 
 
 #include "material.h"
+#include "texture.h"
 
 class dielectric: public material{
 public:
     double ref_idx;
+
 
     dielectric(double ri) : ref_idx(ri) {}
 

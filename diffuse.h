@@ -6,17 +6,18 @@
 #define BASIC_RAY_TRACER_DIFFUSE_H
 
 #include "material.h"
+#include "texture.h"
 
 class diffuse : public material {
 public:
-    diffuse(const vec3& a) : albedo(a) {}
+    diffuse(texture *t) : albedo(t) {}
 
     virtual bool scatter(
             const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered
     ) const;
 
 public:
-    vec3 albedo;
+    texture* albedo;
 };
 
 

@@ -150,6 +150,60 @@ camera.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
+checker_texture.o: checker_texture.cpp.o
+
+.PHONY : checker_texture.o
+
+# target to build an object file
+checker_texture.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.o
+.PHONY : checker_texture.cpp.o
+
+checker_texture.i: checker_texture.cpp.i
+
+.PHONY : checker_texture.i
+
+# target to preprocess a source file
+checker_texture.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.i
+.PHONY : checker_texture.cpp.i
+
+checker_texture.s: checker_texture.cpp.s
+
+.PHONY : checker_texture.s
+
+# target to generate assembly for a file
+checker_texture.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.s
+.PHONY : checker_texture.cpp.s
+
+constant_texture.o: constant_texture.cpp.o
+
+.PHONY : constant_texture.o
+
+# target to build an object file
+constant_texture.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o
+.PHONY : constant_texture.cpp.o
+
+constant_texture.i: constant_texture.cpp.i
+
+.PHONY : constant_texture.i
+
+# target to preprocess a source file
+constant_texture.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.i
+.PHONY : constant_texture.cpp.i
+
+constant_texture.s: constant_texture.cpp.s
+
+.PHONY : constant_texture.s
+
+# target to generate assembly for a file
+constant_texture.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.s
+.PHONY : constant_texture.cpp.s
+
 dielectric.o: dielectric.cpp.o
 
 .PHONY : dielectric.o
@@ -257,6 +311,33 @@ hitable_list.s: hitable_list.cpp.s
 hitable_list.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.s
 .PHONY : hitable_list.cpp.s
+
+image_texture.o: image_texture.cpp.o
+
+.PHONY : image_texture.o
+
+# target to build an object file
+image_texture.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o
+.PHONY : image_texture.cpp.o
+
+image_texture.i: image_texture.cpp.i
+
+.PHONY : image_texture.i
+
+# target to preprocess a source file
+image_texture.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.i
+.PHONY : image_texture.cpp.i
+
+image_texture.s: image_texture.cpp.s
+
+.PHONY : image_texture.s
+
+# target to generate assembly for a file
+image_texture.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.s
+.PHONY : image_texture.cpp.s
 
 main.o: main.cpp.o
 
@@ -366,6 +447,33 @@ moving_sphere.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s
 .PHONY : moving_sphere.cpp.s
 
+noise_texture.o: noise_texture.cpp.o
+
+.PHONY : noise_texture.o
+
+# target to build an object file
+noise_texture.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o
+.PHONY : noise_texture.cpp.o
+
+noise_texture.i: noise_texture.cpp.i
+
+.PHONY : noise_texture.i
+
+# target to preprocess a source file
+noise_texture.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.i
+.PHONY : noise_texture.cpp.i
+
+noise_texture.s: noise_texture.cpp.s
+
+.PHONY : noise_texture.s
+
+# target to generate assembly for a file
+noise_texture.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.s
+.PHONY : noise_texture.cpp.s
+
 ray.o: ray.cpp.o
 
 .PHONY : ray.o
@@ -420,6 +528,33 @@ sphere.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s
 .PHONY : sphere.cpp.s
 
+texture.o: texture.cpp.o
+
+.PHONY : texture.o
+
+# target to build an object file
+texture.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.o
+.PHONY : texture.cpp.o
+
+texture.i: texture.cpp.i
+
+.PHONY : texture.i
+
+# target to preprocess a source file
+texture.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.i
+.PHONY : texture.cpp.i
+
+texture.s: texture.cpp.s
+
+.PHONY : texture.s
+
+# target to generate assembly for a file
+texture.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.s
+.PHONY : texture.cpp.s
+
 vec3.o: vec3.cpp.o
 
 .PHONY : vec3.o
@@ -459,6 +594,12 @@ help:
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
+	@echo "... checker_texture.o"
+	@echo "... checker_texture.i"
+	@echo "... checker_texture.s"
+	@echo "... constant_texture.o"
+	@echo "... constant_texture.i"
+	@echo "... constant_texture.s"
 	@echo "... dielectric.o"
 	@echo "... dielectric.i"
 	@echo "... dielectric.s"
@@ -471,6 +612,9 @@ help:
 	@echo "... hitable_list.o"
 	@echo "... hitable_list.i"
 	@echo "... hitable_list.s"
+	@echo "... image_texture.o"
+	@echo "... image_texture.i"
+	@echo "... image_texture.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -483,12 +627,18 @@ help:
 	@echo "... moving_sphere.o"
 	@echo "... moving_sphere.i"
 	@echo "... moving_sphere.s"
+	@echo "... noise_texture.o"
+	@echo "... noise_texture.i"
+	@echo "... noise_texture.s"
 	@echo "... ray.o"
 	@echo "... ray.i"
 	@echo "... ray.s"
 	@echo "... sphere.o"
 	@echo "... sphere.i"
 	@echo "... sphere.s"
+	@echo "... texture.o"
+	@echo "... texture.i"
+	@echo "... texture.s"
 	@echo "... vec3.o"
 	@echo "... vec3.i"
 	@echo "... vec3.s"

@@ -13,6 +13,8 @@ struct hit_record{
     vec3 intersection;
     vec3 normal;
     material *mat;
+    float u;
+    float v;
 };
 
 class hitable {

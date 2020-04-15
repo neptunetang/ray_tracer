@@ -5,6 +5,7 @@
 #ifndef BASIC_RAY_TRACER_CAMERA_H
 #define BASIC_RAY_TRACER_CAMERA_H
 
+#include "common_method.h"
 #include "ray.h"
 
 class camera {
@@ -43,6 +44,4 @@ public:
     ray get_ray(float u, float v);
 };
 
-inline float random_float();
-inline float random_float(float min, float max);
 #endif //BASIC_RAY_TRACER_CAMERA_H

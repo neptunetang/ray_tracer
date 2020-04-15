@@ -19,6 +19,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
             rec.mat = mat;
+            get_sphere_uv((rec.intersection-center)/radius, rec.u, rec.v);
             return true;
         }
         temp = (-half_b + root) / a; //larger root
@@ -27,8 +28,16 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
             rec.mat = mat;
+            get_sphere_uv((rec.intersection-center)/radius, rec.u, rec.v);
             return true;
         }
     }
     return false;
+}
+
+void get_sphere_uv(const vec3 intersection, float& u, float& v) {
+    auto theta = asin(intersection.y());
+    auto phi = atan2(intersection.z(), intersection.x());
+    u = 1 - (phi + M_PI) / (2*M_PI);
+    v = (theta + M_PI/2) / M_PI;
 }
