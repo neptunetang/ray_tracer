@@ -37,7 +37,7 @@ int main() {
     int width=400, height=200;
     int sample_per_pixel = 100;
     int max_depth = 50;
-    ofstream img ("4b.ppm");
+    ofstream img ("4c.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -58,7 +58,7 @@ int main() {
             new constant_texture(vec3(0.9,0.9,0.9))
             );
 
-    texture* perlintex = new noise_texture();
+    texture* perlintex = new noise_texture(100);
 
 
     int pic_x, pic_y, pic_n;

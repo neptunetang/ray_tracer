@@ -165,6 +165,9 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/noise_texture.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>

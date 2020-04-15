@@ -17,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neptune/Documents/cg/ray_tracer/metal.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/metal.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/noise_texture.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/perlin.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/ray.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/ray.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/texture.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/texture.cpp.o"

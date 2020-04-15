@@ -115,6 +115,13 @@ CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../texture.h
 CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../vec3.h
 
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../common_method.h
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../perlin.cpp
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../perlin.h
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.h
+
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.cpp
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../vec3.cpp

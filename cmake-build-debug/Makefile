@@ -474,6 +474,33 @@ noise_texture.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.s
 .PHONY : noise_texture.cpp.s
 
+perlin.o: perlin.cpp.o
+
+.PHONY : perlin.o
+
+# target to build an object file
+perlin.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o
+.PHONY : perlin.cpp.o
+
+perlin.i: perlin.cpp.i
+
+.PHONY : perlin.i
+
+# target to preprocess a source file
+perlin.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.i
+.PHONY : perlin.cpp.i
+
+perlin.s: perlin.cpp.s
+
+.PHONY : perlin.s
+
+# target to generate assembly for a file
+perlin.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s
+.PHONY : perlin.cpp.s
+
 ray.o: ray.cpp.o
 
 .PHONY : ray.o
@@ -630,6 +657,9 @@ help:
 	@echo "... noise_texture.o"
 	@echo "... noise_texture.i"
 	@echo "... noise_texture.s"
+	@echo "... perlin.o"
+	@echo "... perlin.i"
+	@echo "... perlin.s"
 	@echo "... ray.o"
 	@echo "... ray.i"
 	@echo "... ray.s"

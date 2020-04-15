@@ -115,6 +115,13 @@ CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o
  /home/neptune/Documents/cg/ray_tracer/texture.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
+ /home/neptune/Documents/cg/ray_tracer/perlin.cpp
+ /home/neptune/Documents/cg/ray_tracer/perlin.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/ray.cpp.o
  /home/neptune/Documents/cg/ray_tracer/ray.cpp
  /home/neptune/Documents/cg/ray_tracer/ray.h

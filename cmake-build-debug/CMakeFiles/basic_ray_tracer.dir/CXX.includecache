@@ -100,10 +100,6 @@ texture.h
 hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 
-/home/neptune/Documents/cg/ray_tracer/noise_texture.cpp
-noise_texture.h
-/home/neptune/Documents/cg/ray_tracer/noise_texture.h
-
 /home/neptune/Documents/cg/ray_tracer/noise_texture.h
 texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
