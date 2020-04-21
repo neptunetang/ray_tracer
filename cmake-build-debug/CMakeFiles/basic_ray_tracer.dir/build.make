@@ -291,6 +291,45 @@ CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/perlin.cpp -o CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s
 
+CMakeFiles/basic_ray_tracer.dir/box.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../box.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/basic_ray_tracer.dir/box.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/box.cpp.o -c /home/neptune/Documents/cg/ray_tracer/box.cpp
+
+CMakeFiles/basic_ray_tracer.dir/box.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/box.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/box.cpp > CMakeFiles/basic_ray_tracer.dir/box.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/box.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/box.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/box.cpp -o CMakeFiles/basic_ray_tracer.dir/box.cpp.s
+
+CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../diffuse_light.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o -c /home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp
+
+CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp > CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp -o CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.s
+
+CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../rectangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o -c /home/neptune/Documents/cg/ray_tracer/rectangle.cpp
+
+CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/rectangle.cpp > CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i
+
+CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/rectangle.cpp -o CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
+
 # Object files for target basic_ray_tracer
 basic_ray_tracer_OBJECTS = \
 "CMakeFiles/basic_ray_tracer.dir/main.cpp.o" \
@@ -310,7 +349,10 @@ basic_ray_tracer_OBJECTS = \
 "CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.o" \
 "CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o" \
 "CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o"
+"CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/box.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o"
 
 # External object files for target basic_ray_tracer
 basic_ray_tracer_EXTERNAL_OBJECTS =
@@ -333,9 +375,12 @@ basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/box.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/build.make
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Linking CXX executable basic_ray_tracer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable basic_ray_tracer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/basic_ray_tracer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

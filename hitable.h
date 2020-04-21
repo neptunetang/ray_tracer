@@ -15,6 +15,12 @@ struct hit_record{
     material *mat;
     float u;
     float v;
+    bool front;
+
+inline void set_normal(vec3 dir, vec3 outward_normal){
+    front = dot(dir, outward_normal)<0;
+    normal = front ? outward_normal : -outward_normal;
+}
 };
 
 class hitable {

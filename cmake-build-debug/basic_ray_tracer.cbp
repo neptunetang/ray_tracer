@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/box.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/box.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -115,6 +121,12 @@
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.cpp">
@@ -177,6 +189,12 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/ray.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rectangle.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rectangle.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/sphere.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -190,6 +208,9 @@
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/translate.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/vec3.cpp">

@@ -123,6 +123,33 @@ basic_ray_tracer/fast:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/build
 .PHONY : basic_ray_tracer/fast
 
+box.o: box.cpp.o
+
+.PHONY : box.o
+
+# target to build an object file
+box.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.o
+.PHONY : box.cpp.o
+
+box.i: box.cpp.i
+
+.PHONY : box.i
+
+# target to preprocess a source file
+box.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.i
+.PHONY : box.cpp.i
+
+box.s: box.cpp.s
+
+.PHONY : box.s
+
+# target to generate assembly for a file
+box.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.s
+.PHONY : box.cpp.s
+
 camera.o: camera.cpp.o
 
 .PHONY : camera.o
@@ -257,6 +284,33 @@ diffuse.s: diffuse.cpp.s
 diffuse.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s
 .PHONY : diffuse.cpp.s
+
+diffuse_light.o: diffuse_light.cpp.o
+
+.PHONY : diffuse_light.o
+
+# target to build an object file
+diffuse_light.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o
+.PHONY : diffuse_light.cpp.o
+
+diffuse_light.i: diffuse_light.cpp.i
+
+.PHONY : diffuse_light.i
+
+# target to preprocess a source file
+diffuse_light.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.i
+.PHONY : diffuse_light.cpp.i
+
+diffuse_light.s: diffuse_light.cpp.s
+
+.PHONY : diffuse_light.s
+
+# target to generate assembly for a file
+diffuse_light.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.s
+.PHONY : diffuse_light.cpp.s
 
 hitable.o: hitable.cpp.o
 
@@ -528,6 +582,33 @@ ray.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/ray.cpp.s
 .PHONY : ray.cpp.s
 
+rectangle.o: rectangle.cpp.o
+
+.PHONY : rectangle.o
+
+# target to build an object file
+rectangle.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o
+.PHONY : rectangle.cpp.o
+
+rectangle.i: rectangle.cpp.i
+
+.PHONY : rectangle.i
+
+# target to preprocess a source file
+rectangle.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i
+.PHONY : rectangle.cpp.i
+
+rectangle.s: rectangle.cpp.s
+
+.PHONY : rectangle.s
+
+# target to generate assembly for a file
+rectangle.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
+.PHONY : rectangle.cpp.s
+
 sphere.o: sphere.cpp.o
 
 .PHONY : sphere.o
@@ -618,6 +699,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... basic_ray_tracer"
 	@echo "... edit_cache"
+	@echo "... box.o"
+	@echo "... box.i"
+	@echo "... box.s"
 	@echo "... camera.o"
 	@echo "... camera.i"
 	@echo "... camera.s"
@@ -633,6 +717,9 @@ help:
 	@echo "... diffuse.o"
 	@echo "... diffuse.i"
 	@echo "... diffuse.s"
+	@echo "... diffuse_light.o"
+	@echo "... diffuse_light.i"
+	@echo "... diffuse_light.s"
 	@echo "... hitable.o"
 	@echo "... hitable.i"
 	@echo "... hitable.s"
@@ -663,6 +750,9 @@ help:
 	@echo "... ray.o"
 	@echo "... ray.i"
 	@echo "... ray.s"
+	@echo "... rectangle.o"
+	@echo "... rectangle.i"
+	@echo "... rectangle.s"
 	@echo "... sphere.o"
 	@echo "... sphere.i"
 	@echo "... sphere.s"

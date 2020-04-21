@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/home/neptune/Documents/cg/ray_tracer/box.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
+hitable_list.h
+/home/neptune/Documents/cg/ray_tracer/hitable_list.h
+rectangle.h
+/home/neptune/Documents/cg/ray_tracer/rectangle.h
+
 /home/neptune/Documents/cg/ray_tracer/camera.h
 common_method.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
@@ -35,6 +43,14 @@ material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
 texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
+
+/home/neptune/Documents/cg/ray_tracer/diffuse_light.h
+material.h
+/home/neptune/Documents/cg/ray_tracer/material.h
+texture.h
+/home/neptune/Documents/cg/ray_tracer/texture.h
+constant_texture.h
+/home/neptune/Documents/cg/ray_tracer/constant_texture.h
 
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 ray.h
@@ -81,6 +97,14 @@ image.h
 /home/neptune/Documents/cg/ray_tracer/image.h
 image_texture.h
 /home/neptune/Documents/cg/ray_tracer/image_texture.h
+diffuse_light.h
+/home/neptune/Documents/cg/ray_tracer/diffuse_light.h
+rectangle.h
+/home/neptune/Documents/cg/ray_tracer/rectangle.h
+box.h
+/home/neptune/Documents/cg/ray_tracer/box.h
+translate.h
+/home/neptune/Documents/cg/ray_tracer/translate.h
 iostream
 -
 fstream
@@ -117,6 +141,12 @@ vec3.h
 /home/neptune/Documents/cg/ray_tracer/vec3.h
 vec3.cpp
 /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+
+/home/neptune/Documents/cg/ray_tracer/rectangle.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
+material.h
+/home/neptune/Documents/cg/ray_tracer/material.h
 
 /home/neptune/Documents/cg/ray_tracer/sphere.h
 hitable.h
@@ -159,6 +189,10 @@ arm_neon.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
 ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
+
+/home/neptune/Documents/cg/ray_tracer/translate.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 
 /home/neptune/Documents/cg/ray_tracer/vec3.cpp
 vec3.h
