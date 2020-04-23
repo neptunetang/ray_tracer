@@ -36,8 +36,8 @@ public:
     inline vec3& operator*=(const vec3 &v);
     inline vec3& operator/=(const float f);
     inline vec3& operator*=(const float f);
-    inline float length() const { return sqrt(e[0]*e[0] + e[1]*e[1] + e[2]*e[2]); }
-    inline float squared_lenght() const {return (e[0]*e[0] + e[1]*e[1] + e[2]*e[2]); }
+    inline float length() const { return sqrt(squared_length()); }
+    inline float squared_length() const {return (e[0]*e[0] + e[1]*e[1] + e[2]*e[2]); }
     inline void make_unit();
 };
 

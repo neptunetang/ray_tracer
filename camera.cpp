@@ -6,7 +6,7 @@
 vec3 random_in_unit_disk() {
     while (true) {
         vec3 p = vec3(drand48()*2-1, drand48()*2-1, 0);
-        if (p.squared_lenght() >= 1) continue;
+        if (p.squared_length() >= 1) continue;
         return p;
     }
 }

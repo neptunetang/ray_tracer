@@ -6,6 +6,10 @@
 #define BASIC_RAY_TRACER_COMMON_METHOD_H
 
 #include <cmath>
+#include <limits>
+#include <cstdlib>
+
+const float infinity = std::numeric_limits<float>::infinity();
 
 inline float random_float() {
     return rand() / (RAND_MAX + 1.0);

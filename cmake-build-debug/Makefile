@@ -204,6 +204,33 @@ checker_texture.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.s
 .PHONY : checker_texture.cpp.s
 
+constant_medium.o: constant_medium.cpp.o
+
+.PHONY : constant_medium.o
+
+# target to build an object file
+constant_medium.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o
+.PHONY : constant_medium.cpp.o
+
+constant_medium.i: constant_medium.cpp.i
+
+.PHONY : constant_medium.i
+
+# target to preprocess a source file
+constant_medium.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.i
+.PHONY : constant_medium.cpp.i
+
+constant_medium.s: constant_medium.cpp.s
+
+.PHONY : constant_medium.s
+
+# target to generate assembly for a file
+constant_medium.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.s
+.PHONY : constant_medium.cpp.s
+
 constant_texture.o: constant_texture.cpp.o
 
 .PHONY : constant_texture.o
@@ -257,33 +284,6 @@ dielectric.s: dielectric.cpp.s
 dielectric.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
 .PHONY : dielectric.cpp.s
-
-diffuse.o: diffuse.cpp.o
-
-.PHONY : diffuse.o
-
-# target to build an object file
-diffuse.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o
-.PHONY : diffuse.cpp.o
-
-diffuse.i: diffuse.cpp.i
-
-.PHONY : diffuse.i
-
-# target to preprocess a source file
-diffuse.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.i
-.PHONY : diffuse.cpp.i
-
-diffuse.s: diffuse.cpp.s
-
-.PHONY : diffuse.s
-
-# target to generate assembly for a file
-diffuse.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.s
-.PHONY : diffuse.cpp.s
 
 diffuse_light.o: diffuse_light.cpp.o
 
@@ -609,6 +609,33 @@ rectangle.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
 .PHONY : rectangle.cpp.s
 
+rotate.o: rotate.cpp.o
+
+.PHONY : rotate.o
+
+# target to build an object file
+rotate.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o
+.PHONY : rotate.cpp.o
+
+rotate.i: rotate.cpp.i
+
+.PHONY : rotate.i
+
+# target to preprocess a source file
+rotate.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.i
+.PHONY : rotate.cpp.i
+
+rotate.s: rotate.cpp.s
+
+.PHONY : rotate.s
+
+# target to generate assembly for a file
+rotate.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.s
+.PHONY : rotate.cpp.s
+
 sphere.o: sphere.cpp.o
 
 .PHONY : sphere.o
@@ -663,6 +690,33 @@ texture.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.s
 .PHONY : texture.cpp.s
 
+triangle.o: triangle.cpp.o
+
+.PHONY : triangle.o
+
+# target to build an object file
+triangle.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.o
+.PHONY : triangle.cpp.o
+
+triangle.i: triangle.cpp.i
+
+.PHONY : triangle.i
+
+# target to preprocess a source file
+triangle.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.i
+.PHONY : triangle.cpp.i
+
+triangle.s: triangle.cpp.s
+
+.PHONY : triangle.s
+
+# target to generate assembly for a file
+triangle.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.s
+.PHONY : triangle.cpp.s
+
 vec3.o: vec3.cpp.o
 
 .PHONY : vec3.o
@@ -708,15 +762,15 @@ help:
 	@echo "... checker_texture.o"
 	@echo "... checker_texture.i"
 	@echo "... checker_texture.s"
+	@echo "... constant_medium.o"
+	@echo "... constant_medium.i"
+	@echo "... constant_medium.s"
 	@echo "... constant_texture.o"
 	@echo "... constant_texture.i"
 	@echo "... constant_texture.s"
 	@echo "... dielectric.o"
 	@echo "... dielectric.i"
 	@echo "... dielectric.s"
-	@echo "... diffuse.o"
-	@echo "... diffuse.i"
-	@echo "... diffuse.s"
 	@echo "... diffuse_light.o"
 	@echo "... diffuse_light.i"
 	@echo "... diffuse_light.s"
@@ -753,12 +807,18 @@ help:
 	@echo "... rectangle.o"
 	@echo "... rectangle.i"
 	@echo "... rectangle.s"
+	@echo "... rotate.o"
+	@echo "... rotate.i"
+	@echo "... rotate.s"
 	@echo "... sphere.o"
 	@echo "... sphere.i"
 	@echo "... sphere.s"
 	@echo "... texture.o"
 	@echo "... texture.i"
 	@echo "... texture.s"
+	@echo "... triangle.o"
+	@echo "... triangle.i"
+	@echo "... triangle.s"
 	@echo "... vec3.o"
 	@echo "... vec3.i"
 	@echo "... vec3.s"

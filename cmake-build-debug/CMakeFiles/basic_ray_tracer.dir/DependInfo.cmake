@@ -7,9 +7,9 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neptune/Documents/cg/ray_tracer/box.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/box.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/camera.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/camera.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/checker_texture.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/constant_medium.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/constant_texture.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/dielectric.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/diffuse.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/diffuse.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/hitable.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/hitable_list.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o"
@@ -22,8 +22,10 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/neptune/Documents/cg/ray_tracer/perlin.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/ray.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/ray.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/rectangle.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/rotate.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/texture.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/texture.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/triangle.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/triangle.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/vec3.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

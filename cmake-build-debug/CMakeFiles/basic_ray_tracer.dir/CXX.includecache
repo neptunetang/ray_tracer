@@ -27,6 +27,16 @@ texture.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
 cmath
 -
+limits
+-
+cstdlib
+-
+
+/home/neptune/Documents/cg/ray_tracer/constant_medium.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
+isotropic.h
+/home/neptune/Documents/cg/ray_tracer/isotropic.h
 
 /home/neptune/Documents/cg/ray_tracer/constant_texture.h
 texture.h
@@ -68,6 +78,12 @@ stb_image.h
 texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
 
+/home/neptune/Documents/cg/ray_tracer/isotropic.h
+texture.h
+/home/neptune/Documents/cg/ray_tracer/texture.h
+material.h
+/home/neptune/Documents/cg/ray_tracer/material.h
+
 /home/neptune/Documents/cg/ray_tracer/main.cpp
 common_method.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
@@ -105,6 +121,12 @@ box.h
 /home/neptune/Documents/cg/ray_tracer/box.h
 translate.h
 /home/neptune/Documents/cg/ray_tracer/translate.h
+rotate.h
+/home/neptune/Documents/cg/ray_tracer/rotate.h
+constant_medium.h
+/home/neptune/Documents/cg/ray_tracer/constant_medium.h
+object_loader.h
+/home/neptune/Documents/cg/ray_tracer/object_loader.h
 iostream
 -
 fstream
@@ -130,6 +152,18 @@ texture.h
 perlin.h
 /home/neptune/Documents/cg/ray_tracer/perlin.h
 
+/home/neptune/Documents/cg/ray_tracer/object_loader.h
+fstream
+-
+iostream
+-
+vector
+-
+common_method.h
+/home/neptune/Documents/cg/ray_tracer/common_method.h
+ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+
 /home/neptune/Documents/cg/ray_tracer/perlin.h
 common_method.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
@@ -147,6 +181,10 @@ hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
+
+/home/neptune/Documents/cg/ray_tracer/rotate.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 
 /home/neptune/Documents/cg/ray_tracer/sphere.h
 hitable.h

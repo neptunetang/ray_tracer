@@ -6,9 +6,9 @@
 
 bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) const {
     vec3 origin_to_center = r.origin_point() - center;
-    auto a = r.direction().squared_lenght();
+    auto a = r.direction().squared_length();
     auto half_b = dot(origin_to_center, r.direction());
-    auto c = origin_to_center.squared_lenght() - radius*radius;
+    auto c = origin_to_center.squared_length() - radius*radius;
     auto discriminant = half_b*half_b - a*c;
 
     if (discriminant > 0) {
