@@ -36,13 +36,7 @@ CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o: ../texture.h
 CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o: ../vec3.h
 
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../constant_texture.cpp
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../constant_texture.h
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../texture.h
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o: ../vec3.h
-
+CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../dielectric.cpp
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../dielectric.h
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../hitable.h
@@ -51,29 +45,6 @@ CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../texture.h
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../vec3.h
-
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../constant_texture.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../diffuse_light.cpp
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../diffuse_light.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../hitable.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../material.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../texture.h
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o: ../vec3.h
-
-CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../hitable.cpp
-CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../hitable.h
-CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o: ../vec3.h
-
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../hitable.h
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../hitable_list.cpp
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../hitable_list.h
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o: ../image_texture.cpp
 CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o: ../image_texture.h
@@ -96,6 +67,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../hitable_list.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../image.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../image_texture.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../isotropic.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../light.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../main.cpp
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h
@@ -152,11 +124,6 @@ CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.h
 
-CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.cpp
-CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/ray.cpp.o: ../vec3.h
-
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../ray.h
@@ -178,12 +145,6 @@ CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../sphere.cpp
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../sphere.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../vec3.h
-
-CMakeFiles/basic_ray_tracer.dir/texture.cpp.o: ../ray.h
-CMakeFiles/basic_ray_tracer.dir/texture.cpp.o: ../texture.cpp
-CMakeFiles/basic_ray_tracer.dir/texture.cpp.o: ../texture.h
-CMakeFiles/basic_ray_tracer.dir/texture.cpp.o: ../vec3.cpp
-CMakeFiles/basic_ray_tracer.dir/texture.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/triangle.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/triangle.cpp.o: ../ray.h

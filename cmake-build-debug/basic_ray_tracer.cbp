@@ -111,9 +111,6 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_medium.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_texture.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_texture.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -126,19 +123,10 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable_list.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable_list.h">
@@ -154,6 +142,9 @@
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/isotropic.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/main.cpp">
@@ -192,9 +183,6 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/ray.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/ray.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -217,9 +205,6 @@
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/stb_image.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture.h">

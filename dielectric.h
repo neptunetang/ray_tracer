@@ -8,6 +8,7 @@
 
 #include "material.h"
 #include "texture.h"
+#include "common_method.h"
 
 class dielectric: public material{
 public:

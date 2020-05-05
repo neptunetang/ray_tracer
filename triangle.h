@@ -14,7 +14,7 @@ public:
     triangle() = default;
     triangle(vec3 x, vec3 y, vec3 z, material* m) : a(x), b(y), c(z), mat(m){}
 
-    virtual bool is_hit(ray &r, float t_min, float t_max, hit_record& rec) const;
+    virtual bool is_hit(const ray &r, float t_min, float t_max, hit_record& rec) const;
 };
 
 

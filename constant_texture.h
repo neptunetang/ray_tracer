@@ -13,7 +13,7 @@ private:
 public:
     constant_texture() = default;
     constant_texture(const vec3& color):c(color){}
-    virtual vec3 value(float u, float v, const vec3 &p)const;
+    virtual vec3 value(float u, float v, const vec3 &p) const{return c;}
 
     inline const vec3 color() const {return c;}
 };

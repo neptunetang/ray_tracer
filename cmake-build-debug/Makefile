@@ -231,33 +231,6 @@ constant_medium.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.s
 .PHONY : constant_medium.cpp.s
 
-constant_texture.o: constant_texture.cpp.o
-
-.PHONY : constant_texture.o
-
-# target to build an object file
-constant_texture.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.o
-.PHONY : constant_texture.cpp.o
-
-constant_texture.i: constant_texture.cpp.i
-
-.PHONY : constant_texture.i
-
-# target to preprocess a source file
-constant_texture.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.i
-.PHONY : constant_texture.cpp.i
-
-constant_texture.s: constant_texture.cpp.s
-
-.PHONY : constant_texture.s
-
-# target to generate assembly for a file
-constant_texture.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_texture.cpp.s
-.PHONY : constant_texture.cpp.s
-
 dielectric.o: dielectric.cpp.o
 
 .PHONY : dielectric.o
@@ -284,87 +257,6 @@ dielectric.s: dielectric.cpp.s
 dielectric.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
 .PHONY : dielectric.cpp.s
-
-diffuse_light.o: diffuse_light.cpp.o
-
-.PHONY : diffuse_light.o
-
-# target to build an object file
-diffuse_light.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.o
-.PHONY : diffuse_light.cpp.o
-
-diffuse_light.i: diffuse_light.cpp.i
-
-.PHONY : diffuse_light.i
-
-# target to preprocess a source file
-diffuse_light.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.i
-.PHONY : diffuse_light.cpp.i
-
-diffuse_light.s: diffuse_light.cpp.s
-
-.PHONY : diffuse_light.s
-
-# target to generate assembly for a file
-diffuse_light.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/diffuse_light.cpp.s
-.PHONY : diffuse_light.cpp.s
-
-hitable.o: hitable.cpp.o
-
-.PHONY : hitable.o
-
-# target to build an object file
-hitable.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable.cpp.o
-.PHONY : hitable.cpp.o
-
-hitable.i: hitable.cpp.i
-
-.PHONY : hitable.i
-
-# target to preprocess a source file
-hitable.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable.cpp.i
-.PHONY : hitable.cpp.i
-
-hitable.s: hitable.cpp.s
-
-.PHONY : hitable.s
-
-# target to generate assembly for a file
-hitable.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable.cpp.s
-.PHONY : hitable.cpp.s
-
-hitable_list.o: hitable_list.cpp.o
-
-.PHONY : hitable_list.o
-
-# target to build an object file
-hitable_list.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.o
-.PHONY : hitable_list.cpp.o
-
-hitable_list.i: hitable_list.cpp.i
-
-.PHONY : hitable_list.i
-
-# target to preprocess a source file
-hitable_list.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.i
-.PHONY : hitable_list.cpp.i
-
-hitable_list.s: hitable_list.cpp.s
-
-.PHONY : hitable_list.s
-
-# target to generate assembly for a file
-hitable_list.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/hitable_list.cpp.s
-.PHONY : hitable_list.cpp.s
 
 image_texture.o: image_texture.cpp.o
 
@@ -555,33 +447,6 @@ perlin.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s
 .PHONY : perlin.cpp.s
 
-ray.o: ray.cpp.o
-
-.PHONY : ray.o
-
-# target to build an object file
-ray.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/ray.cpp.o
-.PHONY : ray.cpp.o
-
-ray.i: ray.cpp.i
-
-.PHONY : ray.i
-
-# target to preprocess a source file
-ray.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/ray.cpp.i
-.PHONY : ray.cpp.i
-
-ray.s: ray.cpp.s
-
-.PHONY : ray.s
-
-# target to generate assembly for a file
-ray.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/ray.cpp.s
-.PHONY : ray.cpp.s
-
 rectangle.o: rectangle.cpp.o
 
 .PHONY : rectangle.o
@@ -663,33 +528,6 @@ sphere.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s
 .PHONY : sphere.cpp.s
 
-texture.o: texture.cpp.o
-
-.PHONY : texture.o
-
-# target to build an object file
-texture.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.o
-.PHONY : texture.cpp.o
-
-texture.i: texture.cpp.i
-
-.PHONY : texture.i
-
-# target to preprocess a source file
-texture.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.i
-.PHONY : texture.cpp.i
-
-texture.s: texture.cpp.s
-
-.PHONY : texture.s
-
-# target to generate assembly for a file
-texture.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/texture.cpp.s
-.PHONY : texture.cpp.s
-
 triangle.o: triangle.cpp.o
 
 .PHONY : triangle.o
@@ -765,21 +603,9 @@ help:
 	@echo "... constant_medium.o"
 	@echo "... constant_medium.i"
 	@echo "... constant_medium.s"
-	@echo "... constant_texture.o"
-	@echo "... constant_texture.i"
-	@echo "... constant_texture.s"
 	@echo "... dielectric.o"
 	@echo "... dielectric.i"
 	@echo "... dielectric.s"
-	@echo "... diffuse_light.o"
-	@echo "... diffuse_light.i"
-	@echo "... diffuse_light.s"
-	@echo "... hitable.o"
-	@echo "... hitable.i"
-	@echo "... hitable.s"
-	@echo "... hitable_list.o"
-	@echo "... hitable_list.i"
-	@echo "... hitable_list.s"
 	@echo "... image_texture.o"
 	@echo "... image_texture.i"
 	@echo "... image_texture.s"
@@ -801,9 +627,6 @@ help:
 	@echo "... perlin.o"
 	@echo "... perlin.i"
 	@echo "... perlin.s"
-	@echo "... ray.o"
-	@echo "... ray.i"
-	@echo "... ray.s"
 	@echo "... rectangle.o"
 	@echo "... rectangle.i"
 	@echo "... rectangle.s"
@@ -813,9 +636,6 @@ help:
 	@echo "... sphere.o"
 	@echo "... sphere.i"
 	@echo "... sphere.s"
-	@echo "... texture.o"
-	@echo "... texture.i"
-	@echo "... texture.s"
 	@echo "... triangle.o"
 	@echo "... triangle.i"
 	@echo "... triangle.s"

@@ -46,7 +46,7 @@ bool dielectric::scatter(const ray &r_in, const hit_record &rec, vec3 &attenuati
         reflect_prob = 1.0;
     }
 
-    if(drand48() < reflect_prob) {
+    if(random_float() < reflect_prob) {
         scattered = ray(rec.intersection, reflected);
     } else {
         scattered = ray(rec.intersection, refracted);

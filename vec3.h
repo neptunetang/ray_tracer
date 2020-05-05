@@ -30,6 +30,7 @@ public:
     inline float& operator[](int i) {return e[i]; }
 
 
+    inline bool operator==(const vec3 &v);
     inline vec3& operator+=(const vec3 &v);
     inline vec3& operator-=(const vec3 &v);
     inline vec3& operator/=(const vec3 &v);

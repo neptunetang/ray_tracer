@@ -12,16 +12,18 @@
 class diffuse_light :public material{
 public:
     texture* emit;
+    float strength;
 
-    diffuse_light(texture *t) : emit(t){}
+    diffuse_light(texture *t, float s) : emit(t), strength(s){}
     virtual bool scatter(const ray& in, const hit_record& rec, vec3& attenuation, ray& scattered)
     const {
         return false;
     }
 
-    virtual vec3 emitted(float u, float v, const vec3& p) const {
+    virtual vec3 emitted(float u, float v, const vec3& p, vec3& attenuation) const {
         //for light emitting material
-        return emit->value(u,v,p);
+        attenuation = emit->value(u,v,p);
+        return emit->value(u,v,p) * strength;
     }
 };
 

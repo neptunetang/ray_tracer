@@ -47,6 +47,8 @@ material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
 texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
+common_method.h
+/home/neptune/Documents/cg/ray_tracer/common_method.h
 
 /home/neptune/Documents/cg/ray_tracer/diffuse.h
 material.h
@@ -83,6 +85,12 @@ texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
+
+/home/neptune/Documents/cg/ray_tracer/light.h
+ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 
 /home/neptune/Documents/cg/ray_tracer/main.cpp
 common_method.h
@@ -127,6 +135,8 @@ constant_medium.h
 /home/neptune/Documents/cg/ray_tracer/constant_medium.h
 object_loader.h
 /home/neptune/Documents/cg/ray_tracer/object_loader.h
+light.h
+/home/neptune/Documents/cg/ray_tracer/light.h
 iostream
 -
 fstream
