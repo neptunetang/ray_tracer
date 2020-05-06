@@ -31,6 +31,7 @@ public:
 
 
     inline bool operator==(const vec3 &v);
+    inline bool operator<(const vec3 &v);
     inline vec3& operator+=(const vec3 &v);
     inline vec3& operator-=(const vec3 &v);
     inline vec3& operator/=(const vec3 &v);

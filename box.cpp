@@ -12,7 +12,7 @@ box::box(const vec3 &p0, const vec3 &p1, material *mat) {
     int i=0;
     list[i++] = new xy_rect(p0.x(), p1.x(), p0.y(), p1.y(), p1.z(), mat);
     list[i++] = new flip_face(new xy_rect(p0.x(), p1.x(), p0.y(), p1.y(), p0.z(), mat));
-    list[i++] = new xz_rect(p0.x(), p1.x(), p0.z(), p1.z(), p1.y(), mat);
+    list[i++] = new flip_face(new xz_rect(p0.x(), p1.x(), p0.z(), p1.z(), p1.y(), mat));
     list[i++] = new flip_face(new xz_rect(p0.x(), p1.x(), p0.z(), p1.z(), p0.y(), mat));
     list[i++] = new yz_rect(p0.y(), p1.y(), p0.z(), p1.z(), p1.x(), mat);
     list[i++] = new flip_face(new yz_rect(p0.y(), p1.y(), p0.z(), p1.z(), p0.x(), mat));

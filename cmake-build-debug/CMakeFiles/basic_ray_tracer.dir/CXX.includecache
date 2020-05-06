@@ -92,6 +92,10 @@ ray.h
 hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 
+/home/neptune/Documents/cg/ray_tracer/light_list.h
+light.h
+/home/neptune/Documents/cg/ray_tracer/light.h
+
 /home/neptune/Documents/cg/ray_tracer/main.cpp
 common_method.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
@@ -137,6 +141,8 @@ object_loader.h
 /home/neptune/Documents/cg/ray_tracer/object_loader.h
 light.h
 /home/neptune/Documents/cg/ray_tracer/light.h
+light_list.h
+/home/neptune/Documents/cg/ray_tracer/light_list.h
 iostream
 -
 fstream

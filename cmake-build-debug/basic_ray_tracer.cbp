@@ -147,6 +147,9 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light_list.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/main.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>

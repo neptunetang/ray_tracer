@@ -23,7 +23,7 @@ public:
     virtual vec3 emitted(float u, float v, const vec3& p, vec3& attenuation) const {
         //for light emitting material
         attenuation = emit->value(u,v,p);
-        return emit->value(u,v,p) * strength;
+        return emit->value(u,v,p);
     }
 };
 

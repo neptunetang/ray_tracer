@@ -20,19 +20,43 @@
 #include "constant_medium.h"
 #include "object_loader.h"
 #include "light.h"
+#include "light_list.h"
 #include <iostream>
 #include<fstream>
 
-vec3 color_under_light(vec3 intersection, light light_source){
-    float distance = (intersection-light_source.position).length();
-    float max_distance = light_source.position.length()*light_source.strength;
-    if(distance > max_distance)
-        return vec3(0,0,0);
+vec3 color_under_light(vec3 intersection, light light_source, const hitable* world){
+    vec3 light_ray = intersection-light_source.position;
+    vec3 light_dir = light_source.point_at-light_source.position;
+
+    float distance = light_ray.length();
+    float max_distance = light_source.strength;
+
+    auto cos_theta = dot(light_ray, light_dir)/(light_ray.length()*light_dir.length());
+    float theta;
+    if(static_cast<int>(cos_theta) == 1)
+        theta = 0;
     else
-        return light_source.color*(1-distance/max_distance);
+        theta = acos(cos_theta);
+
+    hit_record tmp;
+    ray l(light_source.position, light_ray);
+    if(world->is_hit(l, 0.0001, MAXFLOAT, tmp)){
+        //cout << -tmp.intersection.x() << " " << -tmp.intersection.y() << " " << -tmp.intersection.z() << endl;
+        //cout << light_ray.x() << " " << light_ray.y() << " " << light_ray.z() << endl;
+        if(!(tmp.intersection == intersection))
+            return vec3(0,0,0);
+    }
+
+    if(distance > max_distance || theta > light_source.angle*M_PI/360) {
+        return vec3(0, 0, 0);
+    } else{
+        auto division = theta/(light_source.angle*M_PI/360);
+        return light_source.color*(1-division);
+    }
+
 }
 
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source) {
+vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light_list light_source) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
@@ -40,27 +64,25 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         ray scattered;
         vec3 attenuation;
         vec3 light_effect(0,0,0);
-        //vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, attenuation);
-        vec3 light_dir = rec.intersection-light_source.position;
-        ray from_light(rec.intersection, light_dir);
-        hit_record tmp;
-        if(!world->is_hit(from_light, 0.0001, MAXFLOAT,tmp)){
-            light_effect = color_under_light(rec.intersection, light_source);
+        vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, attenuation);
+        int size = light_source.size;
+        for(int i=0; i<size; i++){
+            light_effect += color_under_light(rec.intersection, light_source.list[i], world);
         }
         if(rec.mat->scatter(r, rec, attenuation, scattered)){
-            return light_effect+attenuation*color(scattered, background, world, depth-1, light_source);
+            return emitted+light_effect+attenuation*color(scattered, background, world, depth-1, light_source);
         } else {
-            return vec3(0,0,0);
+            return emitted+light_effect;
         }
     }
     return background;
 }
 
 void run(int scene){
-    int width=500, height=500;
-    int sample_per_pixel = 100;
+    int width=400, height=400;
+    int sample_per_pixel = 10;
     int max_depth = 4;
-    ofstream img ("e.ppm");
+    ofstream img ("9.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -96,10 +118,13 @@ void run(int scene){
 
 
     vec3 light_point;
+    vec3 light_to;
+    float angle;
     vec3 light_color;
     float light_strength;
 
-    light point_light;
+    light* point_lights;
+    light_list lights;
 
     switch(scene){
         case 1 :
@@ -165,28 +190,51 @@ void run(int scene){
             i = 0;
             list[i++] = new flip_face(new yz_rect(0,555,0,555,555, new diffuse(new constant_texture(vec3(0.6,0.3,0.3)))));
             list[i++] = new yz_rect(0,555,0,555,0, new diffuse(new constant_texture(vec3(0.5,0.1,0.5))));
-            list[i++] = new xz_rect(0,555,0,555,0, white);
+            list[i++] = new xz_rect(0,555,0,555,0, new metal(new constant_texture(vec3(1,1,0)),0.0));
             list[i++] = new flip_face(new xz_rect(0,555,0,555,555, white));
-            list[i++] = new flip_face(new xy_rect(0,555,0,555,555, white));
-            //list[i++] = new xz_rect(113,443,127,432,554, new diffuse_light(new constant_texture(vec3(0.5,0.7,0.2)), 10));
+            //list[i++] = new xz_rect(0,555,0,555,200, white);
+            //list[i++] = new xz_rect(0,555,0,555,201, white);
+            list[i++] = new xy_rect(0,555,0,555,555, white);
+            //list[i++] = new sphere(vec3(400,554,400), 10, new diffuse_light(new constant_texture(vec3(0,1,0)), 1));
 
-            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
-            box1 = new rotate_y(box1, 15);
-            list[i++] = new translate(box1, vec3(265,0,295));
+//            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
+//            box1 = new rotate_y(box1, 15);
+//            list[i++] = new translate(box1, vec3(265,0,295));
 
-            box2 = new box(vec3(0,0,0), vec3(165,165,165), white);
-            box2 = new rotate_y(box2, -18);
-            list[i++] = new translate(box2, vec3(130,0,65));
+            //list[i++] = new sphere(vec3(300,50,300),50, new metal(new constant_texture(vec3(1,0,0)),0.0));
+
+//            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
+//            box2 = new rotate_y(box2, -18);
+//            list[i++] = new translate(box2, vec3(195,0,65));
 
             look_from = vec3(278, 278, -800);
             look_at = vec3(278,278,0);
 
+
+            point_lights = new light[3];
+
             light_point = vec3(250, 554, 250);
-            light_color = vec3(0.4,0.6,0.3);
-            light_strength = 1;
+            light_to = vec3(250,1,250);
+            angle = 45;
+            light_color = vec3(0,1,0);
+            light_strength = 700;
+            point_lights[0] = light(light_point, light_color, light_strength, light_to, angle);
 
-            point_light = light(light_point, light_color, light_strength);
+            light_point = vec3(250, 554, 250);
+            light_to = vec3(200,1,400);
+            angle = 30;
+            light_color = vec3(0,1,0);
+            light_strength = 700;
+            point_lights[1] = light(light_point, light_color, light_strength, light_to, angle);
 
+            light_point = vec3(250, 554, 250);
+            light_to = vec3(400,1,300);
+            angle = 30;
+            light_color = vec3(0,0,1);
+            light_strength = 700;
+            point_lights[2] = light(light_point, light_color, light_strength, light_to, angle);
+
+            lights = light_list(point_lights, 1);
             world = new hitable_list(list, i);
             break;
 
@@ -279,11 +327,6 @@ void run(int scene){
 
     }
 
-
-
-
-
-
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,1.0);
 
     for (int j = height-1; j >= 0; j--) {
@@ -293,7 +336,7 @@ void run(int scene){
                 auto u = double(i+random_float()) / width;
                 auto v = double(j+random_float()) / height;
                 ray r2 = cam.get_ray(u,v);
-                col += color(r2, background, world, max_depth, point_light);
+                col += color(r2, background, world, max_depth, lights);
             }
 
             col /= float(sample_per_pixel);
@@ -302,6 +345,9 @@ void run(int scene){
             int ir = static_cast<int>(255.999 * col[0]);
             int ig = static_cast<int>(255.999 * col[1]);
             int ib = static_cast<int>(255.999 * col[2]);
+            if(ir<0 || ig < 0 || ib < 0){
+                cout << "error!" << endl;
+            }
             img << ir << ' ' << ig << ' ' << ib << endl;
         }
     }

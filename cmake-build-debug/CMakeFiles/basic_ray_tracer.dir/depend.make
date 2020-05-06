@@ -68,6 +68,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../image.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../image_texture.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../isotropic.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../light.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../light_list.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../main.cpp
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h

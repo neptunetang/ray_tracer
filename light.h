@@ -11,10 +11,12 @@
 class light{
 public:
     vec3 position;
+    vec3 point_at;
+    float angle;
     vec3 color;
     float strength;
     light() = default;
-    light(vec3 p, vec3 c, float s):position(p), color(c), strength(s){}
+    light(vec3 p, vec3 c, float s, vec3 d, float a):position(p), color(c), strength(s), point_at(d), angle(a){}
 };
 
 
