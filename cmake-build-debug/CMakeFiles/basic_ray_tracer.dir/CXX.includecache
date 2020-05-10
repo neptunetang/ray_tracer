@@ -91,6 +91,8 @@ ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
 hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
+vector
+-
 
 /home/neptune/Documents/cg/ray_tracer/light_list.h
 light.h

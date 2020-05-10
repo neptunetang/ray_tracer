@@ -8,15 +8,29 @@
 #include "ray.h"
 #include "hitable.h"
 
+#include <vector>
+
+struct light_rec {
+    vec3 color;
+    vec3 position;
+};
+
 class light{
 public:
-    vec3 position;
-    vec3 point_at;
-    float angle;
+    vector<light_rec> light_path;
+    sphere area;
     vec3 color;
     float intensity;
     light() = default;
-    light(vec3 p, vec3 c, float s, vec3 d, float a): position(p), color(c), intensity(s), point_at(d), angle(a){}
+    light(sphere shape, vec3 c, float s): area(shape), color(c), intensity(s){}
+
+    void save_light_rec(vec3 color, vec3 position){
+        light_rec rec;
+        rec.color = color;
+        rec.position = position;
+        light_path.push_back(rec);
+        //cout << "save the rec color:" << color.x() << " "<< color.y() << " " << color.z() << " " << "intersection:" << position.x()<< " " << position.y()<< " " << position.z()<< endl;
+    }
 };
 
 
