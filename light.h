@@ -14,9 +14,9 @@ public:
     vec3 point_at;
     float angle;
     vec3 color;
-    float strength;
+    float intensity;
     light() = default;
-    light(vec3 p, vec3 c, float s, vec3 d, float a):position(p), color(c), strength(s), point_at(d), angle(a){}
+    light(vec3 p, vec3 c, float s, vec3 d, float a): position(p), color(c), intensity(s), point_at(d), angle(a){}
 };
 
 

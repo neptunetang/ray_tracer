@@ -27,6 +27,13 @@ public:
         return true;
     }
 
+    virtual float scatter_pdf(
+            const ray& r_in, const hit_record& rec, const ray& scattered
+    ) const {
+        auto cosine = dot(rec.normal, unit_vec(scattered.direction()));
+        return cosine < 0 ? 0 : cosine/M_PI;
+    }
+
 public:
     texture* albedo;
 };
