@@ -153,6 +153,8 @@ fstream
 /home/neptune/Documents/cg/ray_tracer/material.h
 hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
+common_method.h
+/home/neptune/Documents/cg/ray_tracer/common_method.h
 
 /home/neptune/Documents/cg/ray_tracer/metal.h
 material.h

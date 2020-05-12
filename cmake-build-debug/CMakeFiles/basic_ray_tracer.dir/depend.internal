@@ -4,6 +4,7 @@
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o
  /home/neptune/Documents/cg/ray_tracer/box.cpp
  /home/neptune/Documents/cg/ray_tracer/box.h
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/hitable_list.h
  /home/neptune/Documents/cg/ray_tracer/material.h
@@ -87,6 +88,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/material.cpp
  /home/neptune/Documents/cg/ray_tracer/material.h
@@ -94,6 +96,7 @@ CMakeFiles/basic_ray_tracer.dir/material.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/metal.cpp
@@ -126,6 +129,7 @@ CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/ray.h

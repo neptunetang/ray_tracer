@@ -17,13 +17,13 @@ public:
     ) const{
         vec3 scatter_direction = rec.normal + random_in_unit_sphere();
         scattered = ray(rec.intersection, scatter_direction,r_in.time());
-        auto cos_theta = dot(-r_in.direction(), rec.normal)/r_in.direction().length()*rec.normal.length();
-        auto theta = acos(cos_theta);
-        attenuation = (1.5-2*theta/M_PI)*albedo->value(rec.u,rec.v,rec.intersection);
-        if(static_cast<int>(cos_theta) == 1){
-            attenuation = albedo->value(rec.u,rec.v,rec.intersection);
-        }
-    //attenuation = albedo->value(rec.u, rec.v, rec.intersection);
+//        auto cos_theta = dot(-r_in.direction(), rec.normal)/r_in.direction().length()*rec.normal.length();
+//        auto theta = acos(cos_theta);
+//        attenuation = (1.5-2*theta/M_PI)*albedo->value(rec.u,rec.v,rec.intersection);
+//        if(static_cast<int>(cos_theta) == 1){
+//            attenuation = albedo->value(rec.u,rec.v,rec.intersection);
+//        }
+        attenuation = albedo->value(rec.u, rec.v, rec.intersection);
         return true;
     }
 

@@ -6,6 +6,7 @@
 #define BASIC_RAY_TRACER_MATERIAL_H
 
 #include "hitable.h"
+#include "common_method.h"
 
 class material {
 public:
@@ -24,6 +25,7 @@ public:
 };
 
 vec3 random_in_unit_sphere();
+vec3 random_on_unit_sphere();
 vec3 reflect(const vec3& in, const vec3 &n);
 
 

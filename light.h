@@ -10,26 +10,17 @@
 
 #include <vector>
 
-struct light_rec {
-    vec3 color;
-    vec3 position;
-};
-
 class light{
 public:
-    vector<light_rec> light_path;
+    vector<vector<hit_record>> light_path;
     sphere area;
     vec3 color;
     float intensity;
     light() = default;
     light(sphere shape, vec3 c, float s): area(shape), color(c), intensity(s){}
 
-    void save_light_rec(vec3 color, vec3 position){
-        light_rec rec;
-        rec.color = color;
-        rec.position = position;
-        light_path.push_back(rec);
-        //cout << "save the rec color:" << color.x() << " "<< color.y() << " " << color.z() << " " << "intersection:" << position.x()<< " " << position.y()<< " " << position.z()<< endl;
+    void save_light_rec(vector<hit_record> positions){
+        light_path.push_back(positions);
     }
 };
 
