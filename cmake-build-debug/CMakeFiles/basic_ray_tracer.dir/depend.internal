@@ -76,6 +76,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/moving_sphere.h
  /home/neptune/Documents/cg/ray_tracer/noise_texture.h
  /home/neptune/Documents/cg/ray_tracer/object_loader.h
+ /home/neptune/Documents/cg/ray_tracer/orthnormal_base.h
  /home/neptune/Documents/cg/ray_tracer/perlin.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/rectangle.h
@@ -87,6 +88,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
  /home/neptune/Documents/cg/ray_tracer/material.cpp
  /home/neptune/Documents/cg/ray_tracer/material.h
@@ -116,6 +118,12 @@ CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o
  /home/neptune/Documents/cg/ray_tracer/perlin.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/texture.h
+ /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+ /home/neptune/Documents/cg/ray_tracer/vec3.h
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/orthnormal_base.cpp
+ /home/neptune/Documents/cg/ray_tracer/orthnormal_base.h
+ /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o

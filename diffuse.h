@@ -7,23 +7,22 @@
 
 #include "material.h"
 #include "texture.h"
+#include "orthnormal_base.h"
 
 class diffuse : public material {
 public:
     diffuse(texture *t) : albedo(t) {}
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered
+            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf
     ) const{
-        vec3 scatter_direction = rec.normal + random_in_unit_sphere();
-        scattered = ray(rec.intersection, scatter_direction,r_in.time());
-        auto cos_theta = dot(-r_in.direction(), rec.normal)/r_in.direction().length()*rec.normal.length();
-        auto theta = acos(cos_theta);
-        attenuation = (1.5-2*theta/M_PI)*albedo->value(rec.u,rec.v,rec.intersection);
-        if(static_cast<int>(cos_theta) == 1){
-            attenuation = albedo->value(rec.u,rec.v,rec.intersection);
-        }
-    //attenuation = albedo->value(rec.u, rec.v, rec.intersection);
+        orthonormal_base onb;
+        onb.build_from_w(rec.normal);
+        //vec3 scatter_direction = rec.normal+random_in_unit_sphere();
+        vec3 scatter_direction = onb.local(random_cosine_direction());
+        scattered = ray(rec.intersection, unit_vec(scatter_direction), r_in.time());
+        attenuation = albedo->value(rec.u, rec.v, rec.intersection);
+        pdf = dot(onb.w(), scattered.direction())/M_PI;
         return true;
     }
 

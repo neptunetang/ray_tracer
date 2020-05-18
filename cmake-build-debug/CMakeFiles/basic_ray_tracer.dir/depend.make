@@ -75,6 +75,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../moving_sphere.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../noise_texture.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../object_loader.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../orthnormal_base.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../perlin.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../rectangle.h
@@ -86,6 +87,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../translate.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../vec3.h
 
+CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.cpp
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.h
@@ -117,6 +119,12 @@ CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../texture.h
 CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o: ../vec3.h
+
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o: ../orthnormal_base.cpp
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o: ../orthnormal_base.h
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o: ../ray.h
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o: ../vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../perlin.cpp

@@ -55,6 +55,8 @@ material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
 texture.h
 /home/neptune/Documents/cg/ray_tracer/texture.h
+orthnormal_base.h
+/home/neptune/Documents/cg/ray_tracer/orthnormal_base.h
 
 /home/neptune/Documents/cg/ray_tracer/diffuse_light.h
 material.h
@@ -177,6 +179,10 @@ vector
 -
 common_method.h
 /home/neptune/Documents/cg/ray_tracer/common_method.h
+ray.h
+/home/neptune/Documents/cg/ray_tracer/ray.h
+
+/home/neptune/Documents/cg/ray_tracer/orthnormal_base.h
 ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
 

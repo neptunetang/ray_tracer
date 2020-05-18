@@ -180,6 +180,12 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/object_loader.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/orthnormal_base.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/orthnormal_base.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>

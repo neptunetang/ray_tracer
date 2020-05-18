@@ -420,6 +420,33 @@ noise_texture.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.s
 .PHONY : noise_texture.cpp.s
 
+orthnormal_base.o: orthnormal_base.cpp.o
+
+.PHONY : orthnormal_base.o
+
+# target to build an object file
+orthnormal_base.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o
+.PHONY : orthnormal_base.cpp.o
+
+orthnormal_base.i: orthnormal_base.cpp.i
+
+.PHONY : orthnormal_base.i
+
+# target to preprocess a source file
+orthnormal_base.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.i
+.PHONY : orthnormal_base.cpp.i
+
+orthnormal_base.s: orthnormal_base.cpp.s
+
+.PHONY : orthnormal_base.s
+
+# target to generate assembly for a file
+orthnormal_base.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.s
+.PHONY : orthnormal_base.cpp.s
+
 perlin.o: perlin.cpp.o
 
 .PHONY : perlin.o
@@ -624,6 +651,9 @@ help:
 	@echo "... noise_texture.o"
 	@echo "... noise_texture.i"
 	@echo "... noise_texture.s"
+	@echo "... orthnormal_base.o"
+	@echo "... orthnormal_base.i"
+	@echo "... orthnormal_base.s"
 	@echo "... perlin.o"
 	@echo "... perlin.i"
 	@echo "... perlin.s"
