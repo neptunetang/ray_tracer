@@ -70,7 +70,6 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o
  /home/neptune/Documents/cg/ray_tracer/image_texture.h
  /home/neptune/Documents/cg/ray_tracer/isotropic.h
  /home/neptune/Documents/cg/ray_tracer/light.h
- /home/neptune/Documents/cg/ray_tracer/light_list.h
  /home/neptune/Documents/cg/ray_tracer/main.cpp
  /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/metal.h
@@ -145,7 +144,9 @@ CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.cpp
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o
+ /home/neptune/Documents/cg/ray_tracer/common_method.h
  /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/sphere.cpp
  /home/neptune/Documents/cg/ray_tracer/sphere.h

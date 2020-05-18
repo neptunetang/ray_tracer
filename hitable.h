@@ -15,7 +15,7 @@ struct hit_record{
     material *mat;
     float u;
     float v;
-    bool front;
+    bool front = true;
 
 inline void set_normal(vec3 dir, vec3 outward_normal){
     front = dot(dir, outward_normal)<0;
@@ -26,7 +26,9 @@ inline void set_normal(vec3 dir, vec3 outward_normal){
 class hitable {
 public:
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const = 0;
-
+    virtual ray random_ray() const {
+        return ray();
+    }
 };
 
 

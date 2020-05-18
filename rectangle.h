@@ -22,7 +22,6 @@ public:
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const {
         if (!ptr->is_hit(r, t_min, t_max, rec))
             return false;
-
         rec.front = !rec.front;
         return true;
     }
@@ -38,6 +37,7 @@ public:
     xy_rect(float _x0, float _x1, float _y0, float _y1, float _k, material *m):
             p0(_x0), p1(_x1), q0(_y0), q1(_y1),k(_k), mat(m){};
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const;
+    virtual ray random_ray() const;
 };
 
 class xz_rect : public rectangle {
@@ -47,6 +47,7 @@ public:
     xz_rect(float _x0, float _x1, float _z0, float _z1, float _k, material *m):
             p0(_x0), p1(_x1), q0(_z0), q1(_z1),k(_k), mat(m){};
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const;
+    virtual ray random_ray() const;
 };
 
 class yz_rect : public rectangle {
@@ -56,6 +57,7 @@ public:
     yz_rect(float _y0, float _y1, float _z0, float _z1, float _k, material *m):
             p0(_y0), p1(_y1), q0(_z0), q1(_z1),k(_k), mat(m){};
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const;
+    virtual ray random_ray() const;
 };
 
 
