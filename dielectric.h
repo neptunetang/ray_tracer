@@ -17,7 +17,7 @@ public:
 
     dielectric(double ri) : ref_idx(ri) {}
 
-    virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const;
+    virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf) const;
 };
 
 

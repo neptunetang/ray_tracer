@@ -12,7 +12,7 @@ class material {
 public:
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered
+            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf
     ) const = 0;
 
     virtual vec3 emitted(ray in, float u, float v, const vec3& p, hit_record rec) const {

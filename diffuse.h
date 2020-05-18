@@ -13,11 +13,12 @@ public:
     diffuse(texture *t) : albedo(t) {}
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered
+            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double &pdf
     ) const{
         vec3 scatter_direction = rec.normal + random_in_unit_sphere();
         scattered = ray(rec.intersection, scatter_direction,r_in.time());
         attenuation = albedo->value(rec.u, rec.v, rec.intersection);
+        pdf = dot(rec.normal, scattered.direction()) / M_PI;
         return true;
     }
 

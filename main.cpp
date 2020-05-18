@@ -35,7 +35,8 @@ void shooting_rays(const ray& r, const hitable* world, int depth, light& light_s
         //cout << "hit something" << endl;
         ray scattered;
         vec3 attenuation;
-        if(rec.mat->scatter(r, rec, attenuation, scattered)) {
+        double pdf;
+        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
             //cout << "rec:" << rec.intersection.x() << "  " << rec.intersection.y() << "  " << rec.intersection.z() << endl;
             light_path.push_back(rec);
             return shooting_rays(scattered, world, depth - 1, light_source, light_path);
@@ -63,50 +64,59 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
     if(world->is_hit(r,0.0001, MAXFLOAT, rec)){
         ray scattered;
         vec3 attenuation;
+        double pdf;
         vec3 emitted = rec.mat->emitted(r, rec.u, rec.v, rec.intersection, rec);
-        if(rec.mat->scatter(r, rec, attenuation, scattered)){
-            float p = random_float(0,1);
-            if(false){
-                int depth_of_light = 2;
-                create_path(light_source, 10, depth_of_light, world);
-                //cout << "sample finish" << endl;
-                int useful_path = 0;
-                vec3 final_attenuation(0,0,0);
-                for(int i=0; i<light_source.light_path.size(); i++) {
-                    for (int j = depth_of_light - 1; j >= 0; j--) {
-                        vec3 dir = rec.intersection - light_source.light_path[i][j].intersection;
-                        ray connection(rec.intersection, dir);
-                        hit_record tmp;
-                        if (!world->is_hit(connection, 0.0001, MAXFLOAT, tmp)) {
-                            useful_path++;
-                            hit_record current_path = light_source.light_path[i][j];
-                            vec3 new_attenuation;
-                            rec.mat->scatter(connection, current_path, new_attenuation, scattered);
-                            for (int k = j; k > 0; k--) {
-                                vec3 current_attenuation;
-                                ray current_path(light_source.light_path[i][k].intersection,
-                                                 light_source.light_path[i][k].intersection -
-                                                 light_source.light_path[i][k - 1].intersection);
-                                rec.mat->scatter(current_path, light_source.light_path[i][k - 1], current_attenuation,
-                                                 scattered);
-                                //cout << "current_attenuation: " << current_attenuation.x() << "  " << current_attenuation.y() << "  " << current_attenuation.z() << endl;
-                                new_attenuation *= current_attenuation;
-                            }
 
-                            attenuation *= new_attenuation;
-                            final_attenuation += attenuation;
+        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
+            float p = random_float(0, 1);
 
-                            //cout << "attenuation: " << attenuation.x() << "  " << attenuation.y() << "  " << attenuation.z() << endl;
+            if(depth == 1){
+            int depth_of_light = 2;
+            create_path(light_source, 10, depth_of_light, world);
+            //cout << "sample finish" << endl;
+            int useful_path = 0;
+            vec3 final_attenuation(0, 0, 0);
+            for (int i = 0; i < light_source.light_path.size(); i++) {
+                for (int j = depth_of_light - 1; j >= 0; j--) {
+                    vec3 dir = rec.intersection - light_source.light_path[i][j].intersection;
+                    ray connection(rec.intersection, dir);
+                    hit_record tmp;
+                    if (!world->is_hit(connection, 0.0001, MAXFLOAT, tmp)) {
+                        useful_path++;
+                        hit_record current_rec = light_source.light_path[i][j];
+                        vec3 new_attenuation;
+                        double connect_pdf;
+                        current_rec.mat->scatter(connection, current_rec, new_attenuation, scattered, connect_pdf);
+                        for (int k = j; k > 1; k--) {
+                            vec3 current_attenuation;
+                            double current_pdf;
+                            current_rec = light_source.light_path[i][k-1];
+                            ray current_path(light_source.light_path[i][k].intersection,
+                                             light_source.light_path[i][k].intersection -
+                                             light_source.light_path[i][k - 1].intersection);
+                            ray next_path(light_source.light_path[i][k-1].intersection,
+                                          light_source.light_path[i][k-1].intersection -
+                                          light_source.light_path[i][k-2].intersection);
+                            current_rec.mat->scatter(current_path, current_rec, current_attenuation, scattered, pdf);
+                            //cout << "current_attenuation: " << current_attenuation.x() << "  " << current_attenuation.y() << "  " << current_attenuation.z() << endl;
+                            new_attenuation *= current_rec.mat->scatter_pdf(current_path, current_rec, next_path)*current_attenuation/pdf;
                         }
+
+                        attenuation *= new_attenuation;
+                        final_attenuation += attenuation;
+
+                        //cout << "attenuation: " << attenuation.x() << "  " << attenuation.y() << "  " << attenuation.z() << endl;
                     }
                 }
-                //cout << "connecting finish, useful path:" << useful_path <<endl;
-                if(useful_path != 0)
-                    final_attenuation /= useful_path;
-                //cout << "final_attenuation: " << final_attenuation.x() << "  " << final_attenuation.y() << "  " << final_attenuation.z() << endl;
-                return final_attenuation*light_source.color;
             }
-            return emitted+attenuation*color(scattered, background, world, depth-1, light_source);
+            //cout << "connecting finish, useful path:" << useful_path <<endl;
+            if (useful_path != 0)
+                final_attenuation /= useful_path;
+            //cout << "final_attenuation: " << final_attenuation.x() << "  " << final_attenuation.y() << "  " << final_attenuation.z() << endl;
+            return final_attenuation * light_source.color;
+        }
+
+            return emitted+attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source)/pdf;
 
 
         } else {
@@ -119,7 +129,7 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
 
 void run(int scene){
     int width=500, height=500;
-    int sample_per_pixel = 40;
+    int sample_per_pixel = 10;
     int max_depth = 3;
     ofstream img ("m.ppm");
     img << "P3" << endl;
