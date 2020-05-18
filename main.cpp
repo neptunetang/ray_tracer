@@ -32,6 +32,8 @@
 #include <atomic>
 #include <condition_variable>
 
+
+
 void shooting_rays(const ray& r, const hitable* world, int depth, light& light_source, vector<hit_record>& light_path){
     //cout << "shooting!" << endl;
     if (depth <= 0){
@@ -108,7 +110,7 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
                                           light_source.light_path[i][k-2].intersection);
                             current_rec.mat->scatter(current_path, current_rec, current_attenuation, scattered, pdf);
                             //cout << "current_attenuation: " << current_attenuation.x() << "  " << current_attenuation.y() << "  " << current_attenuation.z() << endl;
-                            new_attenuation *= current_rec.mat->scatter_pdf(current_path, current_rec, next_path)*current_attenuation/pdf;
+                            new_attenuation *= current_attenuation;
                         }
 
                         attenuation *= new_attenuation;
@@ -125,7 +127,7 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
             return final_attenuation * light_source.color;
         }
 
-            return emitted+attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source)/pdf;
+            return emitted+attenuation*color(scattered, background, world, depth-1, light_source);
 
 
         } else {
@@ -147,7 +149,7 @@ struct BlockJob
     std::vector<vec3> colors;
 };
 
-void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int ny, camera cam, hitable* world, light light_source,
+void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height, camera cam, hitable* world, light light_source,
                     std::mutex& mutex, std::condition_variable& cv, std::atomic<int>& completedThreads)
 {
     for (int j = job.rowStart; j < job.rowEnd; ++j) {
@@ -155,14 +157,14 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int ny, ca
             vec3 col(0, 0, 0);
             for (int s = 0; s < job.spp; ++s) {
                 float u = float(i + random_float()) / float(job.colSize);
-                float v = float(j + random_float()) / float(ny);
+                float v = float(j + random_float()) / float(height);
                 ray r = cam.get_ray(u, v);
                 col += color(r, vec3(0,0,0), world, 3, light_source);
             }
             col /= float(job.spp);
             col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 
-            const unsigned int index = j * job.colSize + i;
+            const unsigned int index = (height-j-1) * job.colSize + i;
             job.indices.push_back(index);
             job.colors.push_back(col);
         }
@@ -474,7 +476,7 @@ void run(int scene){
 
 
 
-    for (unsigned int i = 0; i < width * height; ++i)
+    for (unsigned int i = 0; i < width*height; i++)
     {
 
         img

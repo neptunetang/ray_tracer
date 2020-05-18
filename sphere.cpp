@@ -19,6 +19,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
             rec.mat = mat;
+            rec.front = true;
             get_sphere_uv((rec.intersection-center)/radius, rec.u, rec.v);
             return true;
         }
@@ -28,6 +29,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
             rec.intersection = r.point_at(rec.t);
             rec.normal = (rec.intersection - center) / radius;
             rec.mat = mat;
+            rec.front = true;
             get_sphere_uv((rec.intersection-center)/radius, rec.u, rec.v);
             return true;
         }
