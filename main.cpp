@@ -21,7 +21,16 @@
 #include "object_loader.h"
 #include "light.h"
 #include <iostream>
-#include<fstream>
+#include <fstream>
+
+#include <chrono>
+#include <string>
+
+#include <thread>
+#include <vector>
+#include <mutex>
+#include <atomic>
+#include <condition_variable>
 
 void shooting_rays(const ray& r, const hitable* world, int depth, light& light_source, vector<hit_record>& light_path){
     //cout << "shooting!" << endl;
@@ -126,16 +135,59 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
     return background;
 }
 
+std::mutex writeM;
+
+struct BlockJob
+{
+    int rowStart;
+    int rowEnd;
+    int colSize;
+    int spp;
+    std::vector<int> indices;
+    std::vector<vec3> colors;
+};
+
+void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int ny, camera cam, hitable* world, light light_source,
+                    std::mutex& mutex, std::condition_variable& cv, std::atomic<int>& completedThreads)
+{
+    for (int j = job.rowStart; j < job.rowEnd; ++j) {
+        for (int i = 0; i < job.colSize; ++i) {
+            vec3 col(0, 0, 0);
+            for (int s = 0; s < job.spp; ++s) {
+                float u = float(i + random_float()) / float(job.colSize);
+                float v = float(j + random_float()) / float(ny);
+                ray r = cam.get_ray(u, v);
+                col += color(r, vec3(0,0,0), world, 3, light_source);
+            }
+            col /= float(job.spp);
+            col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
+
+            const unsigned int index = j * job.colSize + i;
+            job.indices.push_back(index);
+            job.colors.push_back(col);
+        }
+    }
+
+    {
+        std::lock_guard<std::mutex> lock(mutex);
+        imageBlocks.push_back(job);
+        completedThreads++;
+        cv.notify_one();
+    }
+}
 
 void run(int scene){
     int width=500, height=500;
-    int sample_per_pixel = 10;
+    int sample_per_pixel = 100;
+    int pixelCount = width * height;
     int max_depth = 3;
     ofstream img ("m.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
     const vec3 background(0,0,0);
+    vec3* image = new vec3[pixelCount];
+    memset(&image[0], 0, pixelCount * sizeof(vec3));
 
     material* white = new diffuse(new constant_texture(vec3(1,1,1)));
 
@@ -365,34 +417,76 @@ void run(int scene){
 
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,0.0);
 
-    for (int j = height-1; j >= 0; j--) {
-        for (int i = 0; i < width; i++) {
-            vec3 col(0,0,0);
-            for(int s = 0; s < sample_per_pixel; s++){
-                auto u = double(i+random_float()) / width;
-                auto v = double(j+random_float()) / height;
-                ray r2 = cam.get_ray(u,v);
-                col += color(r2, background, world, max_depth, light_area);
-            }
+    auto fulltime = std::chrono::high_resolution_clock::now();
 
-            col /= float(sample_per_pixel);
-            if(col[0]<0)
-                col[0] = 0;
-            if(col[1]<0)
-                col[1] = 0;
-            if(col[2]<0)
-                col[2] = 0;
-            col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
+    const int nThreads = std::thread::hardware_concurrency();
+    int rowsPerThread = height / nThreads;
+    int leftOver = height % nThreads;
 
-            int ir = static_cast<int>(255.999 * col[0]);
-            int ig = static_cast<int>(255.999 * col[1]);
-            int ib = static_cast<int>(255.999 * col[2]);
-            if(ir<0 || ig < 0 || ib < 0){
-                //cout << "error!" << endl;
-            }
-            img << ir << ' ' << ig << ' ' << ib << endl;
+    std::mutex mutex;
+    std::condition_variable cvResults;
+    std::vector<BlockJob> imageBlocks;
+    std::atomic<int> completedThreads = { 0 };
+    std::vector<std::thread> threads;
+
+    for (int i = 0; i < nThreads; ++i)
+    {
+        BlockJob job;
+        job.rowStart = i * rowsPerThread;
+        job.rowEnd = job.rowStart + rowsPerThread;
+        if (i == nThreads - 1)
+        {
+            job.rowEnd = job.rowStart + rowsPerThread + leftOver;
+        }
+        job.colSize = width;
+        job.spp = sample_per_pixel;
+
+        std::thread t([job, &imageBlocks, height, &cam, &world, &light_area, &mutex, &cvResults, &completedThreads]() {
+            CalculateColor(job, imageBlocks, height, cam, world, light_area, mutex, cvResults, completedThreads);
+        });
+        threads.push_back(std::move(t));
+    }
+
+
+    {
+        std::unique_lock<std::mutex> lock(mutex);
+        cvResults.wait(lock, [&completedThreads, &nThreads] {
+            return completedThreads == nThreads;
+        });
+    }
+
+    for (std::thread& t : threads)
+    {
+        t.join();
+    }
+
+    for (BlockJob job : imageBlocks)
+    {
+        int index = job.rowStart;
+        int colorIndex = 0;
+        for (vec3& col : job.colors)
+        {
+            int colIndex = job.indices[colorIndex];
+            image[colIndex] = col;
+            ++colorIndex;
         }
     }
+
+
+
+    for (unsigned int i = 0; i < width * height; ++i)
+    {
+
+        img
+                << static_cast<int>(255.99f * image[i].e[0]) << " "
+                << static_cast<int>(255.99f * image[i].e[1]) << " "
+                << static_cast<int>(255.99f * image[i].e[2]) << "\n";
+    }
+    auto timeSpan = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - fulltime);
+    int frameTimeMs = static_cast<int>(timeSpan.count());
+    std::cout << " - time " << frameTimeMs << " ms \n";
+    std::cout << "File Saved" << std::endl;
+    delete[] image;
 }
 
 int main() {
