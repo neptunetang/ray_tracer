@@ -22,6 +22,7 @@
 #include "light.h"
 #include <iostream>
 #include<fstream>
+#include <chrono>
 
 void shooting_rays(const ray& r, const hitable* world, int depth, light& light_source, vector<hit_record>& light_path){
     //cout << "shooting!" << endl;
@@ -66,7 +67,7 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         vec3 emitted = rec.mat->emitted(r, rec.u, rec.v, rec.intersection, rec);
         if(rec.mat->scatter(r, rec, attenuation, scattered)){
             float p = random_float(0,1);
-            if(false){
+            if(depth==1){
                 int depth_of_light = 2;
                 create_path(light_source, 10, depth_of_light, world);
                 //cout << "sample finish" << endl;
@@ -119,7 +120,7 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
 
 void run(int scene){
     int width=500, height=500;
-    int sample_per_pixel = 40;
+    int sample_per_pixel = 100;
     int max_depth = 3;
     ofstream img ("m.ppm");
     img << "P3" << endl;
@@ -354,7 +355,7 @@ void run(int scene){
     }
 
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,0.0);
-
+    auto fulltime = std::chrono::high_resolution_clock::now();
     for (int j = height-1; j >= 0; j--) {
         for (int i = 0; i < width; i++) {
             vec3 col(0,0,0);
@@ -383,6 +384,9 @@ void run(int scene){
             img << ir << ' ' << ig << ' ' << ib << endl;
         }
     }
+    auto timeSpan = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - fulltime);
+    int frameTimeMs = static_cast<int>(timeSpan.count());
+    std::cout << " - time " << frameTimeMs << " ms \n";
 }
 
 int main() {

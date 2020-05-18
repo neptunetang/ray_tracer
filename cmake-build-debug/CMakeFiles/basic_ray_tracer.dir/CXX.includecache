@@ -137,6 +137,8 @@ iostream
 -
 fstream
 -
+chrono
+-
 
 /home/neptune/Documents/cg/ray_tracer/material.h
 hitable.h
