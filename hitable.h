@@ -15,6 +15,7 @@ struct hit_record{
     material *mat;
     float u;
     float v;
+    vec3 color = vec3(0,0,0);
     bool front = true;
 
 inline void set_normal(vec3 dir, vec3 outward_normal){

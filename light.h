@@ -22,10 +22,6 @@ public:
     void save_light_rec(vector<hit_record> positions){
         light_path.push_back(positions);
     }
-
-    ray random_ray(){
-
-    }
 };
 
 

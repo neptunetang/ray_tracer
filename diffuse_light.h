@@ -17,7 +17,7 @@ public:
         return false;
     }
 
-    virtual vec3 emitted(ray in, float u, float v, const vec3& p, hit_record rec) const {
+    virtual vec3 emitted(float u, float v, const vec3& p, hit_record rec) const {
         //for light emitting material
         if (rec.front) {
             return emit->value(u, v, p);

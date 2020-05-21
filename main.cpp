@@ -32,111 +32,6 @@
 #include <atomic>
 #include <condition_variable>
 
-
-
-void shooting_rays(const ray& r, const hitable* world, int depth, light& light_source, vector<hit_record>& light_path){
-    //cout << "shooting!" << endl;
-    if (depth <= 0){
-        light_source.save_light_rec(light_path);
-        return;
-    }
-
-    hit_record rec;
-    if(world->is_hit(r,0.0001, MAXFLOAT, rec)) {
-        //cout << "hit something" << endl;
-        ray scattered;
-        vec3 attenuation;
-        double pdf;
-        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
-            //cout << "rec:" << rec.intersection.x() << "  " << rec.intersection.y() << "  " << rec.intersection.z() << endl;
-            light_path.push_back(rec);
-            return shooting_rays(scattered, world, depth - 1, light_source, light_path);
-        } else if(depth == 2){
-            ray origin(rec.intersection, r.direction());
-            return shooting_rays(origin, world, depth, light_source, light_path);
-        }
-    }
-}
-
-void create_path(light& light_source, int sample_per_light, int depth, const hitable* world){
-    //cout << "sampling" << endl;
-    for(int i=0; i<sample_per_light; i++){
-        vector<hit_record> light_path;
-        shooting_rays(light_source.area->random_ray(), world, depth, light_source, light_path);
-        //cout << "center:" << light_area.center.x() << " " << light_area.center.y() << " " << light_area.center.z() << endl;
-        //cout << "direction:" << dir.x() << " " << dir.y() << " " << dir.z() << endl;
-    }
-}
-
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source) {
-    if (depth <= 0)
-        return vec3(0,0,0);
-    hit_record rec;
-    if(world->is_hit(r,0.0001, MAXFLOAT, rec)){
-        ray scattered;
-        vec3 attenuation;
-        double pdf;
-        vec3 emitted = rec.mat->emitted(r, rec.u, rec.v, rec.intersection, rec);
-
-        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
-            float p = random_float(0, 1);
-
-            if(depth == 1){
-            int depth_of_light = 2;
-            create_path(light_source, 10, depth_of_light, world);
-            //cout << "sample finish" << endl;
-            int useful_path = 0;
-            vec3 final_attenuation(0, 0, 0);
-            for (int i = 0; i < light_source.light_path.size(); i++) {
-                for (int j = depth_of_light - 1; j >= 0; j--) {
-                    vec3 dir = rec.intersection - light_source.light_path[i][j].intersection;
-                    ray connection(rec.intersection, dir);
-                    hit_record tmp;
-                    if (!world->is_hit(connection, 0.0001, MAXFLOAT, tmp)) {
-                        useful_path++;
-                        hit_record current_rec = light_source.light_path[i][j];
-                        vec3 new_attenuation;
-                        double connect_pdf;
-                        current_rec.mat->scatter(connection, current_rec, new_attenuation, scattered, connect_pdf);
-                        for (int k = j; k > 1; k--) {
-                            vec3 current_attenuation;
-                            double current_pdf;
-                            current_rec = light_source.light_path[i][k-1];
-                            ray current_path(light_source.light_path[i][k].intersection,
-                                             light_source.light_path[i][k].intersection -
-                                             light_source.light_path[i][k - 1].intersection);
-                            ray next_path(light_source.light_path[i][k-1].intersection,
-                                          light_source.light_path[i][k-1].intersection -
-                                          light_source.light_path[i][k-2].intersection);
-                            current_rec.mat->scatter(current_path, current_rec, current_attenuation, scattered, pdf);
-                            //cout << "current_attenuation: " << current_attenuation.x() << "  " << current_attenuation.y() << "  " << current_attenuation.z() << endl;
-                            new_attenuation *= current_attenuation;
-                        }
-
-                        attenuation *= new_attenuation;
-                        final_attenuation += attenuation;
-
-                        //cout << "attenuation: " << attenuation.x() << "  " << attenuation.y() << "  " << attenuation.z() << endl;
-                    }
-                }
-            }
-            //cout << "connecting finish, useful path:" << useful_path <<endl;
-            if (useful_path != 0)
-                final_attenuation /= useful_path;
-            //cout << "final_attenuation: " << final_attenuation.x() << "  " << final_attenuation.y() << "  " << final_attenuation.z() << endl;
-            return final_attenuation * light_source.color;
-        }
-
-            return emitted+attenuation*color(scattered, background, world, depth-1, light_source);
-
-
-        } else {
-            return emitted;
-        }
-    }
-    return background;
-}
-
 std::mutex writeM;
 
 struct BlockJob
@@ -148,10 +43,101 @@ struct BlockJob
     std::vector<int> indices;
     std::vector<vec3> colors;
 };
+void create_light_path(ray r, hitable* world, int depth, light light_source, vector<hit_record> &light_path){
+    if (depth <= 0){
+        return;
+    }
+    hit_record rec;
+    double pdf;
+    ray scattered;
+    if(world->is_hit(r, 0.0001, MAXFLOAT, rec)){
+        if(rec.mat->scatter(r, rec, rec.color, scattered, pdf)){
+            light_path.push_back(rec);
+            return create_light_path(scattered, world, depth-1, light_source, light_path);
+        } else if (depth == 1) {
+            r = ray(rec.intersection, r.direction());
+            return create_light_path(r, world, depth, light_source, light_path);
+        }
+    }
+}
+
+
+void create_cam_path(ray r, hitable* world, int depth, vector<hit_record> &cam_path){
+    if (depth <= 0){
+        return;
+    }
+    hit_record rec;
+    double pdf;
+    ray scattered;
+    if(world->is_hit(r, 0.0001, MAXFLOAT, rec)){
+        if(rec.mat->scatter(r, rec, rec.color, scattered, pdf)) {
+            cam_path.push_back(rec);
+            return create_cam_path(scattered, world, depth - 1, cam_path);
+        } else {
+            rec.color = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
+            cam_path.push_back(rec);
+        }
+    }
+}
+
+vec3 color(vec3 background, hitable* world, light light_source, vector<hit_record> light_path, vector<hit_record> cam_path) {
+    float all;
+    float weight;
+    vec3 final_color = background;
+    vec3 step_color;
+    hit_record rec;
+    for (int i = 0; i < cam_path.size(); i++) {
+        weight = 2;
+        step_color = cam_path[0].color;
+        double pdf;
+        vec3 col;
+        ray scattered;
+        if (!cam_path[0].mat->scatter(ray(), rec, col, scattered, pdf)) {
+            //cout << "on the light" << endl;
+            return step_color;
+        }
+        for (int m = 1; m <= i; m++) {
+            weight++;
+            if (!cam_path[m].mat->scatter(ray(), rec, col, scattered, pdf)) {
+                step_color *= cam_path[m].color;
+                return step_color/weight;
+            }
+            step_color *= cam_path[m].color;
+            final_color += step_color / (weight + 1.f);
+            all += weight;
+        }
+        //cout << light_path.size() << endl;
+        for (int j = 0; j < light_path.size(); j++) {
+            int new_weight = weight+1;
+            //cout << "weight before" << weight << endl;
+            ray connection(cam_path[i].intersection, light_path[i].intersection - cam_path[i].intersection);
+            //cout << "enter" << endl;
+            if (world->is_hit(connection, 0.0001, MAXFLOAT, rec)) {
+                //cout << rec.intersection << endl;
+                if (rec.intersection == light_path[i].intersection) {
+                    step_color *= light_source.color;
+                    for (int k = j; k >= 0; k--) {
+                        step_color *= light_path[k].color/2;
+                        new_weight++;
+                    }
+                    final_color += (step_color/(new_weight+1.f));
+
+                    all += new_weight;
+                }
+            }
+        }
+        //final_color += step_color/weight;
+    }
+//
+    all /= 40;
+    return final_color*(1-all);
+
+}
 
 void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height, camera cam, hitable* world, light light_source,
                     std::mutex& mutex, std::condition_variable& cv, std::atomic<int>& completedThreads)
 {
+    int max_depth = 5;
     for (int j = job.rowStart; j < job.rowEnd; ++j) {
         for (int i = 0; i < job.colSize; ++i) {
             vec3 col(0, 0, 0);
@@ -159,7 +145,11 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
                 float u = float(i + random_float()) / float(job.colSize);
                 float v = float(j + random_float()) / float(height);
                 ray r = cam.get_ray(u, v);
-                col += color(r, vec3(0,0,0), world, 3, light_source);
+                vector<hit_record> light_path;
+                vector<hit_record> cam_path;
+                create_light_path(light_source.area->random_ray(), world, 1, light_source, light_path);
+                create_cam_path(r, world, 4, cam_path);
+                col += color(vec3(0,0,0), world, light_source, light_path, cam_path);
             }
             col /= float(job.spp);
             col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
@@ -180,10 +170,9 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
 
 void run(int scene){
     int width=500, height=500;
-    int sample_per_pixel = 100;
+    int sample_per_pixel = 10;
     int pixelCount = width * height;
-    int max_depth = 3;
-    ofstream img ("m.ppm");
+    ofstream img ("10bdpt4dc1dllighthalf.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -299,17 +288,17 @@ void run(int scene){
             //list[i++] = new sphere(vec3(400,554,400), 10, new diffuse_light(new constant_texture(vec3(0,1,0))));
 
 
-            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
-            list[i++] = new yz_rect(200,350,200,350,350, white);
-            list[i++] = new xy_rect(200,350,200,350,200, white);
-            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
-            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
-
-            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
-            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
-                    vec3(1,1,1), 10);
-//            light_area = light(new xz_rect(150,400,150,400,300,new diffuse_light(new constant_texture(vec3(5,5,5)))),vec3(1,1,1), 10 );
-//            list[i++] = new xz_rect(150,400,150,400,300,new diffuse_light(new constant_texture(vec3(5,5,5))));
+//            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
+//            list[i++] = new yz_rect(200,350,200,350,350, white);
+//            list[i++] = new xy_rect(200,350,200,350,200, white);
+//            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
+//            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
+//
+//            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
+//            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
+//                    vec3(10,10,10), 10);
+            light_area = light(new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5)))),vec3(1,1,1), 10 );
+            list[i++] = new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5))));
 
 //            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
 //            box1 = new rotate_y(box1, 15);
@@ -321,6 +310,8 @@ void run(int scene){
 //            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
 //            box2 = new rotate_y(box2, -18);
 //            list[i++] = new translate(box2, vec3(195,0,65));
+
+//list[i++] = new sphere(vec3(250,100,250), 100, white);
 
             look_from = vec3(278, 278, -800);
             look_at = vec3(278,278,0);
