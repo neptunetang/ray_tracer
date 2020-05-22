@@ -80,7 +80,7 @@ void create_cam_path(ray r, hitable* world, int depth, vector<hit_record> &cam_p
     }
 }
 
-vec3 color(vec3 background, hitable* world, light light_source, vector<hit_record> light_path, vector<hit_record> cam_path) {
+vec3 color(vec3 background, hitable* world, light light_source, vector<hit_record> light_path, vector<hit_record> cam_path, vec3 light_origin) {
     float all;
     float weight;
     vec3 final_color = background;
@@ -106,6 +106,15 @@ vec3 color(vec3 background, hitable* world, light light_source, vector<hit_recor
             final_color += step_color / (weight + 1.f);
             all += weight;
         }
+
+        ray connection(cam_path[i].intersection, light_origin - cam_path[i].intersection);
+        if(world->is_hit(connection, 0.0001, MAXFLOAT, rec)){
+            if(rec.intersection == light_origin){
+                auto color = step_color*light_source.color;
+                final_color += color/(weight+1.f);
+            }
+        }
+
         //cout << light_path.size() << endl;
         for (int j = 0; j < light_path.size(); j++) {
             int new_weight = weight+1;
@@ -130,7 +139,11 @@ vec3 color(vec3 background, hitable* world, light light_source, vector<hit_recor
     }
 //
     all /= 40;
-    return final_color*(1-all);
+    auto c = vec3(1,1,1) - all*vec3(1,1,1);
+    if(c < vec3(0,0,0)){
+        c = vec3(0,0,0);
+    }
+    return final_color*c;
 
 }
 
@@ -147,9 +160,10 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
                 ray r = cam.get_ray(u, v);
                 vector<hit_record> light_path;
                 vector<hit_record> cam_path;
-                create_light_path(light_source.area->random_ray(), world, 1, light_source, light_path);
+                ray start = light_source.area->random_ray();
+                create_light_path(start, world, 2, light_source, light_path);
                 create_cam_path(r, world, 4, cam_path);
-                col += color(vec3(0,0,0), world, light_source, light_path, cam_path);
+                col += color(vec3(0,0,0), world, light_source, light_path, cam_path, start.origin_point());
             }
             col /= float(job.spp);
             col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
@@ -170,9 +184,9 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
 
 void run(int scene){
     int width=500, height=500;
-    int sample_per_pixel = 10;
+    int sample_per_pixel = 100;
     int pixelCount = width * height;
-    ofstream img ("10bdpt4dc1dllighthalf.ppm");
+    ofstream img ("10bdpt4dc1dllighthalf1.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -288,17 +302,17 @@ void run(int scene){
             //list[i++] = new sphere(vec3(400,554,400), 10, new diffuse_light(new constant_texture(vec3(0,1,0))));
 
 
-//            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
-//            list[i++] = new yz_rect(200,350,200,350,350, white);
-//            list[i++] = new xy_rect(200,350,200,350,200, white);
-//            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
-//            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
-//
-//            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
-//            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
-//                    vec3(10,10,10), 10);
-            light_area = light(new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5)))),vec3(1,1,1), 10 );
-            list[i++] = new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5))));
+            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
+            list[i++] = new yz_rect(200,350,200,350,350, white);
+            list[i++] = new xy_rect(200,350,200,350,200, white);
+            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
+            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
+
+            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(20,20,20))));
+            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(20,20,20)))),
+                    vec3(20,20,20), 10);
+//            light_area = light(new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5)))),vec3(1,1,1), 10 );
+//            list[i++] = new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5))));
 
 //            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
 //            box1 = new rotate_y(box1, 15);
