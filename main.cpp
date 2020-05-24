@@ -162,7 +162,7 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
                 vector<hit_record> cam_path;
                 ray start = light_source.area->random_ray();
                 create_light_path(start, world, 2, light_source, light_path);
-                create_cam_path(r, world, 4, cam_path);
+                create_cam_path(r, world, 5, cam_path);
                 col += color(vec3(0,0,0), world, light_source, light_path, cam_path, start.origin_point());
             }
             col /= float(job.spp);
@@ -186,7 +186,7 @@ void run(int scene){
     int width=500, height=500;
     int sample_per_pixel = 100;
     int pixelCount = width * height;
-    ofstream img ("10bdpt4dc1dllighthalf1.ppm");
+    ofstream img ("100bdptboxlight.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -307,12 +307,12 @@ void run(int scene){
             list[i++] = new xy_rect(200,350,200,350,200, white);
             list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
             list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
-
+//
             list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(20,20,20))));
             light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(20,20,20)))),
                     vec3(20,20,20), 10);
-//            light_area = light(new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5)))),vec3(1,1,1), 10 );
-//            list[i++] = new xz_rect(200,400,200,400,275,new diffuse_light(new constant_texture(vec3(5,5,5))));
+//            light_area = light(new flip_face(new xz_rect(200,400,200,400,554,new diffuse_light(new constant_texture(vec3(5,5,5))))),vec3(1,1,1), 10 );
+//            list[i++] = new flip_face(new xz_rect(200,400,200,400,554,new diffuse_light(new constant_texture(vec3(5,5,5)))));
 
 //            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
 //            box1 = new rotate_y(box1, 15);
