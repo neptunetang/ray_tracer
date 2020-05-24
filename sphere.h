@@ -6,17 +6,25 @@
 #define BASIC_RAY_TRACER_SPHERE_H
 
 #include "hitable.h"
+#include "material.h"
 #include <cmath>
 
 class sphere :public hitable{
 public:
     vec3 center;
-    float radius{};
+    float radius;
     material *mat;
 
     sphere()= default;
     sphere(vec3 c, float r, material *m) : center(c), radius(r), mat(m) {};
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const;
+    virtual vec3 random_start()const{
+        return unit_vec(random_in_unit_sphere())*radius+center;
+    }
+
+    virtual bool on(vec3 a) const {
+        return ((a-center).length() - radius) <=0.001;
+    }
 };
 
 void get_sphere_uv(const vec3 intersection, float& u, float& v);

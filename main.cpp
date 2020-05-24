@@ -24,7 +24,28 @@
 #include <iostream>
 #include<fstream>
 
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light_list light_source) {
+vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_in){
+    vec3 emitted = vec3(0,0,0);
+    vec3 solid_angle = vec3(0,0,0);
+    vec3 sample_light_point = light_source.start();
+    ray connection(rec.intersection, sample_light_point-rec.intersection);
+    hit_record tmp;
+    if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
+        //counter++;
+        if(light_source.on_light(tmp.intersection)){
+            emitted = light_source.color;
+
+            solid_angle = (dot(tmp.normal,-(sample_light_point-rec.intersection))*sample_light_point)/((sample_light_point-rec.intersection).squared_length());
+            if(solid_angle<vec3(0,0,0))
+                solid_angle = vec3(0,0,0);
+        }
+    }
+    //cout << emitted*rec.mat->scatter_pdf(r_in ,rec, connection)*solid_angle << endl;
+    return emitted*rec.mat->scatter_pdf(r_in ,rec, connection)*solid_angle;
+
+}
+
+vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
@@ -32,39 +53,25 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         ray scattered;
         vec3 attenuation;
         double pdf;
-        vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, attenuation);
-        if(!rec.mat->scatter(r, rec, attenuation, scattered, pdf)){
-            return emitted;
+        vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
+        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)){
+            if(rec.mat->type() == 'n')
+                return attenuation*color(scattered, background, world, depth-1, light_source, rec.mat->type());
+            return attenuation*nne(rec, world, light_source, r)/4 + attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type())/pdf;
+        } else if(previous_type == 'n'){
+            return emitted/2;
         }
-//        auto on_light = vec3(random_float(213,343), 554, random_float(227,332));
-//        auto to_light = on_light-rec.intersection;
-//        auto distance_squared = to_light.squared_length();
-//        to_light.make_unit();
-//        cout << to_light << endl;
-//
-//        if(dot(to_light, rec.normal) < 0)
-//            return emitted;
-//
-//        double light_area = (343-213)*(332-227);
-//        auto light_cosine = fabs(to_light.y());
-//        if(light_cosine < 0.000001)
-//            return emitted;
-//
-//        pdf = distance_squared/(light_cosine*light_area);
-//        //cout << light_cosine*light_area << endl;
-//        //cout << distance_squared << endl;
-//        scattered = ray(rec.intersection, to_light, r.time());
-        cout << attenuation << endl;
-        return emitted+attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source)/pdf;
+        //cout << attenuation << endl;
+
     }
     return background;
 }
 
 void run(int scene){
     int width=400, height=400;
-    int sample_per_pixel = 10;
-    int max_depth = 5;
-    ofstream img ("k.ppm");
+    int sample_per_pixel = 20;
+    int max_depth = 4;
+    ofstream img ("y.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -105,8 +112,7 @@ void run(int scene){
     vec3 light_color;
     float light_strength;
 
-    light* point_lights;
-    light_list lights;
+    light light_area;
 
     switch(scene){
         case 1 :
@@ -177,20 +183,22 @@ void run(int scene){
             //list[i++] = new xz_rect(0,555,0,555,200, white);
             //list[i++] = new xz_rect(0,555,0,555,201, white);
             list[i++] = new xy_rect(0,555,0,555,555, white);
-            //list[i++] = new sphere(vec3(400,554,400), 10, new diffuse_light(new constant_texture(vec3(0,1,0)), 1));
 
-            list[i++] = new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)),10));
+            list[i++] = new sphere(vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10))));
+            light_area = light(new sphere (vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10)))),
+                               vec3(10,10,10), 10);
+            //list[i++] = new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)),10));
 
 //            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
 //            box1 = new rotate_y(box1, 15);
 //            list[i++] = new translate(box1, vec3(265,0,295));
 
-            //list[i++] = new sphere(vec3(300,100,300),100, new metal(new constant_texture(vec3(1,1,1)),0.0));
-//            list[i++] = new sphere(vec3(300,100,300),100, white);
+            list[i++] = new sphere(vec3(300,70,300),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
+            list[i++] = new sphere(vec3(200,70,200),70, white);
 
-            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
-            box2 = new rotate_y(box2, -18);
-            list[i++] = new translate(box2, vec3(195,0,65));
+//            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
+//            box2 = new rotate_y(box2, -18);
+//            list[i++] = new translate(box2, vec3(195,0,65));
 
             look_from = vec3(278, 278, -800);
             look_at = vec3(278,278,0);
@@ -207,7 +215,7 @@ void run(int scene){
             list[i++] = new xz_rect(0,555,0,555,0, white);
             list[i++] = new flip_face(new xz_rect(0,555,0,555,555, white));
             list[i++] = new flip_face(new xy_rect(0,555,0,555,555, new diffuse (new constant_texture(vec3(0.05,0.05,0.73)))));
-            list[i++] = new xz_rect(113,443,127,432,554, new diffuse_light(new constant_texture(vec3(0.5,0.7,0.2)),10));
+            list[i++] = new xz_rect(113,443,127,432,554, new diffuse_light(new constant_texture(vec3(0.5,0.7,0.2))));
 
             box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
             box1 = new rotate_y(box1, 15);
@@ -243,7 +251,7 @@ void run(int scene){
             }
 
             //light emitting rectangle
-            auto light = new diffuse_light(new constant_texture(vec3(7,7,7)), 1);
+            auto light = new diffuse_light(new constant_texture(vec3(7,7,7)));
             list[i++] = new xz_rect(123,423,147,412,554, light);
 
             // moving sphere
@@ -289,32 +297,31 @@ void run(int scene){
 
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,1.0);
 
+
     for (int j = height-1; j >= 0; j--) {
         for (int i = 0; i < width; i++) {
             vec3 col(0,0,0);
+            int useful_sample = 0;
             for(int s = 0; s < sample_per_pixel; s++){
                 auto u = double(i+random_float()) / width;
                 auto v = double(j+random_float()) / height;
                 ray r2 = cam.get_ray(u,v);
-                col += color(r2, background, world, max_depth, lights);
+                vec3 c = color(r2, background, world, max_depth, light_area, 'n');
+                if(isnan(c.r())||isnan(c.g())||isnan(c.b())){
+                    continue;
+                }
+                col += c;
+                useful_sample++;
             }
 
-            col /= float(sample_per_pixel);
-            if(col[0]<0)
-                col[0] = 0;
-            if(col[1]<0)
-                col[1] = 0;
-            if(col[2]<0)
-                col[2] = 0;
+            col /= float(useful_sample);
             col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
 
             int ir = static_cast<int>(255.999 * col[0]);
             int ig = static_cast<int>(255.999 * col[1]);
             int ib = static_cast<int>(255.999 * col[2]);
-            if(ir<0 || ig < 0 || ib < 0){
-                cout << "error!" << endl;
-            }
             img << ir << ' ' << ig << ' ' << ib << endl;
+
         }
     }
 }

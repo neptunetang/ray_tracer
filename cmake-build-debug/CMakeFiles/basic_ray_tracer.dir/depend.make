@@ -149,6 +149,7 @@ CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o: ../vec3.h
 
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../hitable.h
+CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../sphere.cpp
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../sphere.h

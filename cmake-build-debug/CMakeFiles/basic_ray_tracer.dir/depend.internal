@@ -150,6 +150,7 @@ CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o
  /home/neptune/Documents/cg/ray_tracer/vec3.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o
  /home/neptune/Documents/cg/ray_tracer/hitable.h
+ /home/neptune/Documents/cg/ray_tracer/material.h
  /home/neptune/Documents/cg/ray_tracer/ray.h
  /home/neptune/Documents/cg/ray_tracer/sphere.cpp
  /home/neptune/Documents/cg/ray_tracer/sphere.h

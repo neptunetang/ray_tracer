@@ -211,6 +211,8 @@ hitable.h
 /home/neptune/Documents/cg/ray_tracer/sphere.h
 hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
+material.h
+/home/neptune/Documents/cg/ray_tracer/material.h
 cmath
 -
 

@@ -26,6 +26,12 @@ inline void set_normal(vec3 dir, vec3 outward_normal){
 class hitable {
 public:
     virtual bool is_hit(const ray& r, float t_min, float t_max, hit_record& rec) const = 0;
+    virtual vec3 random_start()const {
+        return vec3(0,0,0);
+    };
+    virtual bool on(vec3 a) const{
+        return true;
+    }
 
 };
 

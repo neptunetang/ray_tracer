@@ -9,6 +9,9 @@
 
 class material {
 public:
+    virtual char type(){
+        return 'n';
+    }
 
     virtual bool scatter(
             const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf
@@ -16,7 +19,7 @@ public:
         return false;
     };
 
-    virtual vec3 emitted(float u, float v, const vec3& p, vec3& attenuation) const {
+    virtual vec3 emitted(float u, float v, const vec3& p, hit_record rec) const {
         return vec3(0,0,0);
     }
     virtual float scatter_pdf(const ray& r_in, const hit_record& rec, const ray& scattered
