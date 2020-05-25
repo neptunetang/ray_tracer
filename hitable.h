@@ -16,6 +16,7 @@ struct hit_record{
     float u;
     float v;
     bool front;
+    vec3 color = vec3(0,0,0);
 
 inline void set_normal(vec3 dir, vec3 outward_normal){
     front = dot(dir, outward_normal)<0;
@@ -31,6 +32,9 @@ public:
     };
     virtual bool on(vec3 a) const{
         return true;
+    }
+    virtual ray random_ray() const {
+        return ray();
     }
 
 };

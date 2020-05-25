@@ -45,6 +45,25 @@ struct BlockJob
     std::vector<vec3> colors;
 };
 
+void create_light_path(ray r, hitable* world, int depth, light light_source, vector<hit_record> &light_path){
+    if (depth <= 0){
+        return;
+    }
+    hit_record rec;
+    double pdf;
+    ray scattered;
+    if(world->is_hit(r, 0.0001, MAXFLOAT, rec)){
+        if(rec.mat->scatter(r, rec, rec.color, scattered, pdf)){
+            light_path.push_back(rec);
+            return create_light_path(scattered, world, depth-1, light_source, light_path);
+        } else if (depth == 1) {
+            r = ray(rec.intersection, r.direction());
+            return create_light_path(r, world, depth, light_source, light_path);
+        }
+    }
+}
+
+
 vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_in){
     vec3 emitted = vec3(0,0,0);
     vec3 solid_angle = vec3(0,0,0);
@@ -66,7 +85,7 @@ vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_i
 
 }
 
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type) {
+vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type, vector<hit_record> light_path) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
@@ -76,9 +95,47 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         double pdf;
         vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
         if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)){
-            if(rec.mat->type() == 'n')
-                return attenuation*color(scattered, background, world, depth-1, light_source, rec.mat->type());
-            return attenuation*nne(rec, world, light_source, r)/4 + attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type())/pdf;
+
+            if(rec.mat->type() == 'n'){
+                return attenuation*color(scattered, background, world, depth-1, light_source, rec.mat->type(), light_path);
+            }
+
+            else{
+                vec3 light_contribute = vec3(0,0,0);
+                if(!light_path.empty()){
+                    float useless_weight = 0;
+                    vec3 current_color;
+                    int useful_path = 0;
+                    for(int i=0; i<light_path.size(); i++){
+                        ray connection(rec.intersection, light_path[i].intersection - rec.intersection);
+                        hit_record tmp;
+                        if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
+                            if(tmp.intersection == light_path[i].intersection){
+                                current_color = light_path[i].color;
+                                for(int j=i+1; j<light_path.size(); j++){
+                                    current_color *= light_path[j].color;
+                                }
+                                //cout << "current:" <<current_color << endl;
+                                light_contribute += current_color/float(light_path.size()-i+1);
+                                useful_path++;
+                                //cout << "useful:" << light_contribute << endl;
+                            } else {
+                                useless_weight += 1/(light_path.size()-i+1.f);
+                            }
+                        }
+                    }
+                    if(useful_path != 0)
+                        light_contribute /= float(useful_path);
+                    //cout << weight << endl;
+                    light_contribute *= useless_weight;
+                    //cout << "final:" << light_contribute << endl;
+                }
+
+
+                return attenuation*nne(rec, world, light_source, r)/4 + attenuation*light_contribute +
+                        attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type(), light_path)/pdf;
+
+            }
         } else if(previous_type == 'n'){
             return emitted/2;
         }
@@ -103,7 +160,11 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
                 auto u = double(i+stratum_x+random_float()*0.25) / float(job.colSize);
                 auto v = double(j+stratum_y+random_float()*0.25) / height;
                 ray r = cam.get_ray(u, v);
-                vec3 c = color(r, vec3(0,0,0), world, max_depth, light_source, 'n');
+                vector<hit_record> light_path;
+                vector<hit_record> cam_path;
+                ray start = light_source.area->random_ray();
+                create_light_path(start, world, 2, light_source, light_path);
+                vec3 c = color(r, vec3(0,0,0), world, max_depth, light_source, 'n', light_path);
                 if(isnan(c.r())||isnan(c.g())||isnan(c.b())){
                     continue;
                 }
@@ -132,7 +193,7 @@ void run(int scene){
     int width=400, height=400;
     int sample_per_pixel = 16;
     int pixelCount = width * height;
-    ofstream img ("boxlight_ptnne.ppm");
+    ofstream img ("y2.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -252,8 +313,8 @@ void run(int scene){
             list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
             list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
 
-            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
-            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
+            list[i++] = new sphere(vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10))));
+            light_area = light(new sphere (vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10)))),
                                vec3(10,10,10), 10);
             //list[i++] = new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)),10));
 
@@ -261,8 +322,8 @@ void run(int scene){
 //            box1 = new rotate_y(box1, 15);
 //            list[i++] = new translate(box1, vec3(265,0,295));
 
-            //list[i++] = new sphere(vec3(300,70,300),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
-            list[i++] = new sphere(vec3(200,70,200),70, white);
+            list[i++] = new sphere(vec3(275,70,275),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
+            //list[i++] = new sphere(vec3(200,70,200),70, white);
 
             //list[i++] = new sphere(vec3(300,100,300), 100, new dielectric(1.5));
 
