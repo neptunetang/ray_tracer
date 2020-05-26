@@ -139,6 +139,18 @@ fstream
 -
 chrono
 -
+string
+-
+thread
+-
+vector
+-
+mutex
+-
+atomic
+-
+condition_variable
+-
 
 /home/neptune/Documents/cg/ray_tracer/material.h
 hitable.h

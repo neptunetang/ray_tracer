@@ -6,9 +6,7 @@
 #define BASIC_RAY_TRACER_LIGHT_H
 
 #include "ray.h"
-
-
-#include <vector>
+#include "hitable.h"
 
 class light{
 public:
@@ -23,8 +21,12 @@ public:
         light_path.push_back(positions);
     }
 
-    ray random_ray(){
+    vec3 start(){
+        return area->random_start();
+    }
 
+    bool on_light(vec3 a){
+        return area->on(a);
     }
 };
 

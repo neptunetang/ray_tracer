@@ -6,16 +6,20 @@
 #define BASIC_RAY_TRACER_MATERIAL_H
 
 #include "hitable.h"
-#include "common_method.h"
 
 class material {
 public:
+    virtual char type(){
+        return 'n';
+    }
 
     virtual bool scatter(
-            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered
-    ) const = 0;
+            const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf
+    ) const{
+        return false;
+    };
 
-    virtual vec3 emitted(ray in, float u, float v, const vec3& p, hit_record rec) const {
+    virtual vec3 emitted(float u, float v, const vec3& p, hit_record rec) const {
         return vec3(0,0,0);
     }
     virtual float scatter_pdf(const ray& r_in, const hit_record& rec, const ray& scattered
@@ -26,6 +30,7 @@ public:
 
 vec3 random_in_unit_sphere();
 vec3 reflect(const vec3& in, const vec3 &n);
+vec3 random_cosine_direction();
 
 
 #endif //BASIC_RAY_TRACER_MATERIAL_H

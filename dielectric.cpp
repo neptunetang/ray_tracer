@@ -22,7 +22,7 @@ float schlick(float cos, float ref_idx) {
     return r0 + (1-r0)*pow((1-cos), 5);
 }
 
-bool dielectric::scatter(const ray &r_in, const hit_record &rec, vec3 &attenuation, ray &scattered) const {
+bool dielectric::scatter(const ray &r_in, const hit_record &rec, vec3 &attenuation, ray &scattered, double& pdf) const {
     attenuation = vec3(1.0,1.0,1.0);
     float ni_over_nt;
     vec3 outward_normal;
