@@ -14,6 +14,11 @@ public:
     texture* emit;
 
     diffuse_light(texture *t) : emit(t){}
+
+    virtual char type(){
+        return 'l';
+    }
+
     virtual bool scatter(const ray& in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf)
     const {
         return false;

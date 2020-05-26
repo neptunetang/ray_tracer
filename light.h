@@ -10,16 +10,12 @@
 
 class light{
 public:
-    vector<vector<hit_record>> light_path;
     hitable* area;
     vec3 color;
     float intensity;
     light() = default;
     light(hitable* shape, vec3 c, float s): area(shape), color(c), intensity(s){}
 
-    void save_light_rec(vector<hit_record> positions){
-        light_path.push_back(positions);
-    }
 
     vec3 start(){
         return area->random_start();

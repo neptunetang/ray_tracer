@@ -16,6 +16,8 @@ struct hit_record{
     float u;
     float v;
     bool front;
+    vec3 color;
+    int index;
 
 inline void set_normal(vec3 dir, vec3 outward_normal){
     front = dot(dir, outward_normal)<0;

@@ -59,6 +59,10 @@ texture.h
 /home/neptune/Documents/cg/ray_tracer/diffuse_light.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
+texture.h
+/home/neptune/Documents/cg/ray_tracer/texture.h
+constant_texture.h
+/home/neptune/Documents/cg/ray_tracer/constant_texture.h
 
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 ray.h
@@ -85,8 +89,8 @@ material.h
 /home/neptune/Documents/cg/ray_tracer/light.h
 ray.h
 /home/neptune/Documents/cg/ray_tracer/ray.h
-vector
--
+hitable.h
+/home/neptune/Documents/cg/ray_tracer/hitable.h
 
 /home/neptune/Documents/cg/ray_tracer/main.cpp
 common_method.h
