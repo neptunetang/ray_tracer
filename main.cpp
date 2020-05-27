@@ -32,6 +32,9 @@
 #include <atomic>
 #include <condition_variable>
 
+int counter = 0;
+int counter1 = 0;
+
 std::mutex writeM;
 
 struct BlockJob
@@ -69,7 +72,7 @@ vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_i
 
 }
 
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type, vector<hit_record> &path, int index = -1) {
+vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type, vector<hit_record> &path, int index = -1, bool nne_flag = false) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
@@ -80,18 +83,28 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
 
         if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
-            if(rec.mat->type() == 'n'){
-            rec.color = attenuation;
-            rec.index = index;
-            path.push_back(rec);
-            return attenuation * color(scattered, background, world, depth - 1, light_source, rec.mat->type(), path);
+
+            if(rec.mat->type() == 'n' || nne_flag == false){
+                rec.color = attenuation;
+                rec.index = index;
+                path.push_back(rec);
+                return attenuation * color(scattered, background, world, depth - 1, light_source, rec.mat->type(), path);
+            }else{
+                rec.color = attenuation;
+                rec.index = index;
+                path.push_back(rec);
+                return attenuation*nne(rec, world, light_source, r)/4 +
+                       attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type(), path)/pdf;
             }
-            return attenuation*nne(rec, world, light_source, r)/4 + attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type(), path)/pdf;
-        } else if(previous_type == 'n'){
+
+        } else {
             rec.color = emitted;
             rec.index = index;
             path.push_back(rec);
-            return emitted;
+            if(previous_type == 'n' && nne_flag == true)
+                return emitted/2;
+            else
+                return emitted;
         }
             //return emitted/2;
 
@@ -113,10 +126,13 @@ vec3 mutate(vector<hit_record> &path, int height, int width, camera cam, hitable
         } else {
             current_index = path[0].index-r;
         }
-    }while(current_index < 0  || current_index >= height*width);
+    }while(current_index < 0  || current_index >= height*width || current_index==path[0].index);
 
     int x = current_index%width;
     int y = current_index/width;
+
+    //cout << "before" << path[0].index%width << " " << path[0].index/width << endl;
+    //cout << x << " "<< y << endl;
 
     auto u = double(x+random_float()) / float(width);
     auto v = double(y+random_float()) / float(height);
@@ -126,8 +142,6 @@ vec3 mutate(vector<hit_record> &path, int height, int width, camera cam, hitable
     double pdf;
     ray scattered;
     if(world->is_hit(r, 0.0001, MAXFLOAT, tmp)){
-        path[0] = tmp;
-        path[0].index = current_index;
         tmp.mat->scatter(r, tmp, path[0].color, scattered, pdf);
         ray connection(tmp.intersection, path[1].intersection - tmp.intersection);
         if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
@@ -136,7 +150,9 @@ vec3 mutate(vector<hit_record> &path, int height, int width, camera cam, hitable
                 for(int i=1; i<path.size(); i++){
                     color *= path[i].color;
                 }
-                //cout << color << endl;
+                path[0] = tmp;
+                path[0].index = current_index;
+                //cout << "success" << endl;
                 return color;
             }
         }
@@ -156,7 +172,6 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
         for (int i = 0; i < job.colSize; ++i) {
             const unsigned int index = (height-j-1) * job.colSize + i;
             vec3 col(0, 0, 0);
-            int useful_sample = 0;
             for (int s = 0; s < job.spp; ++s) {
 
                 int root = int(sqrt(job.spp));
@@ -174,13 +189,14 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                 if(!path.empty()){
                     if(path[0].mat->type() == 'l'){
                         col += c;
-                        useful_sample++;
                         continue;
                     }
 
                     if(luminance(c) > 0.0){
+                        counter1 ++ ;
                         const int numChains = std::floor(random_float() + luminance(c) / (mutation * ed));
-                        const vec3 dep_value = c / luminance(c) * ed / job.spp;
+                        const vec3 dep_value = c / luminance(c) * ed/job.spp;
+                        //cout << luminance(c) << endl;
                         int max_fail_mutate = 0;
                         bool specular = false;
                         for(int k=0; i<path.size(); k++){
@@ -191,7 +207,13 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                         for (int i=0; i<numChains; i++){
                             int current_index = index;
                             double current_f = luminance(c);
-                            double mutated_f = luminance(mutate(path, height, job.colSize, cam, world, light_source));
+                            auto mutated_color = mutate(path, height, job.colSize, cam, world, light_source);
+                            if(mutated_color == vec3(0,0,0)){
+                                max_fail_mutate++;
+                                continue;
+                            }
+                            double mutated_f = luminance(mutated_color);
+
 //                            double mutated_f;
 //                            if(specular && random_float(0,1) < 0.5)
 //                                mutated_f = luminance(c_mutate(path));
@@ -203,7 +225,8 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                             }
                             if(current_index == index){
                                 max_fail_mutate++;
-                            } else if (max_fail_mutate < mutation) {
+                            } else if (max_fail_mutate < 10) {
+                                counter++;
                                 //cout << current_index << endl;
                                 job.indices.push_back(current_index);
                                 job.colors.push_back(dep_value);
@@ -214,11 +237,8 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                     }
                 }
                 col += c;
-                useful_sample++;
             }
-
-            col /= float(useful_sample);
-            col = vec3(sqrt(col[0]), sqrt(col[1]), sqrt(col[2]));
+            //cout << col << endl;
 
             job.indices.push_back(index);
             job.colors.push_back(col);
@@ -235,9 +255,10 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
 
 void run(int scene){
     int width=400, height=400;
-    int sample_per_pixel = 16;
+    int sample_per_pixel = 10;
+    int mutation = 10;
     int pixelCount = width * height;
-    ofstream img ("nne_erpt100&10.ppm");
+    ofstream img ("erpt10&10_boxlight.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -364,9 +385,9 @@ void run(int scene){
 
             //list[i++] = new sphere(vec3(300,100,300), 100, new dielectric(1.5));
 
-            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
-            box2 = new rotate_y(box2, -18);
-            list[i++] = new translate(box2, vec3(195,0,65));
+//            box2 = new box(vec3(0,0,0), vec3(165,100,165), white);
+//            box2 = new rotate_y(box2, -18);
+//            list[i++] = new translate(box2, vec3(195,0,65));
 
             look_from = vec3(278, 278, -800);
             look_at = vec3(278,278,0);
@@ -466,20 +487,22 @@ void run(int scene){
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,1.0);
 
     vec3 sum(0,0,0);
+
     for (int y = 0; y < height; y ++) {
         for (int x = 0; x < width; x ++) {
-
-            auto u = double(x+random_float()) / float(width);
-            auto v = double(y+random_float()) / float(height);
-            ray r = cam.get_ray(u, v);
-            vector<hit_record> path;
-            vec3 c = color(r, vec3(0,0,0), world, 4, light_area, 'n', path);
-            sum = sum + c;
+                auto u = double(x+random_float()) / float(width);
+                auto v = double(y+random_float()) / float(height);
+                ray r = cam.get_ray(u, v);
+                vector<hit_record> path;
+                vec3 c = color(r, vec3(0,0,0), world, 4, light_area, 'n', path);
+                sum += c;
         }
     }
-    int mutation = 100;
-    const double ed = dot(vec3(0.2126, 0.7152, 0.0722), (sum / (width * height))) / mutation;
-    //cout << ed << endl;
+
+
+    const double ed = luminance(sum / (width * height))/mutation;
+    cout << sum << endl;
+    cout << ed << endl;
 
     auto fulltime = std::chrono::high_resolution_clock::now();
 
@@ -526,7 +549,7 @@ void run(int scene){
     for (BlockJob job : imageBlocks){
         int index = job.rowStart;
         int colorIndex = 0;
-        cout << job.colors.size() << endl;
+        //cout << job.colors.size() << endl;
         for (vec3& col : job.colors)
         {
             int colIndex = job.indices[colorIndex];
@@ -539,15 +562,19 @@ void run(int scene){
 
     for (unsigned int i = 0; i < width*height; i++){
 
+        vec3 col = vec3(sqrt(image[i].e[0]/float(sample_per_pixel)), sqrt(image[i].e[1]/float(sample_per_pixel)), sqrt(image[i].e[2]/float(sample_per_pixel)));
+
         img
-                << static_cast<int>(255.99f * image[i].e[0]) << " "
-                << static_cast<int>(255.99f * image[i].e[1]) << " "
-                << static_cast<int>(255.99f * image[i].e[2]) << "\n";
+                << static_cast<int>(255.99f * col.r()) << " "
+                << static_cast<int>(255.99f * col.g()) << " "
+                << static_cast<int>(255.99f * col.b()) << "\n";
     }
     auto timeSpan = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::high_resolution_clock::now() - fulltime);
     int frameTimeMs = static_cast<int>(timeSpan.count());
     std::cout << " - time " << frameTimeMs << " ms \n";
     std::cout << "File Saved" << std::endl;
+    cout << "useful_path" << counter1 << endl;
+    cout << "success mutate" << counter << endl;
     delete[] image;
 
 }
