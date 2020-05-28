@@ -15,8 +15,11 @@ public:
 
     diffuse_light(texture *t) : emit(t){}
 
-    virtual char type(){
-        return 'l';
+    virtual char type(hit_record rec){
+        if(rec.front)
+            return 'l';
+        else
+            return 'd';
     }
 
     virtual bool scatter(const ray& in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf)

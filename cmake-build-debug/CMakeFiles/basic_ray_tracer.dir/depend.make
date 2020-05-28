@@ -3,7 +3,6 @@
 
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../box.cpp
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../box.h
-CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../hitable_list.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../material.h
@@ -75,6 +74,7 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../metal.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../moving_sphere.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../noise_texture.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../object_loader.h
+CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../orthnormal_base.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../perlin.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/main.cpp.o: ../rectangle.h
@@ -94,7 +94,6 @@ CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../vec3.h
 
-CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/metal.cpp.o: ../metal.cpp
@@ -127,7 +126,6 @@ CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.h
 
-CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../ray.h
@@ -143,7 +141,6 @@ CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o: ../rotate.h
 CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o: ../vec3.h
 
-CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../ray.h

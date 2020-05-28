@@ -9,7 +9,7 @@
 
 class material {
 public:
-    virtual char type(){
+    virtual char type(hit_record rec){
         return 'n';
     }
 

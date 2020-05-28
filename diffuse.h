@@ -13,7 +13,7 @@ class diffuse : public material {
 public:
     diffuse(texture *t) : albedo(t) {}
 
-    virtual char type(){
+    virtual char type(hit_record rec){
         return 'd';
     }
 
