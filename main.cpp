@@ -94,48 +94,51 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         vec3 attenuation;
         double pdf;
         vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
-        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)){
+        if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
 
-            if(rec.mat->type() == 'n'){
-                return attenuation*color(scattered, background, world, depth-1, light_source, rec.mat->type(), light_path);
+            if (rec.mat->type() == 'n') {
+                return attenuation *
+                       color(scattered, background, world, depth - 1, light_source, rec.mat->type(), light_path);
+            } else {
+//                vec3 light_contribute = vec3(0,0,0);
+//                if(!light_path.empty()){
+//                    float useless_weight = 0;
+//                    vec3 current_color;
+//                    int useful_path = 0;
+//                    for(int i=0; i<light_path.size(); i++){
+//                        ray connection(rec.intersection, light_path[i].intersection - rec.intersection);
+//                        hit_record tmp;
+//                        if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
+//                            if(tmp.intersection == light_path[i].intersection){
+//                                current_color = light_path[i].color;
+//                                for(int j=i+1; j<light_path.size(); j++){
+//                                    current_color *= light_path[j].color;
+//                                }
+//                                //cout << "current:" <<current_color << endl;
+//                                light_contribute += current_color/float(light_path.size()-i+1);
+//                                useful_path++;
+//                                //cout << "useful:" << light_contribute << endl;
+//                            } else {
+//                                useless_weight += 1/(light_path.size()-i+1.f);
+//                            }
+//                        }
+//                    }
+//                    if(useful_path != 0)
+//                        light_contribute /= float(useful_path);
+//                    //cout << weight << endl;
+//                    light_contribute *= useless_weight;
+//                    //cout << "final:" << light_contribute << endl;
+//                }
+
+
+                return attenuation * nne( rec, world, light_source, r)/4 +
+                        attenuation * rec.mat->scatter_pdf(r, rec, scattered) *
+                        color(scattered, background, world, depth - 1, light_source, rec.mat->type(), light_path) / pdf;
+
             }
-
-            else{
-                vec3 light_contribute = vec3(0,0,0);
-                if(!light_path.empty()){
-                    float useless_weight = 0;
-                    vec3 current_color;
-                    int useful_path = 0;
-                    for(int i=0; i<light_path.size(); i++){
-                        ray connection(rec.intersection, light_path[i].intersection - rec.intersection);
-                        hit_record tmp;
-                        if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
-                            if(tmp.intersection == light_path[i].intersection){
-                                current_color = light_path[i].color;
-                                for(int j=i+1; j<light_path.size(); j++){
-                                    current_color *= light_path[j].color;
-                                }
-                                //cout << "current:" <<current_color << endl;
-                                light_contribute += current_color/float(light_path.size()-i+1);
-                                useful_path++;
-                                //cout << "useful:" << light_contribute << endl;
-                            } else {
-                                useless_weight += 1/(light_path.size()-i+1.f);
-                            }
-                        }
-                    }
-                    if(useful_path != 0)
-                        light_contribute /= float(useful_path);
-                    //cout << weight << endl;
-                    light_contribute *= useless_weight;
-                    //cout << "final:" << light_contribute << endl;
-                }
-
-
-                return attenuation*nne(rec, world, light_source, r)/4 + attenuation*light_contribute +
-                        attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type(), light_path)/pdf;
-
-            }
+//        }else{
+//            return emitted;
+//        }
         } else if(previous_type == 'n'){
             return emitted/2;
         }
@@ -191,9 +194,9 @@ void CalculateColor(BlockJob job, std::vector<BlockJob>& imageBlocks, int height
 
 void run(int scene){
     int width=400, height=400;
-    int sample_per_pixel = 16;
+    int sample_per_pixel = 1000;
     int pixelCount = width * height;
-    ofstream img ("y2.ppm");
+    ofstream img ("nne_16_caustic.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -307,14 +310,14 @@ void run(int scene){
             //list[i++] = new xz_rect(0,555,0,555,201, white);
             list[i++] = new xy_rect(0,555,0,555,555, white);
 
-            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
-            list[i++] = new yz_rect(200,350,200,350,350, white);
-            list[i++] = new xy_rect(200,350,200,350,200, white);
-            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
-            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
+//            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
+//            list[i++] = new yz_rect(200,350,200,350,350, white);
+//            list[i++] = new xy_rect(200,350,200,350,200, white);
+//            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
+//            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
 
-            list[i++] = new sphere(vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10))));
-            light_area = light(new sphere (vec3(275,275,275), 10, new diffuse_light(new constant_texture(vec3(10,10,10)))),
+            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
+            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
                                vec3(10,10,10), 10);
             //list[i++] = new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)),10));
 
@@ -322,8 +325,9 @@ void run(int scene){
 //            box1 = new rotate_y(box1, 15);
 //            list[i++] = new translate(box1, vec3(265,0,295));
 
-            list[i++] = new sphere(vec3(275,70,275),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
+            //list[i++] = new sphere(vec3(275,70,275),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
             //list[i++] = new sphere(vec3(200,70,200),70, white);
+            list[i++] = new sphere(vec3(200, 70, 200), 70, new dielectric(1.5));
 
             //list[i++] = new sphere(vec3(300,100,300), 100, new dielectric(1.5));
 
