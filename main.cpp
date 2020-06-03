@@ -45,42 +45,16 @@ struct BlockJob
     int spp;
     std::vector<int> indices;
     std::vector<vec3> colors;
-    std::vector<int> indices2;
-    std::vector<vec3> colors2;
 };
 
-double luminance(vec3 c){
-//    int r = static_cast<int>(255.99f * c.r());
-//    int g = static_cast<int>(255.99f * c.g());
-//    int b = static_cast<int>(255.99f * c.b());
-    return dot(vec3(0.2126, 0.7152, 0.0722), c);
+double luminance(vec3 c) {
+    int r = static_cast<int>(255.99f * c.r());
+    int g = static_cast<int>(255.99f * c.g());
+    int b = static_cast<int>(255.99f * c.b());
+    auto result = dot(vec3(0.2126, 0.7152, 0.0722), vec3(r, g, b));
+    return result;
 }
-
-vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_in, vector<hit_record> path){
-    vec3 emitted = vec3(0,0,0);
-    vec3 solid_angle = vec3(0,0,0);
-    vec3 sample_light_point = light_source.start();
-    ray connection(rec.intersection, sample_light_point-rec.intersection);
-    hit_record tmp;
-    if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
-        //counter++;
-        if(light_source.on_light(tmp.intersection)){
-            emitted = light_source.color;
-
-            solid_angle = (dot(tmp.normal,-(sample_light_point-rec.intersection))*sample_light_point)/((sample_light_point-rec.intersection).squared_length());
-            if(solid_angle<vec3(0,0,0))
-                solid_angle = vec3(0,0,0);
-            tmp.color = emitted*rec.mat->scatter_pdf(r_in ,rec, connection)*solid_angle;
-            tmp.nne = true;
-            path.push_back(tmp);
-        }
-    }
-    //cout << emitted*rec.mat->scatter_pdf(r_in ,rec, connection)*solid_angle << endl;
-    return emitted*rec.mat->scatter_pdf(r_in ,rec, connection)*solid_angle;
-
-}
-
-vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, char previous_type, vector<hit_record> &path, int index = -1, bool nne_flag = true) {
+vec3 color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source, vector<hit_record> &path, int index = -1, bool nne_flag = true) {
     if (depth <= 0)
         return vec3(0,0,0);
     hit_record rec;
@@ -91,61 +65,40 @@ vec3 color(const ray& r, const vec3& background, const hitable* world, int depth
         vec3 emitted = rec.mat->emitted(rec.u, rec.v, rec.intersection, rec);
 
         if(rec.mat->scatter(r, rec, attenuation, scattered, pdf)) {
-
-            if(rec.mat->type(rec) == 'n' || !nne_flag){
-                rec.color = attenuation;
-                rec.index = index;
-                rec.nne = false;
-                path.push_back(rec);
-                return attenuation * color(scattered, background, world, depth - 1, light_source, rec.mat->type(rec), path);
-            }else{
-                rec.color = attenuation;
-                rec.index = index;
-                rec.nne = false;
-                path.push_back(rec);
-                return attenuation*nne(rec, world, light_source, r, path)/4 + attenuation*rec.mat->scatter_pdf(r, rec, scattered)*color(scattered, background, world, depth-1, light_source, rec.mat->type(rec), path)/pdf;
-            }
-
+            rec.color = attenuation;
+            rec.index = index;
+            path.push_back(rec);
+            return attenuation * color(scattered, background, world, depth - 1, light_source, path);
         } else {
             rec.color = emitted;
             rec.index = index;
-            rec.nne = false;
-
-            if(previous_type == 'n' && nne_flag){
-                rec.color = emitted/2;
-                path.push_back(rec);
-                return emitted/2;
-            }
             path.push_back(rec);
-            //return emitted;
-
+            return emitted;
         }
-            //return emitted/2;
-
-        //}
 
     }
     return background;
 }
 
 vec3 mutate(vector<hit_record> &path, int height, int width, camera cam, hitable* world, light light_source){
-    double r1 = 0.1;
-    double r2 = 0.05*height*width;
-    int current_index;
+    int current_index = path[0].index;
     do{
-        double u = random_float(0,1);
-        int r = floor(r2*exp(-u * log(r2/r1)));
-        if(random_float(0,1) > 0.5){
-            current_index = path[0].index+r/2;
+        if(random_float() > 0.5){
+            current_index += round(random_float(0,5));
         } else {
-            current_index = path[0].index+r/2;
+            current_index -= round(random_float(0,5));
         }
-    }while(current_index < 0  || current_index >= height*width || current_index==path[0].index);
+        if(random_float() > 0.5){
+            current_index += width*round(random_float(0,5));
+        }else {
+            current_index -= width*round(random_float(0,5));
+        }
+    } while(current_index < 0  || current_index >= height*width);
 
     int x = current_index%width;
-    int y = current_index/width;
+    int y = height - current_index/width;
 
-//    cout << "before" << path[0].index%width << " " << path[0].index/width << endl;
+//    cout << "before" << path[0].index%width << " " << height -path[0].index/width << endl;
 //    cout << "changed" << x << " "<< y << endl;
 
     auto u = double(x+random_float()) / float(width);
@@ -155,32 +108,27 @@ vec3 mutate(vector<hit_record> &path, int height, int width, camera cam, hitable
     vec3 color;
     double pdf;
     ray scattered;
-    if(world->is_hit(r, 0.0001, MAXFLOAT, tmp)){
+    if(world->is_hit(r, 0.0001, MAXFLOAT, tmp)) {
         tmp.mat->scatter(r, tmp, path[0].color, scattered, pdf);
         ray connection(tmp.intersection, path[1].intersection - tmp.intersection);
-        if(world->is_hit(connection, 0.0001, MAXFLOAT, tmp)){
-            if(tmp.intersection == path[1].intersection){
+        if (world->is_hit(connection, 0.0001, MAXFLOAT, tmp)) {
+            if (tmp.intersection == path[1].intersection) {
                 color = path[0].color;
-                for(int i=1; i<path.size(); i++){
+                for (int i = 1; i < path.size(); i++) {
                     color *= path[i].color;
                 }
                 path[0] = tmp;
                 path[0].index = current_index;
-                //cout << "success" << endl;
                 return color;
             }
         }
     }
-
-    //cout << "before:" << path[0].index << endl;
-    //cout << current_index << endl;
     return vec3(0,0,0);
 
 }
 
 void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int height, camera cam, hitable* world, light light_source,
-                     std::mutex& mutex, std::condition_variable& cv, std::atomic<int>& completedThreads, const double ed, const int mutation)
-{
+                     std::mutex& mutex, std::condition_variable& cv, std::atomic<int>& completedThreads, const double ed, const int mutation) {
     int max_depth = 4;
     for (int j = job.rowStart; j < job.rowEnd; ++j) {
         for (int i = 0; i < job.colSize; ++i) {
@@ -196,7 +144,7 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                 auto v = double(j+stratum_y+random_float()*0.25) / height;
                 ray r = cam.get_ray(u, v);
                 vector<hit_record> path;
-                vec3 c = color(r, vec3(0,0,0), world, max_depth, light_source, 'n', path, ((height-j-1) * job.colSize + i));
+                vec3 c = color(r, vec3(0,0,0), world, max_depth, light_source, path, ((height-j-1) * job.colSize + i));
                 //cout << "basic color : " << c << endl;
                 if(isnan(c.r())||isnan(c.g())||isnan(c.b())) {
                     continue;
@@ -206,60 +154,44 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                     if(!path.empty()){
                         if(path[0].mat->type(path[0]) == 'l'){
                             job.indices.push_back(index);
-                            job.colors.push_back(c);
-                            job.indices2.push_back(index);
-                            job.colors2.push_back(c);
+                            job.colors.push_back(c/job.spp);
                             continue;
                         }
-                        //counter1 ++ ;
                         const int numChains = std::floor(random_float() + luminance(c) / (mutation * ed));
 
-                        //cout << luminance(c) << endl;
-                        int max_fail_mutate = 0;
-                        bool specular = false;
-                        for(int k=0; i<path.size(); k++){
-                            if(path[i].mat->type(path[i]) == 'n'){
-                                specular = true;
-                            }
-                        }
+
+//                        cout << c << endl;
+//                        cout << "luminance" << luminance(c) << endl;
+
+                        vec3 dep_value = c / luminance(c) * ed / job.spp;
+
 
                         for (int i=0; i<numChains; i++){
                             auto current_path = path;
-                            int current_index = index;
+                            int current_index;
                             double current_f = luminance(c);
-                            vec3 dep_value = c / luminance(c) * ed/job.spp;
+                            int max_fail_mutate = 0;
+
                             for(int j=0; j<mutation; j++){
                                 auto mutated_color = mutate(path, height, job.colSize, cam, world, light_source);
                                 double mutated_f = luminance(mutated_color);
-
-//                            double mutated_f;
-//                            if(specular && random_float(0,1) < 0.5)
-//                                mutated_f = luminance(c_mutate(path));
-//                            else
-//                                mutated_f = luminance(l_mutate(path));
                                 double q = mutated_f/current_f;
+                                //cout << mutated_f <<  "  "<<current_f << endl;
                                 if(q > random_float(0,1)){
                                     current_index = path[0].index;
-                                }
-                                job.indices.push_back(current_index);
-                                job.colors.push_back(dep_value);
-                                if(current_index == index){
-                                    path = current_path;
-                                    max_fail_mutate++;
-                                } else if (max_fail_mutate < 10) {
-
-                                    //counter++;
-                                    //cout << current_index << endl;
-                                    //cout << "before" << dep_value << endl;
-                                    vec3 d = dep_value;
-
-                                    dep_value = mutated_color / luminance(mutated_color) * ed/job.spp;
-                                    if(isnan(dep_value.r())||isnan(dep_value.g())||isnan(dep_value.b())) {
-                                        dep_value = d;
+                                    if(current_index == index){
+                                        max_fail_mutate++;
                                     }
-                                    //cout << "after" << dep_value << endl;
-                                    max_fail_mutate = 0;
+                                    if (max_fail_mutate < 10) {
+                                        job.indices.push_back(current_index);
+                                        job.colors.push_back(dep_value);
+                                        //cout << current_index << "  " << dep_value << endl;
+                                        max_fail_mutate = 0;
+                                    } else {
+                                        continue;
+                                    }
                                 }
+
                             }
 
                         }
@@ -267,12 +199,8 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
                 }
                 col += c;
             }
-            //cout << col << endl;
-            col /= job.spp;
-            job.indices2.push_back(index);
-            job.colors2.push_back(col);
             counter++;
-            if(counter % 10000 == 0)
+            if(counter % 100000 == 0)
                 cout << counter << endl;
         }
     }
@@ -287,19 +215,16 @@ void calculate_color(BlockJob job, std::vector<BlockJob>& imageBlocks, int heigh
 }
 
 void run(int scene){
-    int width=400, height=400;
-    int sample_per_pixel = 10;
-    int mutation = 100;
+    int width=500, height=500;
+    int sample_per_pixel = 6;
+    int mutation = 10;
     int pixelCount = width * height;
-    ofstream img ("14b.ppm");
+    ofstream img ("16spp10m.ppm");
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
     vec3* image = new vec3[pixelCount];
     memset(&image[0], 0, pixelCount * sizeof(vec3));
-
-    vec3* tmp_image = new vec3[pixelCount];
-    memset(&tmp_image[0], 0, pixelCount * sizeof(vec3));
 
     material* white = new diffuse(new constant_texture(vec3(1,1,1)));
 
@@ -400,24 +325,28 @@ void run(int scene){
             //list[i++] = new xz_rect(0,555,0,555,200, white);
             //list[i++] = new xz_rect(0,555,0,555,201, white);
             list[i++] = new xy_rect(0,555,0,555,555, white);
-
+//
 //            list[i++] = new flip_face(new yz_rect(200,350,200,350,200, white));
 //            list[i++] = new yz_rect(200,350,200,350,350, white);
 //            list[i++] = new xy_rect(200,350,200,350,200, white);
 //            list[i++] = new flip_face(new xy_rect(200,350,200,350,350, white));
 //            list[i++] = new flip_face(new xz_rect(200,350,200,350,350, white));
 
-            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
-            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
-                               vec3(10,10,10), 10);
-            //list[i++] = new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)),10));
+//            list[i++] = new sphere(vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10))));
+//            light_area = light(new sphere (vec3(275,275,275), 50, new diffuse_light(new constant_texture(vec3(10,10,10)))),
+//                               vec3(10,10,10), 10);
+//            list[i++] = new flip_face(new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5)))));
+//            light_area = light(new flip_face(new xz_rect(213,343,227,332,554,new diffuse_light(new constant_texture(vec3(5,5,5))))), vec3(5,5,5), 5);
+
+            list[i++] = new flip_face(new xz_rect(0,555,455,555,554,new diffuse_light(new constant_texture(vec3(5,5,5)))));
+            light_area = light(new flip_face(new xz_rect(0,555,455,555,554,new diffuse_light(new constant_texture(vec3(5,5,5))))), vec3(5,5,5), 5);
 
 //            box1 = new box(vec3(0,0,0), vec3(165,330,165), white);
 //            box1 = new rotate_y(box1, 15);
 //            list[i++] = new translate(box1, vec3(265,0,295));
 
             //list[i++] = new sphere(vec3(300,70,300),70, new metal(new constant_texture(vec3(1,1,1)),0.0));
-            //list[i++] = new sphere(vec3(200,70,200),70, white);
+            list[i++] = new sphere(vec3(200,100,200),100, white);
 
             //list[i++] = new sphere(vec3(300,100,300), 100, new dielectric(1.5));
 
@@ -459,6 +388,32 @@ void run(int scene){
             break;
 
         case 7:
+            n = 10;
+            list = new hitable*[n+1];
+            i=0;
+            list[i++] = new xz_rect(420,550,400,550,1,new diffuse_light(new constant_texture(vec3(5,0,0))));
+            light_area = light(new xz_rect(400,550,400,550,1,new diffuse_light(new constant_texture(vec3(5,0,0)))), vec3(5,5,5), 5);
+
+            list[i++] = new xz_rect(230,360,400,550,1,new diffuse_light(new constant_texture(vec3(0,5,0))));
+            light_area = light(new xz_rect(240,390,400,550,1,new diffuse_light(new constant_texture(vec3(0,5,0)))), vec3(5,5,5), 5);
+
+            list[i++] = new xz_rect(40,170,400,550,1,new diffuse_light(new constant_texture(vec3(0,0,5))));
+            light_area = light(new xz_rect(80,230,400,550,1,new diffuse_light(new constant_texture(vec3(0,0,5)))), vec3(5,5,5), 5);
+
+            list[i++] = new xy_rect(40,170,0,555,555, white);
+            list[i++] = new xy_rect(230,360,0,555,555, white);
+            list[i++] = new xy_rect(420,550,0,555,555, white);
+
+            look_from = vec3(278, 278, -700);
+            look_at = vec3(278,278,0);
+
+            world = new hitable_list(list, i);
+            break;
+
+        case 8:
+            n = 5000;
+            list = new hitable*[n+1];
+
             //ground with randomly generated boxes
             i = 0;
             auto ground = new diffuse(new constant_texture(vec3(0.48,0.83,0.53)));
@@ -476,22 +431,23 @@ void run(int scene){
             }
 
             //light emitting rectangle
-            auto light = new diffuse_light(new constant_texture(vec3(7,7,7)));
-            list[i++] = new xz_rect(123,423,147,412,554, light);
+            auto lighting = new diffuse_light(new constant_texture(vec3(7,7,7)));
+            list[i++] = new flip_face(new xz_rect(123,423,147,412,554, lighting));
+            light_area = light(new flip_face(new xz_rect(123,423,147,412,554, lighting)), vec3(7,7,7), 7);
 
             // moving sphere
             auto moving_sphere_material = new diffuse(new constant_texture(vec3(0.7,0.3,0.1)));
             list[i++] = new moving_sphere(vec3(400,400,400), vec3(430,400,200), 0,1,50, moving_sphere_material);
 
-            //glass sphere
-            list[i++] = new sphere(vec3(260,150,45), 50, new dielectric(1.5));
+//            //glass sphere
+//            list[i++] = new sphere(vec3(260,150,45), 50, new dielectric(1.5));
 
-            //metal sphere
-            list[i++] = new sphere(vec3(0,150,145), 50, new metal(new constant_texture(vec3(0.5,0.5,0.5)), 2.5));
+//            //metal sphere
+//            list[i++] = new sphere(vec3(0,150,145), 50, new metal(new constant_texture(vec3(0.5,0.5,0.5)), 2.5));
 
-            //volumn surounded by glass sphere
-            auto boundary = new sphere(vec3(360,150,145), 70, new dielectric(1.5));
-            list[i++] = new constant_medium(boundary, 0.1, new constant_texture(vec3(0.5,0.3,0.7)));
+//            //volumn surounded by glass sphere
+//            auto boundary = new sphere(vec3(360,150,145), 70, new dielectric(1.5));
+//            list[i++] = new constant_medium(boundary, 0.1, new constant_texture(vec3(0.5,0.3,0.7)));
 
             //earth
             list[i++] = new sphere(vec3(400,200,400), 70, new diffuse(earth_surface));
@@ -499,9 +455,9 @@ void run(int scene){
             //perlin noise sphere
             list[i++] = new sphere(vec3(220,280,300), 80, new diffuse(perlintex));
 
-            //foggy
-            boundary = new sphere(vec3(0,0,0), 5000, new dielectric(1.5));
-            list[i++] = new constant_medium(boundary, 0.0001, new constant_texture(vec3(1,1,1)));
+//            //foggy
+//            boundary = new sphere(vec3(0,0,0), 5000, new dielectric(1.5));
+//            list[i++] = new constant_medium(boundary, 0.0001, new constant_texture(vec3(1,1,1)));
 
             //randomly generated white ball in given area(box)
             auto white = new diffuse(new constant_texture(vec3(1,1,1)));
@@ -517,29 +473,30 @@ void run(int scene){
             look_at = vec3(278,278,0);
 
             world = new hitable_list(list ,i);
+            break;
 
     }
 
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,1.0);
-
+//
     vec3 sum(0,0,0);
-
     for (int y = 0; y < height; y ++) {
         for (int x = 0; x < width; x ++) {
             auto u = double(x+random_float()) / float(width);
             auto v = double(y+random_float()) / float(height);
             ray r = cam.get_ray(u, v);
             vector<hit_record> path;
-            vec3 c = color(r, vec3(0,0,0), world, 4, light_area, 'n', path);
-            c = vec3(sqrt(c.r()), sqrt(c.g()), sqrt(c.b()));
+            vec3 c = color(r, vec3(0,0,0), world, 4, light_area, path);
             sum += c;
         }
     }
 
 
     const double ed = luminance(sum)/(mutation*(width * height));
-    //cout << luminance(sum) << endl;
-    cout << ed << endl;
+//    cout << ed << endl << scale << endl;
+//    cout << luminance(sum) << endl;
+//    const double ed = 5;
+//    cout << ed << endl;
 
     auto fulltime = std::chrono::high_resolution_clock::now();
 
@@ -586,32 +543,19 @@ void run(int scene){
     for (BlockJob job : imageBlocks){
         int index = job.rowStart;
         int colorIndex = 0;
-        //cout << job.colors.size() << endl;
         for (vec3& col : job.colors)
         {
             int colIndex = job.indices[colorIndex];
             image[colIndex] += col;
             ++colorIndex;
         }
-        int color_index = 0;
-        for(vec3& col: job.colors2){
-            int col_index = job.indices2[color_index];
-            tmp_image[col_index] += col;
-            ++color_index;
-        }
     }
 
 
-    vec3 sum_nne(0,0,0);
     vec3 sum_erpt(0,0,0);
     for (unsigned int i = 0; i < pixelCount; i++){
-        sum_nne += vec3(sqrt(tmp_image[i].e[0]), sqrt(tmp_image[i].e[1]), sqrt(tmp_image[i].e[2]));
-        sum_erpt += vec3(sqrt(image[i].e[0]), sqrt(image[i].e[1]), sqrt(image[i].e[2]));
-        sum += vec3(sqrt(image[i].e[0]*tmp_image[i].e[0]), sqrt(image[i].e[1]*tmp_image[i].e[1]), sqrt(image[i].e[2]*tmp_image[i].e[2]));
-        vec3 col = vec3(sqrt(image[i].e[0])*0.9, sqrt(image[i].e[1])*1.1, sqrt(image[i].e[2]));
-        //vec3 col = vec3(sqrt(tmp_image[i].e[0]), sqrt(tmp_image[i].e[1]), sqrt(tmp_image[i].e[2]));
-        //vec3 col = vec3(sqrt(image[i].e[0])/2+sqrt(tmp_image[i].e[0]), sqrt(image[i].e[1])/2+sqrt(tmp_image[i].e[1]), sqrt(image[i].e[2])/2+sqrt(tmp_image[i].e[2]));
-
+        vec3 col = vec3(sqrt(image[i].e[0]), sqrt(image[i].e[1]), sqrt(image[i].e[2]));
+        sum_erpt += col;
         img
                 << static_cast<int>(255.99f * col.r()) << " "
                 << static_cast<int>(255.99f * col.g()) << " "
@@ -622,18 +566,12 @@ void run(int scene){
     int frameTimeMs = static_cast<int>(timeSpan.count());
     std::cout << " - time " << frameTimeMs << " s \n";
     std::cout << "File Saved" << std::endl;
-    auto scale = luminance(sum_nne/pixelCount)/luminance(sum/pixelCount);
-    cout << scale << endl;
-    cout << "origin"<< sum_nne << endl;
-    cout <<"erpt" << sum_erpt << endl;
-    //cout << luminance(sum/pixelCount) << endl;
-//    cout << "useful_path" << counter1 << endl;
-//    cout << "success mutate" << counter << endl;
+
     delete[] image;
 
 }
 
 int main() {
-    int scene = 5;
+    int scene = 8;
     run(scene);
 }

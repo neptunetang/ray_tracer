@@ -3,6 +3,7 @@
 
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../box.cpp
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../box.h
+CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../hitable_list.h
 CMakeFiles/basic_ray_tracer.dir/box.cpp.o: ../material.h
@@ -126,6 +127,7 @@ CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../ray.h
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.cpp
 CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o: ../vec3.h
 
+CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../common_method.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../hitable.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../material.h
 CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../ray.h

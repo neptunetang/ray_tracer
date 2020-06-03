@@ -211,6 +211,8 @@ hitable.h
 /home/neptune/Documents/cg/ray_tracer/hitable.h
 material.h
 /home/neptune/Documents/cg/ray_tracer/material.h
+common_method.h
+/home/neptune/Documents/cg/ray_tracer/common_method.h
 
 /home/neptune/Documents/cg/ray_tracer/rotate.h
 hitable.h
