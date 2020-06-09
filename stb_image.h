@@ -110,6 +110,7 @@ RECENT REVISION HISTORY:
     Brad Weinberger         Matvey Cherevko                       github:Michaelangel007
     Blazej Dariusz Roszkowski                  Alexander Veselov
 */
+#pragma once
 
 #ifndef STBI_INCLUDE_STB_IMAGE_H
 #define STBI_INCLUDE_STB_IMAGE_H

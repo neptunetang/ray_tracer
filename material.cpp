@@ -1,9 +1,5 @@
-//
-// Created by neptune on 09-04-20.
-//
-
 #include "material.h"
-#include "common_method.h"
+#include "random.h"
 
 vec3 random_in_unit_sphere(){
     vec3 p;

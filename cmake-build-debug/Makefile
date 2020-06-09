@@ -123,114 +123,6 @@ basic_ray_tracer/fast:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/build
 .PHONY : basic_ray_tracer/fast
 
-box.o: box.cpp.o
-
-.PHONY : box.o
-
-# target to build an object file
-box.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.o
-.PHONY : box.cpp.o
-
-box.i: box.cpp.i
-
-.PHONY : box.i
-
-# target to preprocess a source file
-box.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.i
-.PHONY : box.cpp.i
-
-box.s: box.cpp.s
-
-.PHONY : box.s
-
-# target to generate assembly for a file
-box.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/box.cpp.s
-.PHONY : box.cpp.s
-
-camera.o: camera.cpp.o
-
-.PHONY : camera.o
-
-# target to build an object file
-camera.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.o
-.PHONY : camera.cpp.o
-
-camera.i: camera.cpp.i
-
-.PHONY : camera.i
-
-# target to preprocess a source file
-camera.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.i
-.PHONY : camera.cpp.i
-
-camera.s: camera.cpp.s
-
-.PHONY : camera.s
-
-# target to generate assembly for a file
-camera.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/camera.cpp.s
-.PHONY : camera.cpp.s
-
-checker_texture.o: checker_texture.cpp.o
-
-.PHONY : checker_texture.o
-
-# target to build an object file
-checker_texture.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.o
-.PHONY : checker_texture.cpp.o
-
-checker_texture.i: checker_texture.cpp.i
-
-.PHONY : checker_texture.i
-
-# target to preprocess a source file
-checker_texture.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.i
-.PHONY : checker_texture.cpp.i
-
-checker_texture.s: checker_texture.cpp.s
-
-.PHONY : checker_texture.s
-
-# target to generate assembly for a file
-checker_texture.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/checker_texture.cpp.s
-.PHONY : checker_texture.cpp.s
-
-constant_medium.o: constant_medium.cpp.o
-
-.PHONY : constant_medium.o
-
-# target to build an object file
-constant_medium.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.o
-.PHONY : constant_medium.cpp.o
-
-constant_medium.i: constant_medium.cpp.i
-
-.PHONY : constant_medium.i
-
-# target to preprocess a source file
-constant_medium.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.i
-.PHONY : constant_medium.cpp.i
-
-constant_medium.s: constant_medium.cpp.s
-
-.PHONY : constant_medium.s
-
-# target to generate assembly for a file
-constant_medium.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/constant_medium.cpp.s
-.PHONY : constant_medium.cpp.s
-
 dielectric.o: dielectric.cpp.o
 
 .PHONY : dielectric.o
@@ -257,33 +149,6 @@ dielectric.s: dielectric.cpp.s
 dielectric.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
 .PHONY : dielectric.cpp.s
-
-image_texture.o: image_texture.cpp.o
-
-.PHONY : image_texture.o
-
-# target to build an object file
-image_texture.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.o
-.PHONY : image_texture.cpp.o
-
-image_texture.i: image_texture.cpp.i
-
-.PHONY : image_texture.i
-
-# target to preprocess a source file
-image_texture.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.i
-.PHONY : image_texture.cpp.i
-
-image_texture.s: image_texture.cpp.s
-
-.PHONY : image_texture.s
-
-# target to generate assembly for a file
-image_texture.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/image_texture.cpp.s
-.PHONY : image_texture.cpp.s
 
 main.o: main.cpp.o
 
@@ -339,33 +204,6 @@ material.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.s
 .PHONY : material.cpp.s
 
-metal.o: metal.cpp.o
-
-.PHONY : metal.o
-
-# target to build an object file
-metal.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.o
-.PHONY : metal.cpp.o
-
-metal.i: metal.cpp.i
-
-.PHONY : metal.i
-
-# target to preprocess a source file
-metal.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.i
-.PHONY : metal.cpp.i
-
-metal.s: metal.cpp.s
-
-.PHONY : metal.s
-
-# target to generate assembly for a file
-metal.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/metal.cpp.s
-.PHONY : metal.cpp.s
-
 moving_sphere.o: moving_sphere.cpp.o
 
 .PHONY : moving_sphere.o
@@ -392,87 +230,6 @@ moving_sphere.s: moving_sphere.cpp.s
 moving_sphere.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s
 .PHONY : moving_sphere.cpp.s
-
-noise_texture.o: noise_texture.cpp.o
-
-.PHONY : noise_texture.o
-
-# target to build an object file
-noise_texture.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.o
-.PHONY : noise_texture.cpp.o
-
-noise_texture.i: noise_texture.cpp.i
-
-.PHONY : noise_texture.i
-
-# target to preprocess a source file
-noise_texture.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.i
-.PHONY : noise_texture.cpp.i
-
-noise_texture.s: noise_texture.cpp.s
-
-.PHONY : noise_texture.s
-
-# target to generate assembly for a file
-noise_texture.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/noise_texture.cpp.s
-.PHONY : noise_texture.cpp.s
-
-orthnormal_base.o: orthnormal_base.cpp.o
-
-.PHONY : orthnormal_base.o
-
-# target to build an object file
-orthnormal_base.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.o
-.PHONY : orthnormal_base.cpp.o
-
-orthnormal_base.i: orthnormal_base.cpp.i
-
-.PHONY : orthnormal_base.i
-
-# target to preprocess a source file
-orthnormal_base.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.i
-.PHONY : orthnormal_base.cpp.i
-
-orthnormal_base.s: orthnormal_base.cpp.s
-
-.PHONY : orthnormal_base.s
-
-# target to generate assembly for a file
-orthnormal_base.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/orthnormal_base.cpp.s
-.PHONY : orthnormal_base.cpp.s
-
-perlin.o: perlin.cpp.o
-
-.PHONY : perlin.o
-
-# target to build an object file
-perlin.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.o
-.PHONY : perlin.cpp.o
-
-perlin.i: perlin.cpp.i
-
-.PHONY : perlin.i
-
-# target to preprocess a source file
-perlin.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.i
-.PHONY : perlin.cpp.i
-
-perlin.s: perlin.cpp.s
-
-.PHONY : perlin.s
-
-# target to generate assembly for a file
-perlin.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/perlin.cpp.s
-.PHONY : perlin.cpp.s
 
 rectangle.o: rectangle.cpp.o
 
@@ -501,33 +258,6 @@ rectangle.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
 .PHONY : rectangle.cpp.s
 
-rotate.o: rotate.cpp.o
-
-.PHONY : rotate.o
-
-# target to build an object file
-rotate.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.o
-.PHONY : rotate.cpp.o
-
-rotate.i: rotate.cpp.i
-
-.PHONY : rotate.i
-
-# target to preprocess a source file
-rotate.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.i
-.PHONY : rotate.cpp.i
-
-rotate.s: rotate.cpp.s
-
-.PHONY : rotate.s
-
-# target to generate assembly for a file
-rotate.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rotate.cpp.s
-.PHONY : rotate.cpp.s
-
 sphere.o: sphere.cpp.o
 
 .PHONY : sphere.o
@@ -554,33 +284,6 @@ sphere.s: sphere.cpp.s
 sphere.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s
 .PHONY : sphere.cpp.s
-
-triangle.o: triangle.cpp.o
-
-.PHONY : triangle.o
-
-# target to build an object file
-triangle.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.o
-.PHONY : triangle.cpp.o
-
-triangle.i: triangle.cpp.i
-
-.PHONY : triangle.i
-
-# target to preprocess a source file
-triangle.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.i
-.PHONY : triangle.cpp.i
-
-triangle.s: triangle.cpp.s
-
-.PHONY : triangle.s
-
-# target to generate assembly for a file
-triangle.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/triangle.cpp.s
-.PHONY : triangle.cpp.s
 
 vec3.o: vec3.cpp.o
 
@@ -618,57 +321,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... basic_ray_tracer"
 	@echo "... edit_cache"
-	@echo "... box.o"
-	@echo "... box.i"
-	@echo "... box.s"
-	@echo "... camera.o"
-	@echo "... camera.i"
-	@echo "... camera.s"
-	@echo "... checker_texture.o"
-	@echo "... checker_texture.i"
-	@echo "... checker_texture.s"
-	@echo "... constant_medium.o"
-	@echo "... constant_medium.i"
-	@echo "... constant_medium.s"
 	@echo "... dielectric.o"
 	@echo "... dielectric.i"
 	@echo "... dielectric.s"
-	@echo "... image_texture.o"
-	@echo "... image_texture.i"
-	@echo "... image_texture.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
 	@echo "... material.o"
 	@echo "... material.i"
 	@echo "... material.s"
-	@echo "... metal.o"
-	@echo "... metal.i"
-	@echo "... metal.s"
 	@echo "... moving_sphere.o"
 	@echo "... moving_sphere.i"
 	@echo "... moving_sphere.s"
-	@echo "... noise_texture.o"
-	@echo "... noise_texture.i"
-	@echo "... noise_texture.s"
-	@echo "... orthnormal_base.o"
-	@echo "... orthnormal_base.i"
-	@echo "... orthnormal_base.s"
-	@echo "... perlin.o"
-	@echo "... perlin.i"
-	@echo "... perlin.s"
 	@echo "... rectangle.o"
 	@echo "... rectangle.i"
 	@echo "... rectangle.s"
-	@echo "... rotate.o"
-	@echo "... rotate.i"
-	@echo "... rotate.s"
 	@echo "... sphere.o"
 	@echo "... sphere.i"
 	@echo "... sphere.s"
-	@echo "... triangle.o"
-	@echo "... triangle.i"
-	@echo "... triangle.s"
 	@echo "... vec3.o"
 	@echo "... vec3.i"
 	@echo "... vec3.s"

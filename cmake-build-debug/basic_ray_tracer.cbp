@@ -84,34 +84,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/box.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/bdpt.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/box.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/checker_texture.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/checker_texture.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/common_method.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_medium.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_medium.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/constant_texture.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/dielectric.cpp">
@@ -126,6 +108,9 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/erpt.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -135,19 +120,7 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/image.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/image_texture.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/image_texture.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/isotropic.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light_list.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/main.cpp">
@@ -159,9 +132,6 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/metal.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/metal.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
@@ -171,25 +141,19 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/moving_sphere.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/noise_texture.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/multithread_session.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/noise_texture.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/object_loader.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/orthnormal_base.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/nne.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/orthnormal_base.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/pt.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/perlin.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/random.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/ray.h">
@@ -201,10 +165,13 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rectangle.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rotate.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rotate.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rotate.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/run.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/scene.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/sphere.cpp">
@@ -220,9 +187,6 @@
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/translate.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/triangle.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/triangle.h">

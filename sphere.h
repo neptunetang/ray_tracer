@@ -25,11 +25,6 @@ public:
     virtual bool on(vec3 a) const {
         return ((a-center).length() - radius) <=0.001;
     }
-
-    virtual ray random_ray() const {
-        vec3 origin = random_start();
-        return ray(origin, origin-center);
-    }
 };
 
 void get_sphere_uv(const vec3 intersection, float& u, float& v);

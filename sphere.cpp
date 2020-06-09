@@ -11,7 +11,7 @@ bool sphere::is_hit(const ray &r, float t_min, float t_max, hit_record &rec) con
     auto c = origin_to_center.squared_length() - radius*radius;
     auto discriminant = half_b*half_b - a*c;
 
-    if (discriminant > 0) {
+    if (discriminant >= 0) {
         auto root = sqrt(discriminant);
         auto temp = (-half_b - root)/a; // smaller root
         if (temp < t_max && temp > t_min) {

@@ -7,13 +7,20 @@
 
 #include "material.h"
 #include "texture.h"
-#include "constant_texture.h"
 
 class diffuse_light :public material{
 public:
     texture* emit;
 
     diffuse_light(texture *t) : emit(t){}
+
+    virtual char type(hit_record rec){
+        if(rec.front)
+            return 'l';
+        else
+            return 'd';
+    }
+
     virtual bool scatter(const ray& in, const hit_record& rec, vec3& attenuation, ray& scattered, double& pdf)
     const {
         return false;

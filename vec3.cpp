@@ -5,7 +5,8 @@
 #include "vec3.h"
 
 inline bool vec3::operator==(const vec3 &v){
-    return (e[0] == v.e[0]) && (e[1] == v.e[1]) && (e[2] == v.e[2]);
+    vec3 distance(e[0]-v[0], e[1]-v[1], e[2]-v[2]);
+    return distance.length() < 0.001;
 }
 
 inline bool vec3::operator<(const vec3 &v){
