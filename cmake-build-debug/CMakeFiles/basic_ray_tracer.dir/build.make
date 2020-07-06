@@ -70,104 +70,104 @@ CMakeFiles/basic_ray_tracer.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/main.cpp -o CMakeFiles/basic_ray_tracer.dir/main.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o: ../vec3.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o -c /home/neptune/Documents/cg/ray_tracer/vec3.cpp
+CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o: ../geometry/vec3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o -c /home/neptune/Documents/cg/ray_tracer/geometry/vec3.cpp
 
-CMakeFiles/basic_ray_tracer.dir/vec3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/vec3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/vec3.cpp > CMakeFiles/basic_ray_tracer.dir/vec3.cpp.i
+CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/geometry/vec3.cpp > CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/vec3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/vec3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/vec3.cpp -o CMakeFiles/basic_ray_tracer.dir/vec3.cpp.s
+CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/geometry/vec3.cpp -o CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o: ../sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o -c /home/neptune/Documents/cg/ray_tracer/sphere.cpp
+CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o: ../shapes/sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o -c /home/neptune/Documents/cg/ray_tracer/shapes/sphere.cpp
 
-CMakeFiles/basic_ray_tracer.dir/sphere.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/sphere.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/sphere.cpp > CMakeFiles/basic_ray_tracer.dir/sphere.cpp.i
+CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/shapes/sphere.cpp > CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/sphere.cpp -o CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s
+CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/shapes/sphere.cpp -o CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o: ../dielectric.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o -c /home/neptune/Documents/cg/ray_tracer/dielectric.cpp
+CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o: ../material/dielectric.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o -c /home/neptune/Documents/cg/ray_tracer/material/dielectric.cpp
 
-CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/dielectric.cpp > CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.i
+CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/material/dielectric.cpp > CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/dielectric.cpp -o CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
+CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/material/dielectric.cpp -o CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o: ../moving_sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o -c /home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp
+CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o: ../shapes/moving_sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o -c /home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.cpp
 
-CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp > CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.i
+CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.cpp > CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp -o CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s
+CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.cpp -o CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o: ../rectangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o -c /home/neptune/Documents/cg/ray_tracer/rectangle.cpp
+CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o: ../shapes/rectangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o -c /home/neptune/Documents/cg/ray_tracer/shapes/rectangle.cpp
 
-CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/rectangle.cpp > CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i
+CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/shapes/rectangle.cpp > CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/rectangle.cpp -o CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
+CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/shapes/rectangle.cpp -o CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.s
 
-CMakeFiles/basic_ray_tracer.dir/material.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
-CMakeFiles/basic_ray_tracer.dir/material.cpp.o: ../material.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/basic_ray_tracer.dir/material.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/material.cpp.o -c /home/neptune/Documents/cg/ray_tracer/material.cpp
+CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o: CMakeFiles/basic_ray_tracer.dir/flags.make
+CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o: ../material/material.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o -c /home/neptune/Documents/cg/ray_tracer/material/material.cpp
 
-CMakeFiles/basic_ray_tracer.dir/material.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/material.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/material.cpp > CMakeFiles/basic_ray_tracer.dir/material.cpp.i
+CMakeFiles/basic_ray_tracer.dir/material/material.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basic_ray_tracer.dir/material/material.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/neptune/Documents/cg/ray_tracer/material/material.cpp > CMakeFiles/basic_ray_tracer.dir/material/material.cpp.i
 
-CMakeFiles/basic_ray_tracer.dir/material.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/material.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/material.cpp -o CMakeFiles/basic_ray_tracer.dir/material.cpp.s
+CMakeFiles/basic_ray_tracer.dir/material/material.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basic_ray_tracer.dir/material/material.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/neptune/Documents/cg/ray_tracer/material/material.cpp -o CMakeFiles/basic_ray_tracer.dir/material/material.cpp.s
 
 # Object files for target basic_ray_tracer
 basic_ray_tracer_OBJECTS = \
 "CMakeFiles/basic_ray_tracer.dir/main.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o" \
-"CMakeFiles/basic_ray_tracer.dir/material.cpp.o"
+"CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o" \
+"CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o"
 
 # External object files for target basic_ray_tracer
 basic_ray_tracer_EXTERNAL_OBJECTS =
 
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/main.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o
-basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/material.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o
+basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/build.make
 basic_ray_tracer: CMakeFiles/basic_ray_tracer.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable basic_ray_tracer"

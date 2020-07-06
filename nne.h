@@ -1,7 +1,7 @@
 //
 // Created by neptune on 09-06-20.
 //
-#include "common_method.h"
+#include "geometry/common_method.h"
 
 vec3 nne(const hit_record rec, const hitable* world, light light_source, ray r_in){
     vec3 emitted = vec3(0,0,0);

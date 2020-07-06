@@ -2,8 +2,8 @@
 // Created by neptune on 09-06-20.
 //
 
-#include "camera.h"
-#include "scene.h"
+#include "geometry/camera.h"
+#include "geometry/scene.h"
 #include "bdpt.h"
 #include "erpt.h"
 #include "nne.h"
@@ -12,9 +12,9 @@
 #include <iostream>
 #include <fstream>
 
-void run(int scene, int mode, int width, int height, int sample_per_pixel, int mutation = 0){
+void run(int scene, int mode, int width, int height, int sample_per_pixel, int mutation = 0, string filename = "output.ppm"){
     int pixelCount = width * height;
-    ofstream img ("5.ppm");
+    ofstream img (filename);
     img << "P3" << endl;
     img << width << " " << height << endl;
     img << "255" << endl;
@@ -27,23 +27,25 @@ void run(int scene, int mode, int width, int height, int sample_per_pixel, int m
     auto aperture = 0.0;
     hitable *world;
     light light_area;
+    double ed;
 
     create_scene(look_from, look_at, world, light_area, scene);
     camera cam(look_from, look_at, vup, 40, (width/height), aperture, focus,0.0,1.0);
 
-    vec3 sum(0,0,0);
-    for (int y = 0; y < height; y ++) {
-        for (int x = 0; x < width; x ++) {
-            auto u = double(x+random_float()) / float(width);
-            auto v = double(y+random_float()) / float(height);
-            ray r = cam.get_ray(u, v);
-            vector<hit_record> path;
-            vec3 c = erpt_color(r, vec3(0,0,0), world, 4, light_area, path);
-            sum += c;
+    if(mode == 0) {
+        vec3 sum(0,0,0);
+        for (int y = 0; y < height; y ++) {
+            for (int x = 0; x < width; x ++) {
+                auto u = double(x+random_float()) / float(width);
+                auto v = double(y+random_float()) / float(height);
+                ray r = cam.get_ray(u, v);
+                vector<hit_record> path;
+                vec3 c = erpt_color(r, vec3(0,0,0), world, 4, light_area, path);
+                sum += c;
+            }
         }
+        ed = luminance(sum)/(width * height);
     }
-
-    const double ed = luminance(sum)/(width * height);
 
     auto full_time = std::chrono::high_resolution_clock::now();
 

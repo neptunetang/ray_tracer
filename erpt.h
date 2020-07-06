@@ -1,7 +1,7 @@
 //
 // Created by neptune on 09-06-20.
 //
-#include "common_method.h"
+#include "geometry/common_method.h"
 
 double luminance(vec3 c) {
     int r = static_cast<int>(255.99f * c.r());
@@ -115,7 +115,7 @@ void calculate_erpt_color(block_job job, std::vector<block_job>& imageBlocks, in
                         const int numChains = std::floor(random_float() + luminance(c) / (mutation * ed));
 
 
-                        vec3 dep_value = c / luminance(c) * ed / sqrt(job.spp);
+                        vec3 dep_value = c / luminance(c) * ed / job.spp;
 
 
                         for (int i=0; i<numChains; i++){

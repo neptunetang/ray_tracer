@@ -87,115 +87,115 @@
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/bdpt.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/box.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/camera.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/common_method.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/dielectric.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/dielectric.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/diffuse_light.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/erpt.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/camera.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/hitable_list.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/common_method.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/image.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/light.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/multithread_session.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/orthnormal_base.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/random.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/ray.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/rotate.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/scene.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/translate.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/vec3.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/geometry/vec3.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/main.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/dielectric.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/dielectric.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/metal.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/diffuse.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/material.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/moving_sphere.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/material.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/multithread_session.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/material/metal.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/nne.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/orthnormal_base.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/pt.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/random.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/ray.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rectangle.cpp">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rectangle.h">
-			<Option target="basic_ray_tracer"/>
-		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/rotate.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/run.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/scene.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/box.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/sphere.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/diffuse_light.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/sphere.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/hitable.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/stb_image.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/hitable_list.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/translate.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/triangle.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/rectangle.cpp">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/vec3.cpp">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/rectangle.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
-		<Unit filename="/home/neptune/Documents/cg/ray_tracer/vec3.h">
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/sphere.cpp">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/sphere.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/shapes/triangle.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture/image.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture/stb_image.h">
+			<Option target="basic_ray_tracer"/>
+		</Unit>
+		<Unit filename="/home/neptune/Documents/cg/ray_tracer/texture/texture.h">
 			<Option target="basic_ray_tracer"/>
 		</Unit>
 		<Unit filename="/home/neptune/Documents/cg/ray_tracer/CMakeLists.txt">

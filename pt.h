@@ -1,7 +1,7 @@
 //
 // Created by neptune on 09-06-20.
 //
-#include "common_method.h"
+#include "geometry/common_method.h"
 
 vec3 path_tracer_color(const ray& r, const vec3& background, const hitable* world, int depth, light light_source) {
     if (depth <= 0)

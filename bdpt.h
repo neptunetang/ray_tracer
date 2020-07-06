@@ -1,7 +1,7 @@
 //
 // Created by neptune on 09-06-20.
 //
-#include "common_method.h"
+#include "geometry/common_method.h"
 
 void create_light_path(ray r, hitable* world, int depth, light light_source, vector<hit_record> &light_path){
     if (depth <= 0){
@@ -41,69 +41,48 @@ void create_cam_path(ray r, hitable* world, int depth, vector<hit_record> &cam_p
 }
 
 vec3 bdpt_color(vec3 background, hitable* world, light light_source, vector<hit_record> light_path, vector<hit_record> cam_path, vec3 light_origin) {
-    float all;
-    float weight;
-    vec3 final_color = background;
+    float all=0;
     vec3 step_color;
+    vec3 final_color = background;
     hit_record rec;
     for (int i = 0; i < cam_path.size(); i++) {
-        weight = 2;
-        step_color = cam_path[0].color;
         double pdf;
         vec3 col;
         ray scattered;
         if (!cam_path[0].mat->scatter(ray(), rec, col, scattered, pdf)) {
-            //cout << "on the light" << endl;
-            return step_color;
+            if(!(cam_path[0].color == vec3(0,0,0))){
+                return cam_path[0].color;
+            }
+
         }
+        step_color = cam_path[0].color;
         for (int m = 1; m <= i; m++) {
-            weight++;
             if (!cam_path[m].mat->scatter(ray(), rec, col, scattered, pdf)) {
-                step_color *= cam_path[m].color;
-                return step_color/weight;
+                if(!(cam_path[m].color == vec3(0,0,0))){
+                    step_color *= cam_path[m].color;
+                    return step_color;
+                }
             }
             step_color *= cam_path[m].color;
-            final_color += step_color / (weight + 1.f);
-            all += weight;
         }
-
-        ray connection(cam_path[i].intersection, light_origin - cam_path[i].intersection);
-        if(world->is_hit(connection, 0.0001, MAXFLOAT, rec)){
-            if(rec.intersection == light_origin){
-                auto color = step_color*light_source.color;
-                final_color += color/(weight+1.f);
-            }
-        }
-
-        //cout << light_path.size() << endl;
+        auto color = step_color;
         for (int j = 0; j < light_path.size(); j++) {
-            int new_weight = weight+1;
-            //cout << "weight before" << weight << endl;
-            ray connection(cam_path[i].intersection, light_path[i].intersection - cam_path[i].intersection);
-            //cout << "enter" << endl;
-            if (world->is_hit(connection, 0.0001, MAXFLOAT, rec)) {
-                //cout << rec.intersection << endl;
-                if (rec.intersection == light_path[i].intersection) {
-                    step_color *= light_source.color;
-                    for (int k = j; k >= 0; k--) {
-                        step_color *= light_path[k].color/2;
-                        new_weight++;
-                    }
-                    final_color += (step_color/(new_weight+1.f));
 
-                    all += new_weight;
+            ray connection(cam_path[i].intersection, light_path[i].intersection - cam_path[i].intersection);
+            if (world->is_hit(connection, 0.0001, MAXFLOAT, rec)) {
+                if (rec.intersection == light_path[i].intersection) {
+                    for (int k = j; k >= 0; k--) {
+                        step_color *= light_path[k].color;
+                    }
+
+                    final_color += (step_color/(i+j+3));
+                    step_color = color;
+                    all += (i+j+3);
                 }
             }
         }
-        //final_color += step_color/weight;
     }
-//
-    all /= 40;
-    auto c = vec3(1,1,1) - all*vec3(1,1,1);
-    if(c < vec3(0,0,0)){
-        c = vec3(0,0,0);
-    }
-    return final_color*c;
+    return final_color*(1-all/55);
 
 }
 

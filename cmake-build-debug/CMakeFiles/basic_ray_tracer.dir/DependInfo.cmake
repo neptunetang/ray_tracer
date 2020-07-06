@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/neptune/Documents/cg/ray_tracer/dielectric.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/geometry/vec3.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o"
   "/home/neptune/Documents/cg/ray_tracer/main.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/main.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/material.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/material.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/moving_sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/rectangle.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o"
-  "/home/neptune/Documents/cg/ray_tracer/vec3.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/material/dielectric.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/material/material.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/shapes/moving_sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/shapes/rectangle.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o"
+  "/home/neptune/Documents/cg/ray_tracer/shapes/sphere.cpp" "/home/neptune/Documents/cg/ray_tracer/cmake-build-debug/CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -123,32 +123,32 @@ basic_ray_tracer/fast:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/build
 .PHONY : basic_ray_tracer/fast
 
-dielectric.o: dielectric.cpp.o
+geometry/vec3.o: geometry/vec3.cpp.o
 
-.PHONY : dielectric.o
+.PHONY : geometry/vec3.o
 
 # target to build an object file
-dielectric.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.o
-.PHONY : dielectric.cpp.o
+geometry/vec3.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.o
+.PHONY : geometry/vec3.cpp.o
 
-dielectric.i: dielectric.cpp.i
+geometry/vec3.i: geometry/vec3.cpp.i
 
-.PHONY : dielectric.i
+.PHONY : geometry/vec3.i
 
 # target to preprocess a source file
-dielectric.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.i
-.PHONY : dielectric.cpp.i
+geometry/vec3.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.i
+.PHONY : geometry/vec3.cpp.i
 
-dielectric.s: dielectric.cpp.s
+geometry/vec3.s: geometry/vec3.cpp.s
 
-.PHONY : dielectric.s
+.PHONY : geometry/vec3.s
 
 # target to generate assembly for a file
-dielectric.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/dielectric.cpp.s
-.PHONY : dielectric.cpp.s
+geometry/vec3.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/geometry/vec3.cpp.s
+.PHONY : geometry/vec3.cpp.s
 
 main.o: main.cpp.o
 
@@ -177,140 +177,140 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-material.o: material.cpp.o
+material/dielectric.o: material/dielectric.cpp.o
 
-.PHONY : material.o
-
-# target to build an object file
-material.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.o
-.PHONY : material.cpp.o
-
-material.i: material.cpp.i
-
-.PHONY : material.i
-
-# target to preprocess a source file
-material.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.i
-.PHONY : material.cpp.i
-
-material.s: material.cpp.s
-
-.PHONY : material.s
-
-# target to generate assembly for a file
-material.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material.cpp.s
-.PHONY : material.cpp.s
-
-moving_sphere.o: moving_sphere.cpp.o
-
-.PHONY : moving_sphere.o
+.PHONY : material/dielectric.o
 
 # target to build an object file
-moving_sphere.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.o
-.PHONY : moving_sphere.cpp.o
+material/dielectric.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.o
+.PHONY : material/dielectric.cpp.o
 
-moving_sphere.i: moving_sphere.cpp.i
+material/dielectric.i: material/dielectric.cpp.i
 
-.PHONY : moving_sphere.i
+.PHONY : material/dielectric.i
 
 # target to preprocess a source file
-moving_sphere.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.i
-.PHONY : moving_sphere.cpp.i
+material/dielectric.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.i
+.PHONY : material/dielectric.cpp.i
 
-moving_sphere.s: moving_sphere.cpp.s
+material/dielectric.s: material/dielectric.cpp.s
 
-.PHONY : moving_sphere.s
+.PHONY : material/dielectric.s
 
 # target to generate assembly for a file
-moving_sphere.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/moving_sphere.cpp.s
-.PHONY : moving_sphere.cpp.s
+material/dielectric.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/dielectric.cpp.s
+.PHONY : material/dielectric.cpp.s
 
-rectangle.o: rectangle.cpp.o
+material/material.o: material/material.cpp.o
 
-.PHONY : rectangle.o
+.PHONY : material/material.o
 
 # target to build an object file
-rectangle.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.o
-.PHONY : rectangle.cpp.o
+material/material.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/material.cpp.o
+.PHONY : material/material.cpp.o
 
-rectangle.i: rectangle.cpp.i
+material/material.i: material/material.cpp.i
 
-.PHONY : rectangle.i
+.PHONY : material/material.i
 
 # target to preprocess a source file
-rectangle.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.i
-.PHONY : rectangle.cpp.i
+material/material.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/material.cpp.i
+.PHONY : material/material.cpp.i
 
-rectangle.s: rectangle.cpp.s
+material/material.s: material/material.cpp.s
 
-.PHONY : rectangle.s
+.PHONY : material/material.s
 
 # target to generate assembly for a file
-rectangle.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/rectangle.cpp.s
-.PHONY : rectangle.cpp.s
+material/material.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/material/material.cpp.s
+.PHONY : material/material.cpp.s
 
-sphere.o: sphere.cpp.o
+shapes/moving_sphere.o: shapes/moving_sphere.cpp.o
 
-.PHONY : sphere.o
+.PHONY : shapes/moving_sphere.o
 
 # target to build an object file
-sphere.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.o
-.PHONY : sphere.cpp.o
+shapes/moving_sphere.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.o
+.PHONY : shapes/moving_sphere.cpp.o
 
-sphere.i: sphere.cpp.i
+shapes/moving_sphere.i: shapes/moving_sphere.cpp.i
 
-.PHONY : sphere.i
+.PHONY : shapes/moving_sphere.i
 
 # target to preprocess a source file
-sphere.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.i
-.PHONY : sphere.cpp.i
+shapes/moving_sphere.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.i
+.PHONY : shapes/moving_sphere.cpp.i
 
-sphere.s: sphere.cpp.s
+shapes/moving_sphere.s: shapes/moving_sphere.cpp.s
 
-.PHONY : sphere.s
+.PHONY : shapes/moving_sphere.s
 
 # target to generate assembly for a file
-sphere.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/sphere.cpp.s
-.PHONY : sphere.cpp.s
+shapes/moving_sphere.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/moving_sphere.cpp.s
+.PHONY : shapes/moving_sphere.cpp.s
 
-vec3.o: vec3.cpp.o
+shapes/rectangle.o: shapes/rectangle.cpp.o
 
-.PHONY : vec3.o
+.PHONY : shapes/rectangle.o
 
 # target to build an object file
-vec3.cpp.o:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/vec3.cpp.o
-.PHONY : vec3.cpp.o
+shapes/rectangle.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.o
+.PHONY : shapes/rectangle.cpp.o
 
-vec3.i: vec3.cpp.i
+shapes/rectangle.i: shapes/rectangle.cpp.i
 
-.PHONY : vec3.i
+.PHONY : shapes/rectangle.i
 
 # target to preprocess a source file
-vec3.cpp.i:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/vec3.cpp.i
-.PHONY : vec3.cpp.i
+shapes/rectangle.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.i
+.PHONY : shapes/rectangle.cpp.i
 
-vec3.s: vec3.cpp.s
+shapes/rectangle.s: shapes/rectangle.cpp.s
 
-.PHONY : vec3.s
+.PHONY : shapes/rectangle.s
 
 # target to generate assembly for a file
-vec3.cpp.s:
-	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/vec3.cpp.s
-.PHONY : vec3.cpp.s
+shapes/rectangle.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/rectangle.cpp.s
+.PHONY : shapes/rectangle.cpp.s
+
+shapes/sphere.o: shapes/sphere.cpp.o
+
+.PHONY : shapes/sphere.o
+
+# target to build an object file
+shapes/sphere.cpp.o:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.o
+.PHONY : shapes/sphere.cpp.o
+
+shapes/sphere.i: shapes/sphere.cpp.i
+
+.PHONY : shapes/sphere.i
+
+# target to preprocess a source file
+shapes/sphere.cpp.i:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.i
+.PHONY : shapes/sphere.cpp.i
+
+shapes/sphere.s: shapes/sphere.cpp.s
+
+.PHONY : shapes/sphere.s
+
+# target to generate assembly for a file
+shapes/sphere.cpp.s:
+	$(MAKE) -f CMakeFiles/basic_ray_tracer.dir/build.make CMakeFiles/basic_ray_tracer.dir/shapes/sphere.cpp.s
+.PHONY : shapes/sphere.cpp.s
 
 # Help Target
 help:
@@ -321,27 +321,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... basic_ray_tracer"
 	@echo "... edit_cache"
-	@echo "... dielectric.o"
-	@echo "... dielectric.i"
-	@echo "... dielectric.s"
+	@echo "... geometry/vec3.o"
+	@echo "... geometry/vec3.i"
+	@echo "... geometry/vec3.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... material.o"
-	@echo "... material.i"
-	@echo "... material.s"
-	@echo "... moving_sphere.o"
-	@echo "... moving_sphere.i"
-	@echo "... moving_sphere.s"
-	@echo "... rectangle.o"
-	@echo "... rectangle.i"
-	@echo "... rectangle.s"
-	@echo "... sphere.o"
-	@echo "... sphere.i"
-	@echo "... sphere.s"
-	@echo "... vec3.o"
-	@echo "... vec3.i"
-	@echo "... vec3.s"
+	@echo "... material/dielectric.o"
+	@echo "... material/dielectric.i"
+	@echo "... material/dielectric.s"
+	@echo "... material/material.o"
+	@echo "... material/material.i"
+	@echo "... material/material.s"
+	@echo "... shapes/moving_sphere.o"
+	@echo "... shapes/moving_sphere.i"
+	@echo "... shapes/moving_sphere.s"
+	@echo "... shapes/rectangle.o"
+	@echo "... shapes/rectangle.i"
+	@echo "... shapes/rectangle.s"
+	@echo "... shapes/sphere.o"
+	@echo "... shapes/sphere.i"
+	@echo "... shapes/sphere.s"
 .PHONY : help
 
 
